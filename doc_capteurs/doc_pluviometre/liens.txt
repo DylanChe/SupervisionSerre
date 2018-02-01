@@ -1,0 +1,6 @@
+Projet de brewster76 :
+	https://github.com/brewster76/fuzzy-archer/tree/master/bin/user
+Projet DIY :
+	http://www.instructables.com/id/Complete-DIY-Raspberry-Pi-Weather-Station-with-Sof/
+Site de ymartin :
+	http://ymartin.com/meteo/about.html
