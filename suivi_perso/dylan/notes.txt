@@ -1,0 +1,3 @@
+- Serveur distant pour avoir accès au infos via mobile de partout
+- Besoin d'un cable RJ11 <-> USB
+- Lire doc pour cable/wifi
