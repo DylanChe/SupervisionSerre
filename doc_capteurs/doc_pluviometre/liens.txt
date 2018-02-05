@@ -8,3 +8,5 @@ Site de ymartin :
 	http://ymartin.com/meteo/about.html
 Forum :
 	http://easydomoticz.com/forum/viewtopic.php?t=1825
+Raspberry capteur :
+	https://www.raspberrypi.org/forums/viewtopic.php?t=123344
