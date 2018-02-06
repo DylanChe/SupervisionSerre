@@ -1,0 +1,18 @@
+Adresse du serveur :
+	92.222.92.147
+Port pour la connexion SSH :
+	2249
+
+Utilisateur :
+	projetbts
+Mot de passe :
+	Nantes44
+Mot de passe root :
+	Nantes44
+
+Lien PHPMyAdmin :
+	92.222.92.147/phpmyadmin
+Utilisateur PHPMyAdmin :
+	projetbts
+Mot de passe :
+	Nantes44
