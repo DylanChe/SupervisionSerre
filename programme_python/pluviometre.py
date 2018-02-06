@@ -6,5 +6,7 @@ import serial
 ser = serial.Serial('/dev/ttyUSB0', 9600)
 
 x = 1 while True:
-	print ser.readline()
+	now = datetime.datetime.now()
+	heure = now.strftime('%Y-%m-%d %H:%M:%S.%f')
+	print(heure, ser.readline())
 	x += 1
