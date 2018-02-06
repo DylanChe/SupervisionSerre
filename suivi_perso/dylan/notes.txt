@@ -4,3 +4,5 @@
 - Icones
 https://www.brandeps.com/icon/Popular
 https://www.creativebloq.com/graphic-design/best-places-free-vector-art-1012985
+
+https://blog.erlem.fr/android/30-android-connexion-a-mysql-a-l-aide-de-php
