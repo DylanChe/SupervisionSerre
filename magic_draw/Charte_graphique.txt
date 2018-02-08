@@ -1,0 +1,5 @@
+Fond bulles		Contour		Contour bulles   	Utilisateur	            
+teinte 103		RGB[0,0,0]	RGB[64,64,64]  		teinte 32
+saturation 20							saturation 23
+valeur 96							valeur 96
+
