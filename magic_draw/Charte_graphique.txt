@@ -1,6 +1,6 @@
 Fond bulles		Contour		Contour bulles   	Utilisateur	        Ligne de vie   	    
-teinte 103		RGB[0,0,0]	RGB[64,64,64]  		teinte 32		teinte 27
-saturation 20							saturation 23		saturation 58
-valeur 96							valeur 96		valeur 92
+teinte 186		RGB[0,0,0]	RGB[64,64,64]  		teinte 32		teinte 27
+saturation 216							saturation 23		saturation 58
+valeur 193							valeur 96		valeur 92
 
 
