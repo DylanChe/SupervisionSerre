@@ -11,3 +11,5 @@ Forum :
 Raspberry capteur :
 	https://www.raspberrypi.org/forums/viewtopic.php?t=123344
 	https://raspberrypi.stackexchange.com/questions/450/how-can-i-connect-to-a-usb-serial-device
+
+http://forum.arduino.cc/index.php?topic=195202.0
