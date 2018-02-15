@@ -1,5 +1,84 @@
-http://www.pihomeserver.fr/2015/01/23/raspberry-pi-home-server-arduino-lier-les-deux-via-serieuart/
+Code 1 :
 
-https://oscarliang.com/raspberry-pi-and-arduino-connected-serial-gpio/
+Python :
 
-http://www.rhydolabz.com/wiki/?p=6101
+import serial
+import sys
+import string
+ 
+ser = serial.Serial('/dev/ttyAMA0', 115200)
+while True :
+    try:
+        # Read data incoming on the serial line
+        data=ser.readline()
+        print data
+    except:
+        print "Unexpected error:", sys.exc_info()
+        sys.exit()
+
+Arduino :
+
+void setup() {
+  Serial.begin(115200);
+}
+ 
+void loop() {
+  Serial.println("Hello");
+  delay(1000);
+}
+
+
+Code 2 :
+
+Arduino :
+
+[sourcecode language=”cpp”]
+byte number = 0;
+
+void setup(){
+Serial.begin(9600);
+}
+
+void loop(){
+if (Serial.available()) {
+number = Serial.read();
+Serial.print(“character recieved: “);
+Serial.println(number, DEC);
+}
+}
+[/sourcecode]
+
+
+Code 3 :
+
+Arduino :
+
+void setup()
+{
+  Serial.begin(9600);
+}
+void loop()
+{
+  if(Serial.available()&gt;0)
+  {
+    c=Serial.read();
+    if(c=='A')
+    {
+       delay(1000);
+    Serial.print("OK");
+    }
+  }
+}
+
+Python :
+
+import RPi.GPIO as GPIO      
+import os, time
+ 
+GPIO.setmode(GPIO.BOARD)    
+port = serial.Serial("/dev/ttyAMA0", baudrate=9600, timeout=0.5)
+ 
+while True:
+    port.write('A')
+    rcv = port.read(10)
+    print rcv
