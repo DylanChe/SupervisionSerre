@@ -1,0 +1,1 @@
+http://www.pihomeserver.fr/2015/01/23/raspberry-pi-home-server-arduino-lier-les-deux-via-serieuart/
