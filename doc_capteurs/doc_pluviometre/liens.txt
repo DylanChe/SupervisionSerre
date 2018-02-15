@@ -1,3 +1,4 @@
+
 http://www.littoclime.net/7852-pluviometre-a-augets-basculants,fr,4,7852.cfm
 
 Projet de brewster76 :
@@ -11,3 +12,7 @@ Forum :
 Raspberry capteur :
 	https://www.raspberrypi.org/forums/viewtopic.php?t=123344
 	https://raspberrypi.stackexchange.com/questions/450/how-can-i-connect-to-a-usb-serial-device
+
+http://forum.arduino.cc/index.php?topic=195202.0
+https://www.youtube.com/watch?v=GgQ3IktPCRM
+https://www.wxforum.net/index.php?topic=20579.0
