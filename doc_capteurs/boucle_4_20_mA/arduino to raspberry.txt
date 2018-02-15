@@ -1,1 +1,5 @@
 http://www.pihomeserver.fr/2015/01/23/raspberry-pi-home-server-arduino-lier-les-deux-via-serieuart/
+
+https://oscarliang.com/raspberry-pi-and-arduino-connected-serial-gpio/
+
+http://www.rhydolabz.com/wiki/?p=6101
