@@ -1,0 +1,4 @@
+SELECT des dernieres mesures :
+
+SELECT mesure1, mesure2 FROM RELEVE
+JOIN `CAPTEUR` WHERE `CAPTEUR`.`id` = `fk_id_capteur`
