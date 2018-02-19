@@ -82,3 +82,6 @@ while True:
     port.write('A')
     rcv = port.read(10)
     print rcv
+
+
+Solution : arduino vers raspiomix
