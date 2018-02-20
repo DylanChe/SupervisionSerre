@@ -1,0 +1,145 @@
+
+VERSION : 0.4.0.1
+
+DATE : 02 Mai 2017
+
+CONTENU 
+=======
+
+JMerise.zip contient : 
+  1. JMerise.jar
+  2. Lisez moi
+  3. ExempleMCDCommandeClients.mcd
+  4. répertoire 'lib' qui contient : 
+	1.fichier Parametres.class
+	2.mysql-connector-java-5.1.12-bin   
+	3.derbyclient
+	4.jaybird-full-2.2.1	
+	5.postgresql-9.2-1002.jdbc4	
+	6.sqlite-jdbc-3.7.15
+	7.hsqldb (en cours d'implémentation)
+
+
+INSTALLATION 
+============
+
+1. Mettre à jour de la date système  si elle n'est pas à jour.
+2. Dezipper le fichier JMerise.zip;
+3. ne pas renommer 'JMerise.jar' et le répertoire 'lib' et son contenu non plus.
+4. ne pas supprimer le fichier Parametres.class du répertoire 'lib'. 
+
+
+NOUVEAUTES 
+==========
+1. Drag and drop pour ouvrir un fichier MCD. cliquez/glissez le fichier mcd et le relâchez dans JMerise. 
+2. La liste des donateurs (Grand MERCI) jusqu'au 1er Février 2016.
+     
+
+Existe déjà 
+===========
+
+01. Créer un ou plusieurs MCD avec JMerise.
+02. Fermer un MCD ou Fermer tous les MCD. 
+03. Copier/coller le MCD : non seulement les entités/ relations mais leurs liens aussi.
+04. Importer des attributs (Dictionnaire de données) des autres MCD ouverts.
+05. Importer des Domaines définis dans les autres MCD ouverts.
+06. Créer des relations (associations) sans nom (nom de la relation est vide)
+07. Créer des relations (associations) avec des noms redondants.
+08. Choisir l'unicité ou la redondance des attributs dans le MCD. 
+09. Prendre en considération les liens relatifs ===> j'attend les remarques des experts sur ce point.
+10. Redéfinir les normes de représentation de l'héritage. permettre d'hériter tous les attributs de l'entité mère ou juste ses clés  
+11. supprimer la contrainte dans lors de l'installation (nom des répertoires père contenant des vides ou des accens)
+12. Rendre opérationnel la fenêtre Configuration -> Paramètres. 
+13. choix de script par défaut. 
+14. inclure les commentaires des tables et des attributs dans le script SQL de sortie (limité à MySQL et Postgres pour le moment).
+15. Personnaliser JMerise en saisissant le nom du Développeur afin d'enrichir l'historique du MCD.
+16. Accéder aux dernières informations disponibles sur le site (dérnière version dispo, les nouveautés, ..) via une fenêtre. 
+17. Garder l'historique des modifications portées sur le MCD.
+18. Redévelopper la fenêtre MLD (séléction/déplacer plusieurs tables,..);
+19. Génération de script SQL Server.
+20. Personnalisation de JMerise avec le nom du développeur(le nom de la session par défaut ).
+21. Possibilité de rajouter des notes / des commentaires pour chaque MCD.
+22. Rajouter des Postits.
+23. Possibilité de limiter le nombre d'attribut qui seront affichés dans le MCD.
+24. Possibilité de rajouter des régles de gestion pour le MCD.
+25. Le sens des flèches dans le MLD sont corrigées.
+26. Afficher le type des attributs en majuscule/minuscule.
+27. Aperçu du MCD MLD (outline).
+28. Afficher les cardinalités sous la forme d'un choix exemple: '0,n' - '0:n' - '0,N' ou '0:N'
+29. Transformer une relation (association) en une entité. 
+30. le fond de la fenêtre MCD plus convivial.
+31. déplacer un groupe d'éléments sélectionnés (avec la souris ou avec les flèches du clavier)
+32. sélectionner avec la souris ou avec CTRL+clique.
+33. copier/ coller des éléments du MCD sans les liens. 
+34. aligner à gauche, à droite, en haut et en bas les entités ou les relations.
+35. réouvrir les 5 derniers MCD récemment ouverts. 
+36. sauvegarde automatique de votre environnement de travail et le répertoire de travail. 
+37. Un Desktop qui permet d'afficher les 3 fenêtres : MCD, MLD, Script SQL simultanement. 
+38. un menu 'Fenêtre' qui permet de basculer d'une fenêtre à l'autre ou d'afficher les 3 en cascade.   
+39. possibilité de créer un nouveau type pour les attributs. exemple D_Civilite = enum("M","Melle","Mme").
+40. gagner du temps en important vos MCD réalisés avec AnalyseSI. 
+41. connexion au serveur de base de données MySQL et création des tables
+42. remplacer automatiquement les ponctuations, les vides,.. dans la génération du script SQL.
+43. rajouter automatiquement les extensions au fichier au moment de l'enregistrement en cas d'oubli.
+44. fenêtre DTD/XML.  
+45. Zoom;+,-
+46. les Scripts : SQLite,
+		 Firebird, 
+		 Postgre SQL, 
+		 Derby.
+		 Access SQL.
+		 MySQL
+		 SQL Server
+		 Oracle.
+
+47. la Rétro Conception : importation des tables de la base de données. 
+48. Possibilité de sélectionner un lien en cliquant sur sa cardinalité.
+49. Imprimer un MCD/MLD
+50. Possibilité de télécharger à distance des MCD disponibles sur le site jfreesoft.com
+51. connexion à la base de données distante (pour la création et la rétroconception). 
+52. Création des relations (associations) de différentes manières  
+    
+    1ere manière: 
+      a. Cliquer sur le bouton 'nouvelle relation' puis cliquer sur la page MCD.
+      b. Cliquer sur le bouton 'nouveau lien' puis relier l'entité avec la relation (cliquer de la relation et relacher à l'entité)
+    
+    2ieme manière: 
+      a. Sélectionner les entités concernées puis cliquer sur le bouton 'nouvelle relation'.
+    
+    3ieme manière. 
+      a.Désactiver l'héritage (menu configuration -> parametres -> onglet général -> cocher le choix 'Désactiver héritage'
+      b.Cliquer sur le bouton 'nouveau lien' puis relier l'entité1 avec l'entité2. 
+
+53. Déplacement rapide/lent des éléments sélectionnés en appuyant (CTRL + flèche de direction)/ flèche de direction respectivement.  
+
+54. Génération du script HSQLDB pour Openoffice Base. 
+55. Bouton pour les Donations pour aider financièrement JMerise à s'améliorer d'avantage. Merci d'avance.
+
+56. Possibilité de rajouter plusieurs attributs en même temps à une entité (ou à une association). 
+57. Exporter le dictionnaire de données dans un fichier texte (format basique).
+58. Exporter la liste des domaines dans un fichier texte (format basique).
+59. Rectifier le redimensionnement des relations (associations).
+60. Ne pas afficher le mot 'Prk' dans le MCD
+61. Chercher/ remplacer le nom des entités, des associations et/ou des attributs dans le MCD
+     
+
+
+PROCHAINES VERSIONS
+===================
+- Retours arrière/ Avant.
+- D'autres script SQL.
+- Manuel utilisateur (fini à 90% : en cours de correction).
+- etc. 
+
+
+
+IMPORTANT
+=========
+
+   ---> N'oubliez pas de m'envoyer vos remarques et suggestions par mail : jmerise@jfreesoft.com 
+
+
+
+
+
+
