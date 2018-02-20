@@ -1,0 +1,5 @@
+http://www.n8mdp.com/wxanemometer_windvane.php
+
+http://www.lexingtonwx.com/anemometer/
+https://www.vernier.com/til/1856/
+https://www.dfrobot.com/wiki/index.php/Wind_Speed_Sensor_Voltage_Type(0-5V)_SKU:SEN0170
