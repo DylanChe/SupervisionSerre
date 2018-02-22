@@ -1,0 +1,2 @@
+Hebergeur : OVH
+Localisation du serveur : Strasbourg
