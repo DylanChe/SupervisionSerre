@@ -1,0 +1,127 @@
+#!/usr/bin/python3.4
+# coding: utf-8
+
+import sys
+import os
+
+# Library written for Python 3!
+# take a look in the datasheet
+# http://www.mouser.com/catalog/specsheets/Seeed_111020002.pdf
+
+chemin = os.path.dirname(os.path.abspath(__file__))
+while not chemin.endswith('library'):
+    chemin = os.path.dirname(chemin)
+chemin = os.path.dirname(chemin)
+if chemin not in sys.path:
+    sys.path.insert(0, chemin)
+
+import time
+import math
+from library.raspiomix_hd.raspiomix_hd import Raspiomix_hd
+
+class TemperatureSensor:
+
+       def __init__(self, _pinTmp, _pinThmc):
+    
+        self.m_pinRoomTmp = _pinTmp
+        self.m_pinThmc = _pinThmc
+
+        self.m_VOL_OFFSET = 350   # offset voltage, mv
+        self.m_AMP_AV = 54.16      # Av of amplifier
+
+        self.m_tempRoom = 0
+
+
+       def begin(self):
+        # Recupere la temperature de la piece
+        self.m_tempRoom = self.getRoomTmp()
+        
+            
+       def getThmc(self):
+       # Recupere la tension Vin et Vout
+        vol = self.getThmcVol()
+
+        tempThmc = self.K_VtoT(vol) + self.m_tempRoom
+        
+
+        print("tempThmc = ", tempThmc) 
+        return tempThmc
+
+    
+       def getAnalog(self, pin):
+        #Recupere le code CAN (CAN de la raspioMix = 17 bits)
+        r = Raspiomix_hd()
+       
+
+        code = 0
+        
+        sum = 0
+        sum2 = 0
+
+        for i in list(range(5)):
+            code = r.readAdcCode(pin)
+            sum2 += int(code)
+            
+        sum = int(sum2 / 128 / 5)
+        return (sum)
+
+
+       def getRoomTmp(self):
+        #Calcul la temperature de la piece
+           
+        a = self.getAnalog(self.m_pinRoomTmp)*50/33    # 3.3V supply
+        resistance = (1023-a)*10000/a           # get the resistance of the sensor
+        temperature=1/(math.log(resistance/10000)/3975+1/298.15)-273.15     #convert to temperature via datasheet
+    
+        self.m_tempRoom = temperature
+        return temperature
+
+
+       def getThmcVol(self):
+        #Recupere la tension du thermocouple en mV
+
+        vout = (self.getAnalog(self.m_pinThmc)/1023.0*5.0*1000)
+        vin  = (vout - self.m_VOL_OFFSET )/self.m_AMP_AV
+        return vin
+    
+
+       def K_VtoT(self, mV):
+        #Plage de tension pour Vin en mV
+
+        i = 0
+        value = 0
+        n = 8
+        b = 9
+        v = 6
+        
+        liste = [[0, 2.5173462e1, -1.1662878, -1.0833638, -8.9773540/1e1, -3.7342377/1e1,
+        -8.6632643/1e2, -1.0450598/1e2, -5.1920577/1e4],
+        [0, 2.508355e1, 7.860106/1e2, -2.503131/1e1, 8.315270/1e2,
+        -1.228034/1e2, 9.804036/1e4, -4.413030/1e5, 1.057734/1e6, -1.052755/1e8],
+        [-1.318058e2, 4.830222e1, -1.646031, 5.464731/1e2, -9.650715/1e4,
+        8.802193/1e6, -3.110810/1e8]]
+
+        if(mV >= -6.478 and mV < 0):
+            value = liste[0][8]
+
+            for i in list(range(8)):
+                 value = mV * value + liste[0][n-1]
+                 n = n-1
+        
+        elif(mV >= 0 and mV < 20.644) :    
+            value = liste[1][9]
+
+            for i in list(range(9)):
+                value = mV * value + liste[1][b-1]
+                b = b-1
+
+        elif(mV >= 20.644 and mV <= 54.900):
+            value = liste[2][6];
+
+            for i in list(range(6)):
+                value = mV * value + liste[2][v-1]
+                v = v-1
+    
+        
+        return value
+
