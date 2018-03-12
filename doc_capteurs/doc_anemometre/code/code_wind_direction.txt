@@ -12,7 +12,7 @@ void setup() {
 } 
 
 voidloop() { 
-	VaneValue = analogRead(A4); 
+	VaneValue = analogRead(A2); 
 	Direction = map(VaneValue, 0, 1023, 0, 360); 
 	CalDirection = Direction + Offset; 
 
