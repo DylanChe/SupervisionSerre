@@ -1,0 +1,7 @@
+Ce dossier est destiné à contenir les modules externes (plugins) pour PhotoFiltre.
+(Certains modules sont disponibles sur mon site)
+
+Ce fichier n'est pas indispensable à l'utilisation de PhotoFiltre et peut être 
+supprimé après lècture.
+
+

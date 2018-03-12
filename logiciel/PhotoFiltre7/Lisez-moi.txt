@@ -1,0 +1,33 @@
+Delphi 7
+RAD (Rapid Application Development) / Borland
+
+Jpeg
+Joint Photographic Experts Group
+
+LZW
+Lempel, Ziv, and Welch
+
+GIF
+Graphics Interchange Format
+
+LibTiff
+Conçu par Sam Leffler
+Maintenu par Frank Warmerdam and Andrey Kiselev
+
+LibTiffDelphi
+Version pré-compilée de LibTiff
+Joris Van Damme
+
+ZLib
+Jean-loup Gailly (compression) and Mark Adler (decompression)
+
+PNG Delphi
+Gustavo Daud
+
+GIF Delphi
+Anders Melander
+
+GraphicEx
+Mike Lischke
+Mozilla Public License (MPL)
+http://www.mozilla.org/MPL/MPL-1.1.html
