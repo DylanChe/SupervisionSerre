@@ -1,0 +1,5 @@
+Ajouter numéro des diapos
+Android <-> BDD = php
+Renommer le champ "Etat" en "EstFonctionnel" dans la BDD
+Concevoir des IHM Android
+Solution finale pour le client = Serveur distant ? Serveur local ? + de précision
