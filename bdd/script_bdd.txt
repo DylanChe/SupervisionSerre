@@ -1,0 +1,95 @@
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+# Table: materiel
+#------------------------------------------------------------
+use supervision_serre;
+
+CREATE TABLE materiel(
+        id               int (11) Auto_increment  NOT NULL ,
+        nom              Varchar (255) NOT NULL ,
+        etat             int (1) NOT NULL ,
+        id_type_materiel Int NOT NULL ,
+        PRIMARY KEY (id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: type_materiel
+#------------------------------------------------------------
+
+CREATE TABLE type_materiel(
+        id  int (11) Auto_increment  NOT NULL ,
+        nom Varchar (255) NOT NULL ,
+        PRIMARY KEY (id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: type_releve
+#------------------------------------------------------------
+
+CREATE TABLE type_releve(
+        id    int (11) Auto_increment  NOT NULL ,
+        unite Varchar (255) NOT NULL ,
+        PRIMARY KEY (id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: releve
+#------------------------------------------------------------
+
+CREATE TABLE releve(
+        id             int (11) Auto_increment  NOT NULL ,
+        valeur         Int ,
+        id_type_releve Int NOT NULL ,
+        date_releve    Datetime NOT NULL ,
+        id_materiel    Int ,
+        PRIMARY KEY (id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: parametre
+#------------------------------------------------------------
+
+CREATE TABLE parametre(
+        id      int (11) Auto_increment  NOT NULL ,
+        periode Int NOT NULL ,
+        PRIMARY KEY (id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: journal
+#------------------------------------------------------------
+
+CREATE TABLE journal(
+        id              int (11) Auto_increment  NOT NULL ,
+        est_fonctionnel int (1) ,
+        date_panne      Datetime ,
+        id_materiel     Int ,
+        PRIMARY KEY (id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: dispose
+#------------------------------------------------------------
+
+CREATE TABLE dispose(
+        id             Int NOT NULL ,
+        id_type_releve Int NOT NULL ,
+        PRIMARY KEY (id ,id_type_releve )
+)ENGINE=InnoDB;
+
+ALTER TABLE materiel ADD CONSTRAINT FK_materiel_id_type_materiel FOREIGN KEY (id_type_materiel) REFERENCES type_materiel(id);
+ALTER TABLE releve ADD CONSTRAINT FK_releve_id_type_releve FOREIGN KEY (id_type_releve) REFERENCES type_releve(id);
+ALTER TABLE releve ADD CONSTRAINT FK_releve_id_materiel FOREIGN KEY (id_materiel) REFERENCES materiel(id);
+ALTER TABLE journal ADD CONSTRAINT FK_journal_id_materiel FOREIGN KEY (id_materiel) REFERENCES materiel(id);
+ALTER TABLE dispose ADD CONSTRAINT FK_dispose_id FOREIGN KEY (id) REFERENCES materiel(id);
+ALTER TABLE dispose ADD CONSTRAINT FK_dispose_id_type_releve FOREIGN KEY (id_type_releve) REFERENCES type_releve(id);
