@@ -6,11 +6,12 @@
 #------------------------------------------------------------
 # Table: materiel
 #------------------------------------------------------------
+use supervision_serre;
 
 CREATE TABLE materiel(
         id               int (11) Auto_increment  NOT NULL ,
         nom              Varchar (255) NOT NULL ,
-        etat             Bool NOT NULL ,
+        etat             int (1) NOT NULL ,
         id_type_materiel Int NOT NULL ,
         PRIMARY KEY (id )
 )ENGINE=InnoDB;
@@ -69,7 +70,7 @@ CREATE TABLE parametre(
 
 CREATE TABLE journal(
         id              int (11) Auto_increment  NOT NULL ,
-        est_fonctionnel Bool ,
+        est_fonctionnel int (1) ,
         date_panne      Datetime ,
         id_materiel     Int ,
         PRIMARY KEY (id )
