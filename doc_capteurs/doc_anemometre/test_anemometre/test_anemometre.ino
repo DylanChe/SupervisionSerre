@@ -13,45 +13,49 @@ void setup() {
 
 void loop() { 
   VaneValue = analogRead(A2); 
-  Serial.print("1:");
+  //Serial.print("1:");
   Serial.println(VaneValue);
-  Direction = map(VaneValue, 0, 262143, 0, 360); 
+  delay(500);
+  /*
+  
+  Direction = map(VaneValue, 0, 1023, 0, 360); 
   Serial.print("Direction = ");
   Serial.println(Direction);
-  CalDirection = Direction + Offset; 
+  CalDirection = Direction; 
   Serial.print("CalDirection:");
   Serial.println(Direction);
-
+  delay(1000);
+*/
 
   // Only update the display if change greater than 2 degrees. 
 
   
-    Serial.println("2:");
-    Serial.print(VaneValue); Serial.print("\t\t"); 
-    Serial.print(CalDirection); Serial.print("\t\t"); 
-    getHeading(CalDirection); 
-    LastValue = CalDirection; 
-  
+//    Serial.println("2:");
+//    Serial.print(VaneValue); Serial.print("\t\t"); 
+//    Serial.print(CalDirection); Serial.print("\t\t"); 
+//    getHeading(CalDirection); 
+//    LastValue = CalDirection; 
+//  
 } 
-
-// Converts compass direction to heading 
-void getHeading(int direction) { 
-  if(direction < 22) 
-    Serial.println("N"); 
-  else if (direction < 67) 
-    Serial.println("NE"); 
-  else if (direction < 112) 
-    Serial.println("E"); 
-  else if (direction < 157) 
-    Serial.println("SE"); 
-  else if (direction < 212) 
-    Serial.println("S"); 
-  else if (direction < 247) 
-    Serial.println("SW"); 
-  else if (direction < 292) 
-    Serial.println("W"); 
-  else if (direction < 337) 
-    Serial.println("NW"); 
-  else 
-    Serial.println("N"); 
-}
+//
+//// Converts compass direction to heading 
+//void getHeading(int direction) { 
+//  if(direction < 22) 
+//    Serial.println("N"); 
+//  else if (direction < 67) 
+//    Serial.println("NE"); 
+//  else if (direction < 112) 
+//    Serial.println("E"); 
+//  else if (direction < 157) 
+//    Serial.println("SE"); 
+//  else if (direction < 212) 
+//    Serial.println("S"); 
+//  else if (direction < 247) 
+//    Serial.println("SW"); 
+//  else if (direction < 292) 
+//    Serial.println("W"); 
+//  else if (direction < 337) 
+//    Serial.println("NW"); 
+//  else 
+//    Serial.println("N"); 
+//}

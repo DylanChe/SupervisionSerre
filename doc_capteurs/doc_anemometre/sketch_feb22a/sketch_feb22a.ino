@@ -19,20 +19,20 @@ void setup() {
 
 void loop() { 
 
-//  Rotations = 1; // Set Rotations count to 0 ready for calculations 
-//  Serial.print(Rotations);
-//
-//  sei(); // Enables interrupts 
-//  delay (3000); // Wait 3 seconds to average 
-//  cli(); // Disable interrupts 
-//
-//  // convert to mp/h using the formula V=P(2.25/T) 
-//  // V = P(2.25/3) = P * 0.75 
-//
-//  WindSpeed = Rotations * 0.75; 
-//
-//  Serial.print(Rotations); Serial.print("\t\t"); 
-//  Serial.println(WindSpeed); 
+  Rotations = 1; // Set Rotations count to 0 ready for calculations 
+  Serial.print(Rotations);
+
+  sei(); // Enables interrupts 
+  delay (3000); // Wait 3 seconds to average 
+  cli(); // Disable interrupts 
+
+ //  convert to mp/h using the formula V=P(2.25/T) 
+//   V = P(2.25/3) = P * 0.75 
+
+  WindSpeed = Rotations * 0.75; 
+
+  Serial.print(Rotations); Serial.print("\t\t"); 
+  Serial.println(WindSpeed); 
 
 } 
 
