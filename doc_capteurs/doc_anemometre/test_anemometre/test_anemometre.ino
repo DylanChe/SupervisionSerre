@@ -13,19 +13,20 @@ void setup() {
 
 void loop() { 
   VaneValue = analogRead(A2); 
-  Direction = map(VaneValue, 0, 1023, 0, 360); 
+  Serial.print("1:");
+  Serial.println(VaneValue);
+  Direction = map(VaneValue, 0, 262143, 0, 360); 
+  Serial.print("Direction = ");
+  Serial.println(Direction);
   CalDirection = Direction + Offset; 
+  Serial.print("CalDirection:");
+  Serial.println(Direction);
 
-  if(CalDirection > 360) 
-    CalDirection = CalDirection - 360; 
-
-  if(CalDirection < 0) 
-    CalDirection = CalDirection + 360; 
 
   // Only update the display if change greater than 2 degrees. 
 
   
-    
+    Serial.println("2:");
     Serial.print(VaneValue); Serial.print("\t\t"); 
     Serial.print(CalDirection); Serial.print("\t\t"); 
     getHeading(CalDirection); 
