@@ -1,0 +1,52 @@
+// Liste des capteurs + cartes + etc.
+{
+	"Materiel": {
+		"id": 1,
+		"nom": "Pluviomètre DAVIS",
+		"estFonctionnel": 1,
+		"idTypeMateriel": 2
+	},
+	"Materiel": {
+		"id": 2,
+		"nom": "Anémomètre DAVIS",
+		"estFonctionnel": 1,
+		"idTypeMateriel": 2
+	},
+	"Materiel": {
+		"id": 3,
+		"nom": "Capteur de température d'eau",
+		"estFonctionnel": 1,
+		"idTypeMateriel": 2
+	},
+	"Materiel": {
+		"id": 4,
+		"nom": "Capteur de température intérieur",
+		"estFonctionnel": 1,
+		"idTypeMateriel": 2
+	},
+	"Materiel": {
+		"id": 5,
+		"nom": "Raspberry",
+		"estFonctionnel": 1,
+		"idTypeMateriel": 1
+	},
+	"Materiel": {
+		"id": 6,
+		"nom": "Arduino",
+		"estFonctionnel": 1,
+		"idTypeMateriel": 1
+	}
+}
+
+// Liste des types de materiel
+{
+	"Type_Materiel": {
+		"id": 1,
+		"nom": "Carte éléctronique"
+	},
+	"Type_Materiel": {
+		"id": 2,
+		"nom": "Capteur"
+	}
+}
+
