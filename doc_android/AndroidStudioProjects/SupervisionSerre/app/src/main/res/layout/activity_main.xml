@@ -4,15 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/midnightBlue"
     tools:context="com.dylanchesnouard.supervisionserre.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal|bottom">
+
+        <TextView
+            android:id="@+id/lbl_infosBdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/infos_bdd"
+            android:textColor="@color/clouds"/>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="3"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="50dp">
+
+            <TextView
+                android:layout_column="0"
+                android:layout_row="0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:gravity="right"
+                android:text="@string/bdd_url"
+                android:textColor="@color/clouds"
+                android:layout_marginEnd="10dp"/>
+
+            <EditText
+                android:layout_column="1"
+                android:layout_row="0"
+                android:layout_gravity="fill_horizontal"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content" />
+
+        </GridLayout>
+
+        <Button
+            android:id="@+id/bt_testBdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/bdd_test"
+            android:layout_marginBottom="50dp"/>
+
+        <Button
+            android:id="@+id/bt_connexion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/connexion" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="50dp">
+
+            <TextView
+                android:id="@+id/lbl_optionsAvancees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/options_avancees"
+                android:textColor="@color/clouds"
+                android:layout_marginEnd="10dp"/>
+
+            <Switch
+                android:id="@+id/sw_optionsAvancees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/clouds" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
