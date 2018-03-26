@@ -1180,3 +1180,48 @@ body.search #primary,
 		min-height:242px;
 	}
 }
+
+/* CSS BUTTON ICON
+**/
+#temperature_tuyau {
+  border: 0px;
+  background-color: transparent;
+  position: relative;
+  top: 120px;
+  left: -50px;
+}
+#temperature {
+	border: 0px;
+	background-color: transparent;
+	position: relative;
+	top:;
+	left: ;
+}
+#pluviometre {
+	border: 0px;
+	background-color: transparent;
+	position: relative;
+	top: 54%;
+	left: 24%;
+}
+#direction_vent {
+	border: 0px;
+	background-color: transparent;
+	position: relative;
+	top: 25%;
+	left: 33%;
+}	
+#vitesse_vent {
+	border: 0px;
+	background-color: transparent;
+	position: relative;
+	top: 16%;
+	left: 62%;
+}
+#solarimetre {
+		border: 0px;
+		background-color: transparent;
+		position: relative;
+		top: 19.5%;
+		left: 47.5%;
+}		
