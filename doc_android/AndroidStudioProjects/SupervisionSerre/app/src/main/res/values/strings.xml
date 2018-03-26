@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SupervisionSerre</string>
+    <string name="options_avancees">Options avancées</string>
+    <string name="connexion">Connexion</string>
+    <string name="infos_bdd">Informations sur la base de données :</string>
+    <string name="bdd_url">URL :</string>
+    <string name="bdd_test">Test</string>
+</resources>

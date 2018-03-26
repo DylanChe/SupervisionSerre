@@ -6,7 +6,7 @@ void setup() {
   Serial.begin(9600);
 
   pinMode(interruptPin, INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(interruptPin), count, FALLING);
+  attachInterrupt(digitalPinToInterrupt(interruptPin),count , FALLING);
 }
 
 void loop() {
