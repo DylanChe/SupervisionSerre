@@ -3,6 +3,11 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <!-- BASICS -->
+    <color name="white">#ffffff</color>
+    <!-- GROUPE OLIVIER -->
+    <color name="noirOlivier">#37302f</color>
+    <color name="bleuOlivier">#0694c4</color>
     <!-- FLATUICOLORS.COM -->
     <color name="turquoise">#1abc9c</color>
     <color name="greenSea">#16a085</color>
