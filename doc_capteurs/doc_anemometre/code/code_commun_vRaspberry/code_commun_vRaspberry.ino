@@ -22,8 +22,6 @@ void setup() {
 
   pinMode(AnemometrePin, INPUT_PULLUP); 
   attachInterrupt(digitalPinToInterrupt(AnemometrePin), isr_rotation, FALLING); 
-  Serial.println("Davis Wind Speed Test"); 
-  Serial.println("Rotations\tKMh\tVane Value\tDirection\tHeading\tPluie"); 
   LastValue = 1; 
   pinMode(PluviometrePin, INPUT_PULLUP);
   attachInterrupt(digitalPinToInterrupt(PluviometrePin),count , FALLING);
@@ -40,57 +38,10 @@ void count() {
     
   }
   
-  Serial.print("\t\t");Serial.print("\t\t");Serial.print("\t\t");Serial.print("\t\t");Serial.println("tip");
+  Serial.println("goutte");
  
   
 }
-
-void loop() { 
-
-  Rotations = 0; // Set Rotations count to 0 ready for calculations 
-  //Serial.print(Rotations);
- 
-  //Serial.println(val); 
-  //val = digitalRead(PotentiometrePin);
-  //Serial.println(val);
- 
-
-  sei(); // Enables interrupts 
-  delay (3000); // Wait 3 seconds to average 
-  cli(); // Disable interrupts 
-
-   //convert to mp/h using the formula V=P(2.25/T) 
-   //V = P(2.25/3) = P * 0.75 
-
-  WindSpeed = Rotations * 0.75 *1.61; 
-
-  //Serial.print(Rotations); Serial.print("\t\t"); 
-  Serial.println(WindSpeed);Serial.print("Km/h"); Serial.print("\t\t"); 
-  getVitesse(WindSpeed);
-  
-  VaneValue = analogRead(A2); 
-  //delay(500);
-  Direction = map(VaneValue, 0, 1023, 0, 360); 
-  CalDirection = Direction + Offset; 
-
-  if(CalDirection > 360) 
-    CalDirection = CalDirection - 360; 
-
-  if(CalDirection < 0) 
-    CalDirection = CalDirection + 360; 
-
-  // Only update the display if change greater than 2 degrees. 
-  if(abs(CalDirection - LastValue) > 5) 
-  { 
-    //Serial.print(VaneValue); Serial.print("\t\t"); 
-    Serial.print("\t\t"); Serial.print("\t\t"); Serial.print("\t\t"); Serial.print(CalDirection);Serial.print("°C"); Serial.print("\t\t"); 
-    getHeading(CalDirection); 
-    LastValue = CalDirection; 
-  }
-   
-  
-
-} 
 
 // This is the function that the interrupt calls to increment the rotation count 
 void isr_rotation () { 
@@ -104,32 +55,44 @@ void isr_rotation () {
 
 }
 void getVitesse(int WindSpeed) { 
-  if(WindSpeed < 1) 
-    Serial.println("Vent Calme"); 
-  else if (WindSpeed < 5) 
-    Serial.println("Tres legrere brise"); 
-  else if (WindSpeed < 11) 
-    Serial.println("legere brise"); 
-  else if (WindSpeed < 19) 
-    Serial.println("petite brise"); 
-  else if (WindSpeed < 28) 
-    Serial.println("jolie brise"); 
-  else if (WindSpeed < 38) 
+  if(WindSpeed < 1) {
+    Serial.println("Vent Calme");
+  }
+  else if (WindSpeed < 5){ 
+    Serial.println("Tres legrere brise");
+  }
+  else if (WindSpeed < 11){ 
+    Serial.println("legere brise");
+  } 
+  else if (WindSpeed < 19) {
+    Serial.println("petite brise");
+  }
+  else if (WindSpeed < 28) {
+    Serial.println("jolie brise");
+  } 
+  else if (WindSpeed < 38) {
     Serial.println("bonne brise"); 
-  else if (WindSpeed < 49) 
+  }
+  else if (WindSpeed < 49) {
     Serial.println("vent frais"); 
-  else if (WindSpeed < 61) 
+  }  
+  else if (WindSpeed < 61) {
     Serial.println("grand frais");
-  else if (WindSpeed < 74) 
+  }
+  else if (WindSpeed < 74) {
     Serial.println("coup de vent");
-  else if (WindSpeed < 88) 
+  }
+  else if (WindSpeed < 88) {
     Serial.println("fort coup de vent");
-  else if (WindSpeed < 102) 
+  }
+  else if (WindSpeed < 102) {
     Serial.println("tempete");
-  else if (WindSpeed < 117) 
+  }
+  else if (WindSpeed < 117) {
     Serial.println("violente tempete");
+  }
   else 
-    Serial.println("bombe meteorologique"); 
+    Serial.println("bombe meteorologique");
 }
 
 // Converts compass direction to heading 
@@ -153,5 +116,50 @@ void getHeading(int direction) {
   else 
     Serial.println("Nord"); 
 }
+void loop() { 
 
+  Rotations = 0; // Set Rotations count to 0 ready for calculations 
+  //Serial.print(Rotations);
+ 
+  //Serial.println(val); 
+  //val = digitalRead(PotentiometrePin);
+  //Serial.println(val);
+ 
+
+  sei(); // Enables interrupts 
+  delay (3000); // Wait 3 seconds to average 
+  cli(); // Disable interrupts 
+
+   //convert to mp/h using the formula V=P(2.25/T) 
+   //V = P(2.25/3) = P * 0.75 
+
+  WindSpeed = Rotations * 0.75 *1.61; 
+
+  //Serial.print(Rotations); Serial.print("\t\t"); 
+  Serial.print(WindSpeed);Serial.println("Km/h");
+  getVitesse(WindSpeed);
+  
+  VaneValue = analogRead(A2); 
+  //delay(500);
+  Direction = map(VaneValue, 0, 1023, 0, 360); 
+  CalDirection = Direction + Offset; 
+
+  if(CalDirection > 360) 
+    CalDirection = CalDirection - 360; 
+
+  if(CalDirection < 0) 
+    CalDirection = CalDirection + 360; 
+
+  
+  
+   
+    //Serial.print(VaneValue); Serial.print("\t\t"); 
+   Serial.print(CalDirection);Serial.println("°");
+   getHeading(CalDirection); 
+   LastValue = CalDirection; 
+  
+   
+  
+
+} 
 
