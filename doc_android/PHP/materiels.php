@@ -2,17 +2,16 @@
 	try 
 	{
 		$bdd = new PDO('mysql:host=localhost;dbname=supervision_serre;charset=utf8', 'projetbts', 'Nantes44');
+		$reponse = $bdd->query('SELECT * FROM materiel');
+		$output = $reponse->fetchAll(PDO::FETCH_ASSOC);
+
+		echo(json_encode($output));
+
+		$reponse->closeCursor();
 	}
 	catch (Exception $e)
 	{
 		die('Erreur : ' . $e->getMessage());
 	}
-	$reponse = $bdd->query('SELECT * FROM materiel');
-
-	while ($donnees = $reponse->fetch())
-	{
-		echo $donnees['nom'];
-	}
-
-	$reponse->closeCursor();
+	
 ?>
