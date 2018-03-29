@@ -53,7 +53,6 @@
         __gaTracker('create', 'UA-58366683-1', 'auto');
         __gaTracker('set', 'forceSSL', true);
         __gaTracker('send','pageview');
-
     </script>
     <!-- / Yoast Google Analytics -->
     <script type='text/javascript' src='http://www.groupe-olivier.fr/wp-includes/js/jquery/jquery.js?ver=1.11.1'></script>
@@ -82,9 +81,9 @@
                 <header id="masthead" class="site-header col-sm-12" role="banner">
                     <div class="row">
                         <div class="site-branding col-lg-3 col-md-2 col-sm-12">
-                            <h1 class="hidden"><a href="index.html" rel="home">Groupe Olivier</a></h1>
+                            <h1 class="hidden"><a href="index.php" rel="home">Groupe Olivier</a></h1>
                             <div id="logo" class="row">
-                                <a href="index.html"><img src="http://www.groupe-olivier.fr/wp-content/uploads/2015/01/logo-groupe-olivier.jpg"  height="111" width="180" alt="Groupe Olivier"/></a>
+                                <a href="index.php"><img src="http://www.groupe-olivier.fr/wp-content/uploads/2015/01/logo-groupe-olivier.jpg"  height="111" width="180" alt="Groupe Olivier"/></a>
 
                             </div><!-- Fin du logo. -->
 
@@ -123,33 +122,12 @@
     <!-- ---------- -->
     <!-- HEADER FIN -->
     <!-- ---------- -->
-	<div>
-		<div style="text-align:center">
-			<br>
-			<br>
-			<img src="inc/img/serre.png" alt="serre">
-			<br>
-		</div>
-		<div>	
-			<button type="submit" id="temperature_tuyau">
-				<img src="inc/img/temperature_tuyau.png" alt="temperature des tuyaux de chauffage" title="Température des tuyaux de chauffage"  />
-			</button>
-			<button type="submit" id="temperature">
-				<img src="inc/img/temperature.png" alt="temperature sous serre" title="Température sous serre"  />
-			</button>
-			<button type="submit" id="pluviometre">
-				<img src="inc/img/pluviometre.png" alt="Pluviométrie" title="Pluviométrie"  />
-			</button>
-			<button type="submit" id="direction_vent">
-				<img src="inc/img/direction_vent.png" alt="Direction du vent" title="Direction du vent"  />
-			</button>
-			<button type="submit" id="vitesse_vent">
-				<img src="inc/img/vitesse_vent.png" alt="Vitesse du vent" title="Vitesse du vent"  />
-			</button>
-			<button type="submit" id="solarimetre">
-				<img src="inc/img/solarimetre.png" alt="Intensité lumineuse" title="Intensité lumineuse"  />
-			</button>
-		</div>
+
+	<div style="text-align:center">
+		<br>
+		<br>
+		<img src="inc/img/serre.png">
+		<br>
 	</div>
 	
 	<!-- ------------ -->
