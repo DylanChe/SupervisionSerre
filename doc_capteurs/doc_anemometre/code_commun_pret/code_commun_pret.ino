@@ -1,6 +1,5 @@
-#include <math.h> 
-
-#define WindSensorPin (2) // The pin location of the anemometer sensor
+#include <math.h>  
+#define AnemometrePin (18) //Pin du pluviometre
 
 volatile unsigned long Rotations; // cup rotation counter used in interrupt routine 
 volatile unsigned long ContactBounceTime; // Timer to avoid contact bounce in interrupt routine 
@@ -11,22 +10,40 @@ int VaneValue;// raw analog value from wind vane
 int Direction;// translated 0 - 360 direction 
 int CalDirection;// converted value with offset applied 
 int LastValue; 
+const byte PluviometrePin = 2;
+const int interval = 500;
+volatile unsigned long tiptime = millis();
+
 
 #define Offset 0; 
 
 void setup() { 
-  Serial.begin(115200); 
+  Serial.begin(9600); 
 
-  pinMode(WindSensorPin, INPUT_PULLUP); 
-  attachInterrupt(digitalPinToInterrupt(WindSensorPin), isr_rotation, FALLING); 
-
+  pinMode(AnemometrePin, INPUT_PULLUP); 
+  attachInterrupt(digitalPinToInterrupt(AnemometrePin), isr_rotation, FALLING); 
   Serial.println("Davis Wind Speed Test"); 
-  Serial.println("Rotations\tKMh\tVane Value\tDirection\tHeading"); 
+  Serial.println("Rotations\tKMh\tVane Value\tDirection\tHeading\tPluie"); 
   LastValue = 1; 
+  pinMode(PluviometrePin, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(PluviometrePin),count , FALLING);
   
    
   
 } 
+void count() {
+
+  unsigned long curtime = millis();
+  float pluie = 0;
+  
+  if((curtime - tiptime) < interval) {
+    
+  }
+  
+  Serial.print("\t\t");Serial.print("\t\t");Serial.print("\t\t");Serial.print("\t\t");Serial.println("tip");
+ 
+  
+}
 
 void loop() { 
 
@@ -34,7 +51,7 @@ void loop() {
   //Serial.print(Rotations);
  
   //Serial.println(val); 
-  //val = digitalRead(WindSensorPin);
+  //val = digitalRead(PotentiometrePin);
   //Serial.println(val);
  
 
@@ -52,7 +69,7 @@ void loop() {
   getVitesse(WindSpeed);
   
   VaneValue = analogRead(A2); 
-  delay(500);
+  //delay(500);
   Direction = map(VaneValue, 0, 1023, 0, 360); 
   CalDirection = Direction + Offset; 
 
@@ -69,7 +86,8 @@ void loop() {
     Serial.print("\t\t"); Serial.print("\t\t"); Serial.print("\t\t"); Serial.print(CalDirection);Serial.print("°C"); Serial.print("\t\t"); 
     getHeading(CalDirection); 
     LastValue = CalDirection; 
-  } 
+  }
+   
   
 
 } 
@@ -121,7 +139,7 @@ void getHeading(int direction) {
   else if (direction < 67) 
     Serial.println("Nord Est"); 
   else if (direction < 112) 
-    Serial.println("Est"); 
+    Serial.println("Est");  
   else if (direction < 157) 
     Serial.println("Sud Est"); 
   else if (direction < 212) 
@@ -135,3 +153,5 @@ void getHeading(int direction) {
   else 
     Serial.println("Nord"); 
 }
+
+
