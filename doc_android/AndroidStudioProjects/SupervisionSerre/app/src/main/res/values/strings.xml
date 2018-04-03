@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">SupervisionSerre</string>
-    <string name="options_avancees">Options avancées</string>
-    <string name="connexion">Connexion</string>
-    <string name="infos_bdd">Informations sur la base de données :</string>
-    <string name="bdd_url">URL :</string>
-    <string name="bdd_test">Test</string>
+    <string name="main_bt_connexion">Connexion</string>
+    <string name="main_lbl_bdd_info">Information sur la base de données :</string>
+    <string name="main_lbl_bdd_url">Adresse IP :</string>
+    <string name="main_txt_bdd_url">92.222.92.147</string>
+    <string name="dashboard_lbl_dashboard">Dashboard</string>
+    <string name="dashboard_lbl_version">Version 1.0</string>
+    <string name="dashboard_lbl_slash">/</string>
+    <string name="dashboard_lbl_capteurs">Capteurs</string>
+    <string name="dashboard_lbl_liste_capteurs">Liste des capteurs</string>
+    <string name="dashboard_lbl_logs">Erreurs</string>
+    <string name="dashboard_lbl_liste_logs">Liste des erreurs</string>
 </resources>

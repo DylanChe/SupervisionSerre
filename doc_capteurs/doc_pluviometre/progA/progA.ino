@@ -20,5 +20,5 @@ void count() {
     return;
   }
   
-  Serial.println("tip");
+  Serial.println("2");
 }
