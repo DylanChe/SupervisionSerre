@@ -1249,15 +1249,44 @@ div#zone-serre img.wid {
 	border: solid 1px blue;
 }
 
-img.wid-temperature {
+img.wid-temperature_tuyau {
 	margin-left: 20%;
-	margin-top: 20%;
+	margin-top: 25%;
 	margin-right: -50px;
 	margin-bottom: -50px;
 }
 
+img.wid-temperature {
+	margin-left: 35%;
+	margin-top: 13.5%;
+	margin-right: -50px;
+	margin-bottom: -50px;	
+}
 
+img.wid-pluviometre {
+	margin-left: 20%;
+	margin-top: 10%;
+	margin-right: -50px;
+	margin-bottom: -50px;
+}
 
+img.wid-direction_vent {
+	margin-left: 24%;
+	margin-top:10%;	
+	margin-right: -50px;
+	margin-bottom: -50px;	
+}
 
+img.wid-vitesse_vent {
+	margin-left:16%;
+	margin-top: 10%;
+	margin-right: -50px;
+	margin-bottom: -50px;	
+}	
 
-
+img.wid-solarimetre {
+	margin-left:5%;
+	margin-top: -2%;
+	margin-right: -50px;
+	margin-bottom: -50px;	
+}	
