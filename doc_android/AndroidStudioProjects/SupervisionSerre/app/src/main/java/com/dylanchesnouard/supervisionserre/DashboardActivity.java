@@ -7,6 +7,10 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,59 +30,50 @@ import java.util.concurrent.Future;
 
 public class DashboardActivity extends AppCompatActivity {
 
+    private TextView lbl_version;
+    private TextView lbl_nbCapteurs;
+    private LinearLayout layout_capteurs;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
+        // CONTROLS
+        lbl_nbCapteurs = findViewById(R.id.lbl_nbCapteurs);
+        lbl_version = findViewById(R.id.lbl_version);
+        lbl_version.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CNotification.AfficherToast(v.getContext(), "Samuel tu suces des bites !", 1);
+            }
+        });
+        layout_capteurs = findViewById(R.id.layout_capteurs);
+        layout_capteurs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent dashboardIntent = new Intent(DashboardActivity.this, SensorActivity.class);
+                startActivity(dashboardIntent);
+            }
+        });
+
+
+        // LOAD DATA
         try {
             chargementDonnees();
         } catch (Exception e) {
-            Log.e("CUSTOMLOG", "DashboardActivity.onCreate : " + e.getMessage());
+            Log.e("CustomLog", "[onCreate] ERROR : " + e.getMessage());
         }
     }
 
-    private void chargementDonnees() throws NetworkOnMainThreadException, InterruptedException, ExecutionException, JSONException{
-        AlertDialog.Builder dlg_connexionBdd = new AlertDialog.Builder(this);
-        dlg_connexionBdd.setTitle("Chargement");
-        dlg_connexionBdd.setMessage("Chargement des données, veuillez patienter...");
-        dlg_connexionBdd.setCancelable(false);
-        AlertDialog alert_connexionBdd = dlg_connexionBdd.create();
-        alert_connexionBdd.show();
-        /*
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-        Callable<String> callable = new Callable<String>() {
-            @Override
-            public String call() throws Exception {
-                InputStream inputStream = null;
-                String data = "";
-                try {
-                    final HttpURLConnection conn = (HttpURLConnection) new URL("http://" + serveurURL + "/materiels.php").openConnection();
-                    conn.setReadTimeout(10000);
-                    conn.setConnectTimeout(15000);
-                    conn.setRequestMethod("GET");
-                    conn.setDoInput(true);
-                    conn.connect();
-                    inputStream = conn.getInputStream();
-                    data = readIt(inputStream);
-                } catch(Exception e) {
-                    Log.d("EXECUTOR",e.getMessage());
-                } finally {
-                    if(inputStream != null) {
-                        inputStream.close();
-                    }
-                }
-                return data;
-            }
-        };
-        Future<String> future = executor.submit(callable);
-        executor.shutdown();
-        */
-
-        String materiels = CServeur.getMateriels();
-
-        alert_connexionBdd.hide();
-
-        Log.d("CUSTOMLOG", "DashboardActivity.chargementDonnees : materiels = " + materiels);
+    private void chargementDonnees() {
+        try {
+            int nbCapteur = CConnexion.getCapteurs().size();
+            lbl_nbCapteurs.setText("" + nbCapteur);
+            Log.i("CustomLog", "[chargementDonnees] nbCapteur : " + nbCapteur);
+        } catch (Exception e) {
+            Log.e("CustomLog", "[chargementDonnees] ERROR : " + e.getMessage());
+        }
     }
 
 }

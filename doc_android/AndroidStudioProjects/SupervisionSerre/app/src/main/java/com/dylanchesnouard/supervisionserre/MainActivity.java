@@ -44,37 +44,33 @@ public class MainActivity extends AppCompatActivity {
         bt_connexion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                connexion(v);
+                connexion();
             }
         });
         txt_serveurURL = findViewById(R.id.txt_serveurURL);
     }
 
-    private void connexion(View v) {
-        CServeur.setServeurURL(txt_serveurURL.getText().toString());
-        if((CServeur.getServeurURL().length() == 0)) {
+    private void connexion() {
+        CConnexion.setUrl(txt_serveurURL.getText().toString());
+        if(CConnexion.getUrl().length() == 0) {
             CNotification.AfficherErreur(this, 3);
         } else {
             try {
-                Log.d("CUSTOMLOG", "MainActivity.connexion : CServeur.testConnexion = " + CServeur.testConnexion());
-                if (!testInternet()) {
+                Log.i("CustomLog","[connexion] testInternet : " + CConnexion.testInternet(this));
+                Log.i("CustomLog","[connexion] testConnexion : " + CConnexion.testConnexion());
+                if(!CConnexion.testInternet(this)) {
                     CNotification.AfficherErreur(this, 1);
-                } else if (!CServeur.testConnexion()) {
+                } else if(!CConnexion.testConnexion()) {
                     CNotification.AfficherErreur(this, 2);
                 } else {
                     CNotification.AfficherToast(this, "Connexion réussie !", 1);
-                    Intent intent = new Intent(MainActivity.this, DashboardActivity.class);
-                    startActivity(intent);
+                    Intent dashboardIntent = new Intent(MainActivity.this, DashboardActivity.class);
+                    startActivity(dashboardIntent);
                 }
             } catch (Exception e) {
+                Log.e("CustomLog", "[connexion] ERROR : " + e.getMessage());
                 CNotification.AfficherErreur(this, 0);
             }
         }
-    }
-
-    private boolean testInternet() {
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo netInfo = cm.getActiveNetworkInfo();
-        return netInfo != null && netInfo.isConnectedOrConnecting();
     }
 }
