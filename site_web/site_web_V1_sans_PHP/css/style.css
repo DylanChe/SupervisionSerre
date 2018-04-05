@@ -1238,7 +1238,7 @@ div#zone-serre {
 }
 
 div#zone-serre img.serre {
-	width: 100%;
+	width: 70%;
 }
 
 div#zone-serre img.wid {
@@ -1246,47 +1246,48 @@ div#zone-serre img.wid {
 	top: 10%; 
 	left: 50%;
 	margin-right: -50px;
-	border: solid 1px blue;
+	/*border: solid 1px blue;
+	*/
 }
 
 img.wid-temperature_tuyau {
-	margin-left: 20%;
+	margin-left: 2%;
 	margin-top: 25%;
 	margin-right: -50px;
 	margin-bottom: -50px;
 }
 
 img.wid-temperature {
-	margin-left: 35%;
-	margin-top: 13.5%;
+	margin-left: 25%;
+	margin-top: 10%;
 	margin-right: -50px;
 	margin-bottom: -50px;	
 }
 
 img.wid-pluviometre {
-	margin-left: 20%;
-	margin-top: 10%;
+	margin-left: -32%;
+	margin-top: 22%;
 	margin-right: -50px;
 	margin-bottom: -50px;
 }
 
 img.wid-direction_vent {
-	margin-left: 24%;
-	margin-top:10%;	
+	margin-left: -23%;
+	margin-top:2.5%;	
 	margin-right: -50px;
 	margin-bottom: -50px;	
 }
 
 img.wid-vitesse_vent {
-	margin-left:16%;
-	margin-top: 10%;
+	margin-left:17%;
+	margin-top: -2%;
 	margin-right: -50px;
 	margin-bottom: -50px;	
 }	
 
 img.wid-solarimetre {
-	margin-left:5%;
-	margin-top: -2%;
+	margin-left:-2%;
+	margin-top: -1%;
 	margin-right: -50px;
 	margin-bottom: -50px;	
 }	
