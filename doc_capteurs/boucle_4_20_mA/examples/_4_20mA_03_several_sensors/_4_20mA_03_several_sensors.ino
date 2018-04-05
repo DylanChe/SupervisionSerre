@@ -30,11 +30,12 @@
 // Include this library for using current loop functions
 #include <currentLoop.h>
 
-#define TEMPERATURE CHANNEL1
-#define HUMIDITY CHANNEL2
+#define TEMPERATURE_AIR CHANNEL1
+#define TEMPERATURE_EAU CHANNEL3
 
 
 float current;
+float valeur;
 
 void setup()
 {
@@ -52,36 +53,37 @@ void loop()
   // Temprature sensor measure
   //=========================================================
 
-  if (sensorBoard.isConnected(TEMPERATURE))
+  if (sensorBoard.isConnected(TEMPERATURE_AIR))
   {
     // Get the sensor value as a curren in mA
-    current = sensorBoard.readCurrent(TEMPERATURE );
-    Serial.print("Current value read from temperature sensor : ");
+    current = sensorBoard.readCurrent(TEMPERATURE_AIR );
+    Serial.print("La valeur du capteur temperature de l'air est : ");
     Serial.print(current);
     Serial.println(" mA");
+    valeur = ((current-4)*45)/16;
+    Serial.println(valeur);
   }
   else {
-    Serial.println("Temperature sensor is not connected...");
+    Serial.println("Il n'y a pas de capteur connecté au port 1..");
   }
-
-  Serial.println("***************************************");
-  Serial.print("\n");
 
   // Humidity sensor measure
   //=======================================================
 
   delay(100);
 
-  if (sensorBoard.isConnected(HUMIDITY))
+  if (sensorBoard.isConnected(TEMPERATURE_EAU))
   {
     // Get the sensor value as a curren in mA.
-    current = sensorBoard.readCurrent(HUMIDITY);
-    Serial.print("Current value read from humidity sensor : ");
+    current = sensorBoard.readCurrent(TEMPERATURE_EAU);
+    Serial.print("La valeur du capteur temperature de l'eau est : ");
     Serial.print(current);
-    Serial.println(" mA");
+    Serial.println(" mA"); 
+    valeur = ((current-4)*100)/16;
+    Serial.println(valeur);
   }
   else {
-    Serial.println("Humidity sensor is not connected...");
+    Serial.println("Il n'y a pas de capteur connecté au port 3..");
   }
 
 
