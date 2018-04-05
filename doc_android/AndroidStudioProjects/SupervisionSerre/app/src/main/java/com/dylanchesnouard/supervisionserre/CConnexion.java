@@ -14,7 +14,10 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
@@ -108,35 +111,6 @@ public final class CConnexion {
         executor.shutdown();
         return future.get();
     }
-    public static InputStream getStream(final String _pagePhp) throws InterruptedException, ExecutionException {
-        ExecutorService executor = Executors.newSingleThreadExecutor();
-        Callable<InputStream> callable = new Callable<InputStream>() {
-            @Override
-            public InputStream call() throws Exception {
-                InputStream inputStream = null;
-                try {
-                    final HttpURLConnection conn = (HttpURLConnection) new URL("http://" + url + "/" + _pagePhp).openConnection();
-                    conn.setReadTimeout(10000);
-                    conn.setConnectTimeout(15000);
-                    conn.setRequestMethod("GET");
-                    conn.setDoInput(true);
-                    conn.connect();
-                    inputStream = conn.getInputStream();
-                    return inputStream;
-                } catch(Exception e) {
-                    Log.d("EXECUTOR",e.getMessage());
-                } finally {
-                    if(inputStream != null) {
-                        inputStream.close();
-                    }
-                }
-                return null;
-            }
-        };
-        Future<InputStream> future = executor.submit(callable);
-        executor.shutdown();
-        return future.get();
-    }
     private static String streamToString(InputStream _inputStream) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(_inputStream));
         StringBuilder total = new StringBuilder();
@@ -150,8 +124,8 @@ public final class CConnexion {
         }
         return total.toString();
     }
+    // --- CAPTEURS
     public static List<CCapteur> getCapteurs() throws IOException, InterruptedException, ExecutionException {
-        //JsonReader reader = new JsonReader(new InputStreamReader(getStream("getCapteurs.php"), "UTF-8"));
         JsonReader reader = new JsonReader(new StringReader(getData("getCapteurs.php")));
         try {
             return readCapteursArray(reader);
@@ -159,7 +133,7 @@ public final class CConnexion {
             reader.close();
         }
     }
-    public static List<CCapteur> readCapteursArray(JsonReader _reader) throws IOException {
+    private static List<CCapteur> readCapteursArray(JsonReader _reader) throws IOException {
         List<CCapteur> capteurs = new ArrayList<CCapteur>();
         _reader.beginArray();
         while (_reader.hasNext()) {
@@ -168,7 +142,7 @@ public final class CConnexion {
         _reader.endArray();
         return capteurs;
     }
-    public static CCapteur readCapteur(JsonReader _reader) throws IOException {
+    private static CCapteur readCapteur(JsonReader _reader) throws IOException {
         int id = -1;
         String nom = null;
         boolean etat = false;
@@ -189,5 +163,61 @@ public final class CConnexion {
         _reader.endObject();
         return new CCapteur(id, nom, etat);
     }
+    // --- LOGS
+    public static List<CLog> getLogs() throws IOException, InterruptedException, ExecutionException {
+        JsonReader reader = new JsonReader(new StringReader(getData("getCapteurs.php")));
+        try {
+            return readLogsArray(reader);
+        } finally {
+            reader.close();
+        }
+    }
+    private static List<CLog> readLogsArray(JsonReader _reader) throws IOException {
+        List<CLog> logs = new ArrayList<CLog>();
+        _reader.beginArray();
+        while (_reader.hasNext()) {
+            logs.add(readLog(_reader));
+        }
+        _reader.endArray();
+        return logs;
+    }
+    private static CLog readLog(JsonReader _reader) throws IOException {
+        int id = -1;
+        boolean etat = false;
+        //Date date_panne = null;
+        String date_panne = null;
+        String nom_capteur = null;
+
+        _reader.beginObject();
+        while (_reader.hasNext()) {
+            String tag = _reader.nextName();
+            if(tag.equals("id")) {
+                Log.i("CustomLog","READ ID");
+                id = _reader.nextInt();
+            } else if(tag.equals("estfonctionnel")) {
+                Log.i("CustomLog","READ EST_FONCTIONNEL");
+                etat = (_reader.nextInt() > 0);
+            } else if(tag.equals("date_panne")) {
+                date_panne = _reader.nextString();
+                Log.i("CustomLog","READ DATE : " + date_panne);
+                /*
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss");
+                try {
+                    date_panne = format.parse(_reader.nextString());
+                } catch (ParseException e) {
+                    Log.e("CustomLog","[readLog] Error : " + e.getMessage());
+                }
+                */
+            } else if(tag.equals("nom")) {
+                Log.i("CustomLog","READ NOM");
+                nom_capteur = _reader.nextString();
+            } else {
+                _reader.skipValue();
+            }
+        }
+        _reader.endObject();
+        return new CLog(id, etat, date_panne, nom_capteur);
+    }
+
 
 }

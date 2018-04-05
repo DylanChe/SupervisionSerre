@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    tools:context=".SensorActivity">
+    tools:context=".LogActivity">
 
     <LinearLayout
-        android:id="@+id/layout_listeCapteurs"
+        android:id="@+id/layout_listeLogs"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -29,6 +29,7 @@
                 android:layout_marginBottom="5dp"/>
 
             <TextView
+                android:id="@+id/lbl_version"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/dashboard_lbl_version"
@@ -72,7 +73,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/dashboard_lbl_capteurs"
+                android:text="@string/dashboard_lbl_logs"
                 android:textColor="@color/white"
                 android:gravity="center_vertical"
                 android:layout_marginStart="15dp"/>
@@ -83,49 +84,74 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:layout_marginTop="15dp"
-            android:orientation="vertical">
+            android:orientation="horizontal">
+
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/nephritis">
+                android:background="@color/pomeGranate"
+                android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="6dp"
-                    android:layout_marginBottom="10dp"
-                    android:text="ID : 1"/>
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="05/04/2018"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginBottom="7dp"
-                    android:text="Pluviomètre DAVIS 7852M"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    android:textColor="@color/clouds"/>
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center"
+                    android:text="14:29"/>
             </LinearLayout>
+
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@color/emerald">
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/alizarin">
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="Le capteur fonctionne correctement."/>
+                    android:layout_height="match_parent"
+                    android:text="1"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:gravity="center"/>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/pomeGranate"
+                android:minWidth="5dp">
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="@color/alizarin">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Pluviomètre"
+                    android:gravity="center"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Le capteur ne fonctionne plus."
+                    android:gravity="center"/>
+            </LinearLayout>
+
         </LinearLayout>
--->
+        -->
 
     </LinearLayout>
 

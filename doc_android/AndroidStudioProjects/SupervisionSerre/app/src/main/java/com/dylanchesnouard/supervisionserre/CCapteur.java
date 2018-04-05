@@ -5,13 +5,13 @@ public class CCapteur {
     // ATTRIBUTES
     private int id;
     private String nom;
-    private boolean etat;
+    private boolean estFonctionnel;
 
     // CONSTRUCTOR
-    public CCapteur(int _id, String _nom, boolean _etat) {
+    public CCapteur(int _id, String _nom, boolean _estFonctionnel) {
         id = _id;
         nom = _nom;
-        etat = _etat;
+        estFonctionnel = _estFonctionnel;
     }
 
     // GETTERS & SETTERS
@@ -27,11 +27,11 @@ public class CCapteur {
     public void setNom(String nom) {
         this.nom = nom;
     }
-    public boolean isEtat() {
-        return etat;
+    public boolean getEstFonctionnel() {
+        return estFonctionnel;
     }
-    public void setEtat(boolean etat) {
-        this.etat = etat;
+    public void setEstFonctionnel(boolean estFonctionnel) {
+        this.estFonctionnel = estFonctionnel;
     }
 
 }
