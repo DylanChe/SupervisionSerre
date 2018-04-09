@@ -1,6 +1,6 @@
-<?php>
+<?php
 include('connect.php');
-<?>
+?>
 <!DOCTYPE html>
 
 <head>
@@ -13,7 +13,7 @@ include('connect.php');
 </head>
 <body>
 
-<?php>
+<?php
 $materiels=$bdd->query("SELECT * FROM materiel");
         while( $materiel = $materiels->fetch() )
         {
@@ -28,10 +28,10 @@ $materiels=$bdd->query("SELECT * FROM materiel");
         $nom1 = $tab[0]; // On récupère le nom du capteur 1.
         $nom2 = $tab[1]; // On récupère le nom du capteur 2.
         $nom3 = $tab[2]; // On récupère le nom du capteur 3.
-		echo $nom1 ; 
-		echo $nom2 ;
+		echo $nom1; 
+		echo $nom2;
 		echo $nom3;
-<?>
+?>
 
 <div class="container">
   <h3>Popover Example</h3>
