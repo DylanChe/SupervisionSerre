@@ -22,7 +22,8 @@
         </activity>
         <activity android:name=".DashboardActivity" />
         <activity android:name=".SensorActivity" />
-        <activity android:name=".LogActivity"></activity>
+        <activity android:name=".LogActivity" />
+        <activity android:name=".MicrocontrollerActivity"></activity>
     </application>
 
 </manifest>

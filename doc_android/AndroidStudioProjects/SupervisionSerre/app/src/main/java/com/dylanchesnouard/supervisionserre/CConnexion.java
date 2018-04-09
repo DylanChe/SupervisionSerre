@@ -109,7 +109,9 @@ public final class CConnexion {
         };
         Future<String> future = executor.submit(callable);
         executor.shutdown();
-        return future.get();
+        String dataString = future.get();
+        Log.i("CustomLog","dataString = " + dataString);
+        return dataString;
     }
     private static String streamToString(InputStream _inputStream) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(_inputStream));
@@ -163,9 +165,50 @@ public final class CConnexion {
         _reader.endObject();
         return new CCapteur(id, nom, etat);
     }
+
+    // --- MICROCONTROLLEURS
+    public static List<CMicrocontrolleur> getMicrocontrolleurs() throws IOException, InterruptedException, ExecutionException {
+        JsonReader reader = new JsonReader(new StringReader(getData("getMicrocontrolleurs.php")));
+        try {
+            return readMicrocontrolleursArray(reader);
+        } finally {
+            reader.close();
+        }
+    }
+    private static List<CMicrocontrolleur> readMicrocontrolleursArray(JsonReader _reader) throws IOException {
+        List<CMicrocontrolleur> microcontrolleurs = new ArrayList<CMicrocontrolleur>();
+        _reader.beginArray();
+        while (_reader.hasNext()) {
+            microcontrolleurs.add(readMicrocontrolleur(_reader));
+        }
+        _reader.endArray();
+        return microcontrolleurs;
+    }
+    private static CMicrocontrolleur readMicrocontrolleur(JsonReader _reader) throws IOException {
+        int id = -1;
+        String nom = null;
+        boolean etat = false;
+
+        _reader.beginObject();
+        while (_reader.hasNext()) {
+            String tag = _reader.nextName();
+            if(tag.equals("id")) {
+                id = _reader.nextInt();
+            } else if(tag.equals("nom")) {
+                nom = _reader.nextString();
+            } else if(tag.equals("etat")) {
+                etat = (_reader.nextInt() > 0);
+            } else {
+                _reader.skipValue();
+            }
+        }
+        _reader.endObject();
+        return new CMicrocontrolleur(id, nom, etat);
+    }
+
     // --- LOGS
     public static List<CLog> getLogs() throws IOException, InterruptedException, ExecutionException {
-        JsonReader reader = new JsonReader(new StringReader(getData("getCapteurs.php")));
+        JsonReader reader = new JsonReader(new StringReader(getData("getLogs.php")));
         try {
             return readLogsArray(reader);
         } finally {
@@ -192,14 +235,17 @@ public final class CConnexion {
         while (_reader.hasNext()) {
             String tag = _reader.nextName();
             if(tag.equals("id")) {
-                Log.i("CustomLog","READ ID");
+                Log.i("CustomLog","READ ID...");
                 id = _reader.nextInt();
-            } else if(tag.equals("estfonctionnel")) {
-                Log.i("CustomLog","READ EST_FONCTIONNEL");
+                Log.i("CustomLog","ID = " + id);
+            } else if(tag.equals("est_fonctionnel")) {
+                Log.i("CustomLog","READ EST_FONCTIONNEL...");
                 etat = (_reader.nextInt() > 0);
+                Log.i("CustomLog","EST_FONCTIONNEL = " + etat);
             } else if(tag.equals("date_panne")) {
+                Log.i("CustomLog","READ DATE...");
                 date_panne = _reader.nextString();
-                Log.i("CustomLog","READ DATE : " + date_panne);
+                Log.i("CustomLog","DATE : " + date_panne);
                 /*
                 SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss");
                 try {
@@ -209,8 +255,9 @@ public final class CConnexion {
                 }
                 */
             } else if(tag.equals("nom")) {
-                Log.i("CustomLog","READ NOM");
+                Log.i("CustomLog","READ NOM...");
                 nom_capteur = _reader.nextString();
+                Log.i("CustomLog","NOM = " + nom_capteur);
             } else {
                 _reader.skipValue();
             }

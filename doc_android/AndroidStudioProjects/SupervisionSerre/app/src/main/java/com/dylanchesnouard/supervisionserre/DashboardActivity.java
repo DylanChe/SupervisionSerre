@@ -31,7 +31,10 @@ import java.util.concurrent.Future;
 public class DashboardActivity extends AppCompatActivity {
 
     private TextView lbl_nbCapteurs;
+    private TextView lbl_nbMicrocontrolleurs;
+    private TextView lbl_nbLogs;
     private LinearLayout layout_capteurs;
+    private LinearLayout layout_microcontrolleurs;
     private LinearLayout layout_logs;
 
     @Override
@@ -41,20 +44,30 @@ public class DashboardActivity extends AppCompatActivity {
 
         // CONTROLS
         lbl_nbCapteurs = findViewById(R.id.lbl_nbCapteurs);
+        lbl_nbMicrocontrolleurs = findViewById(R.id.lbl_nbMicrocontrolleurs);
+        lbl_nbLogs = findViewById(R.id.lbl_nbLogs);
         layout_capteurs = findViewById(R.id.layout_capteurs);
         layout_capteurs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent dashboardIntent = new Intent(DashboardActivity.this, SensorActivity.class);
-                startActivity(dashboardIntent);
+                Intent sensorIntent = new Intent(DashboardActivity.this, SensorActivity.class);
+                startActivity(sensorIntent);
+            }
+        });
+        layout_microcontrolleurs = findViewById(R.id.layout_microcontroller);
+        layout_microcontrolleurs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent microcontrolleurIntent = new Intent(DashboardActivity.this, MicrocontrollerActivity.class);
+                startActivity(microcontrolleurIntent);
             }
         });
         layout_logs = findViewById(R.id.layout_logs);
         layout_logs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent LogIntent = new Intent(DashboardActivity.this, LogActivity.class);
-                startActivity(LogIntent);
+                Intent logIntent = new Intent(DashboardActivity.this, LogActivity.class);
+                startActivity(logIntent);
             }
         });
 
@@ -71,6 +84,12 @@ public class DashboardActivity extends AppCompatActivity {
             int nbCapteur = CConnexion.getCapteurs().size();
             lbl_nbCapteurs.setText("" + nbCapteur);
             Log.i("CustomLog", "[chargementDonnees] nbCapteur : " + nbCapteur);
+            int nbMicrocontrolleur = CConnexion.getMicrocontrolleurs().size();
+            lbl_nbMicrocontrolleurs.setText("" + nbMicrocontrolleur);
+            Log.i("CustomLog", "[chargementDonnees] nbMicrocontrolleur : " + nbMicrocontrolleur);
+            int nbLogs = CConnexion.getLogs().size();
+            lbl_nbLogs.setText("" + nbLogs);
+            Log.i("CustomLog", "[chargementDonnees] nbLogs : " + nbLogs);
         } catch (Exception e) {
             Log.e("CustomLog", "[chargementDonnees] ERROR : " + e.getMessage());
         }

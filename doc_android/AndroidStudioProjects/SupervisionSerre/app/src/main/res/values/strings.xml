@@ -9,6 +9,10 @@
     <string name="dashboard_lbl_slash">/</string>
     <string name="dashboard_lbl_capteurs">Capteurs</string>
     <string name="dashboard_lbl_liste_capteurs">Liste des capteurs</string>
+    <string name="dashboard_lbl_microcontrolleurs">Microcontrolleurs</string>
+    <string name="dashboard_lbl_liste_microcontrolleurs">Liste des microcontrolleurs</string>
     <string name="dashboard_lbl_logs">Journaux</string>
     <string name="dashboard_lbl_liste_logs">Liste des erreurs</string>
+    <string name="sensor_lbl_astuceLogs">Appuyer sur un capteur pour accéder à ses journaux</string>
+    <string name="microcontroller_lbl_astuceLogs">Appuyer sur un microcontrolleur pour accéder à ses journaux</string>
 </resources>

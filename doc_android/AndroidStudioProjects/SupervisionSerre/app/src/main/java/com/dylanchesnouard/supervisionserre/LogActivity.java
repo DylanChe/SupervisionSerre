@@ -1,5 +1,6 @@
 package com.dylanchesnouard.supervisionserre;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
@@ -19,6 +20,7 @@ import java.util.List;
 
 public class LogActivity extends AppCompatActivity {
 
+    private String filtre = null;
     LinearLayout layout_listeLogs;
     List<CLog> logs;
 
@@ -29,18 +31,86 @@ public class LogActivity extends AppCompatActivity {
         setContentView(R.layout.activity_log);
 
         // CONTROLS
-        layout_listeLogs = findViewById(R.id.layout_listeLogs);
+        layout_listeLogs = findViewById(R.id.layout_scroll_listeLogs);
+
+        // FILTRE
+        Intent intent = getIntent();
+        if (intent != null)
+        {
+            if (intent.hasExtra("EXTRA_FILTRE"))
+            {
+                filtre = intent.getStringExtra("EXTRA_FILTRE");
+                afficherFiltre();
+            }
+        }
+        Log.i("CustomLog","filtre = " + filtre);
 
         // LOAD DATA
         afficherListeLogs();
     }
 
+    private void afficherFiltre() {
+        LinearLayout layout_filtre = new LinearLayout(this);
+        layout_filtre.setBackgroundColor(getResources().getColor(R.color.bleuOlivier));
+        LinearLayout.LayoutParams layout_filtre_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layout_filtre_params.topMargin = dpToInt(10);
+        layout_filtre.setLayoutParams(layout_filtre_params);
+        LinearLayout.LayoutParams layout_lblFiltre_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+        layout_lblFiltre_params.topMargin = dpToInt(3);
+        layout_lblFiltre_params.bottomMargin = dpToInt(3);
+        TextView lbl_filtre = new TextView(this);
+        lbl_filtre.setGravity(Gravity.CENTER);
+        lbl_filtre.setTypeface(null, Typeface.ITALIC);
+        lbl_filtre.setText("Liste des journaux associés à " + filtre);
+        lbl_filtre.setTextColor(getResources().getColor(R.color.clouds));
+        layout_filtre.addView(lbl_filtre, layout_lblFiltre_params);
+        layout_listeLogs.addView(layout_filtre);
+    }
+
+    private void afficherAucunLog() {
+        Log.i("CustomLog2", "Debut AUCUN LOG");
+        try {
+            LinearLayout layout_aucunLog = new LinearLayout(this);
+            LinearLayout.LayoutParams layout_aucunLog_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            layout_aucunLog_params.topMargin = dpToInt(10);
+            layout_aucunLog.setLayoutParams(layout_aucunLog_params);
+            LinearLayout.LayoutParams layout_lblAucunLog_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+            TextView lbl_aucunLog = new TextView(this);
+            lbl_aucunLog.setGravity(Gravity.CENTER);
+            lbl_aucunLog.setTypeface(null, Typeface.BOLD_ITALIC);
+            lbl_aucunLog.setText("Aucun journal disponible");
+            lbl_aucunLog.setTextColor(getResources().getColor(R.color.silver));
+            layout_aucunLog.addView(lbl_aucunLog, layout_lblAucunLog_params);
+            layout_listeLogs.addView(layout_aucunLog);
+        } catch (Exception e) {
+            Log.e("CustomLog2", e.getMessage());
+        }
+        Log.i("CustomLog2", "FIN AUCUN LOG");
+    }
+
     private void afficherListeLogs() {
         try {
+            int totalLogs = 0;
             logs = CConnexion.getLogs();
+
             for (CLog log : logs) {
-                ajouterUnLog(log);
+                if (filtre != null)
+                {
+                    if (log.getNom_capteur().equals(filtre))
+                    {
+                        ajouterUnLog(log);
+                        totalLogs += 1;
+                    }
+                } else {
+                    ajouterUnLog(log);
+                    totalLogs += 1;
+                }
             }
+
+            if (totalLogs == 0) {
+                afficherAucunLog();
+            }
+
         } catch (Exception e) {
             Log.e("CustomLog","[afficherListLogs] Error : " + e.getMessage());
         }
@@ -84,21 +154,6 @@ public class LogActivity extends AppCompatActivity {
         }
         layout_date.setLayoutParams(layout_date_params);
         Log.i("CustomLog","[ajouterUnLog] LayoutDate OK");
-
-        // RECUP DATE
-        /*
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = log.getDate_panne();
-        String dateTime = dateFormat.format(date);
-        Log.i("CustomLog","[ajouterUnLog] Date : " + dateTime);
-
-        SimpleDateFormat heureFormat = new SimpleDateFormat("HH:mm:ss");
-        Date heure = log.getDate_panne();
-        String heureTime = heureFormat.format(heure);
-        Log.i("CustomLog","[ajouterUnLog] Date : " + heureTime);
-        Log.i("CustomLog","[ajouterUnLog] RecupDate OK");
-        */
-
         Log.i("CustomLog","[ajouterUnLog] Jour : " + log.getJourPanne());
         Log.i("CustomLog","[ajouterUnLog] Heure : " + log.getHeurePanne());
 
@@ -128,16 +183,16 @@ public class LogActivity extends AppCompatActivity {
         LinearLayout.LayoutParams layout_id_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
         if (log.isEstFonctionnel())
         {
-            layout_date.setBackgroundColor(getResources().getColor(R.color.emerald));
+            layout_id.setBackgroundColor(getResources().getColor(R.color.emerald));
         } else {
-            layout_date.setBackgroundColor(getResources().getColor(R.color.alizarin));
+            layout_id.setBackgroundColor(getResources().getColor(R.color.alizarin));
         }
         Log.i("CustomLog","[ajouterUnLog] LayoutId OK");
         // --- TEXT_VIEW
         LinearLayout.LayoutParams layout_lblId_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.MATCH_PARENT);
         TextView lbl_id = new TextView(this);
-        layout_lblId_params.topMargin = dpToInt(10);
-        layout_lblId_params.bottomMargin = dpToInt(10);
+        layout_lblId_params.leftMargin = dpToInt(10);
+        layout_lblId_params.rightMargin = dpToInt(10);
         lbl_id.setGravity(Gravity.CENTER);
         lbl_id.setText("" + log.getId());
         lbl_id.setTextColor(getResources().getColor(R.color.clouds));
@@ -189,8 +244,7 @@ public class LogActivity extends AppCompatActivity {
             lbl_description.setText("Le capteur ne fonctionne plus.");
         }
         lbl_description.setTextColor(getResources().getColor(R.color.clouds));
-        layout_capteur.setLayoutParams(layout_capteur_params);
-        layout_capteur.addView(lbl_capteur, layout_lblCapteur_params);
+        layout_capteur.addView(lbl_description, layout_lblDescription_params);
         Log.i("CustomLog","[ajouterUnLog] LblDescription OK");
 
         layout_main.addView(layout_date);

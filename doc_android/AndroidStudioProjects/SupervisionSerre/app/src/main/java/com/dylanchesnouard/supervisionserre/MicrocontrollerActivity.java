@@ -12,36 +12,34 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
-import java.util.ResourceBundle;
 
-public class SensorActivity extends AppCompatActivity {
+public class MicrocontrollerActivity extends AppCompatActivity {
 
-    LinearLayout layout_listeCapteurs;
-    List<CCapteur> capteurs;
+    LinearLayout layout_listeMicrocontrolleurs;
+    List<CMicrocontrolleur> microcontrolleurs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_sensor);
+        setContentView(R.layout.activity_microcontroller);
 
         // CONTROLS
-        layout_listeCapteurs = findViewById(R.id.layout_scroll_listeCapteurs);
+        layout_listeMicrocontrolleurs = findViewById(R.id.layout_scroll_listeMicrocontrolleurs);
 
         // LOAD DATA
-        afficherListeCapteurs();
+        afficherListeMicrocontrolleurs();
     }
 
-    private void afficherListeCapteurs() {
+    private void afficherListeMicrocontrolleurs() {
         try {
-            capteurs = CConnexion.getCapteurs();
-            for (CCapteur capteur : capteurs) {
-                ajouterUnCapteur(capteur);
+            microcontrolleurs = CConnexion.getMicrocontrolleurs();
+            for (CMicrocontrolleur microcontrolleur : microcontrolleurs) {
+                ajouterUnMicrocontrolleur(microcontrolleur);
             }
         } catch (Exception e) {
-            Log.e("CustomLog","[afficherListeCapteurs] Error : " + e.getMessage());
+            Log.e("CustomLog","[afficherListeMicrocontrolleurs] Error : " + e.getMessage());
         }
-
     }
 
     private int dpToInt(int _dpMesure) {
@@ -54,7 +52,7 @@ public class SensorActivity extends AppCompatActivity {
         return px;
     }
 
-    private void ajouterUnCapteur(final CCapteur capteur) {
+    private void ajouterUnMicrocontrolleur(final CMicrocontrolleur microcontrolleur) {
         LinearLayout layout_main = new LinearLayout(this);
         LinearLayout layout_title = new LinearLayout(this);
         LinearLayout layout_description = new LinearLayout(this);
@@ -69,7 +67,7 @@ public class SensorActivity extends AppCompatActivity {
         // LAYOUT_TITLE
         LinearLayout.LayoutParams layout_title_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         layout_title.setOrientation(LinearLayout.HORIZONTAL);
-        if (capteur.getEstFonctionnel())
+        if (microcontrolleur.getEstFonctionnel())
         {
             layout_title.setBackgroundColor(getResources().getColor(R.color.nephritis));
         } else {
@@ -82,7 +80,7 @@ public class SensorActivity extends AppCompatActivity {
         layout_lblId_params.topMargin = dpToInt(6);
         layout_lblId_params.bottomMargin = dpToInt(10);
         TextView lbl_id = new TextView(this);
-        lbl_id.setText("" + capteur.getId());
+        lbl_id.setText("" + microcontrolleur.getId());
         lbl_id.setTextColor(getResources().getColor(R.color.clouds));
         layout_title.addView(lbl_id, layout_lblId_params);
         LinearLayout.LayoutParams layout_lblTitle_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -90,7 +88,7 @@ public class SensorActivity extends AppCompatActivity {
         layout_lblTitle_params.topMargin = dpToInt(7);
         layout_lblTitle_params.bottomMargin = dpToInt(7);
         TextView lbl_title = new TextView(this);
-        lbl_title.setText(capteur.getNom());
+        lbl_title.setText(microcontrolleur.getNom());
         lbl_title.setTextSize(15);
         lbl_title.setTypeface(null, Typeface.BOLD);
         lbl_title.setTextColor(getResources().getColor(R.color.clouds));
@@ -98,7 +96,7 @@ public class SensorActivity extends AppCompatActivity {
         // LAYOUT_DESCRIPTION
         LinearLayout.LayoutParams layout_description_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         layout_description.setOrientation(LinearLayout.VERTICAL);
-        if (capteur.getEstFonctionnel())
+        if (microcontrolleur.getEstFonctionnel())
         {
             layout_description.setBackgroundColor(getResources().getColor(R.color.emerald));
         } else {
@@ -111,23 +109,24 @@ public class SensorActivity extends AppCompatActivity {
         layout_lblEtat_params.topMargin = dpToInt(5);
         layout_lblEtat_params.bottomMargin = dpToInt(5);
         TextView lbl_etat = new TextView(this);
-        if (capteur.getEstFonctionnel()) {
-            lbl_etat.setText("Le capteur fonctionne correctement.");
+        if (microcontrolleur.getEstFonctionnel()) {
+            lbl_etat.setText("Le microcontrolleur fonctionne correctement.");
         } else {
-            lbl_etat.setText("Le capteur ne fonctionne pas.");
+            lbl_etat.setText("Le microcontrolleur ne fonctionne pas.");
         }
         lbl_etat.setTextColor(getResources().getColor(R.color.clouds));
         layout_description.addView(lbl_etat, layout_lblEtat_params);
         layout_main.addView(layout_title);
         layout_main.addView(layout_description);
-        layout_listeCapteurs.addView(layout_main);
-        Log.i("CustomLog","[ajouterUnCapteur] Le capteur " + capteur.getNom() + " a été ajouté.");
+
+        layout_listeMicrocontrolleurs.addView(layout_main);
+        Log.i("CustomLog","[ajouterUnMicrocontrolleur] Le microcontrolleur " + microcontrolleur.getNom() + " a été ajouté.");
 
         layout_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent logIntent = new Intent(SensorActivity.this, LogActivity.class);
-                logIntent.putExtra("EXTRA_FILTRE",capteur.getNom());
+                Intent logIntent = new Intent(MicrocontrollerActivity.this, LogActivity.class);
+                logIntent.putExtra("EXTRA_FILTRE", microcontrolleur.getNom());
                 startActivity(logIntent);
             }
         });

@@ -10,19 +10,15 @@ public class CLog {
 
     private int id;
     private boolean estFonctionnel;
-    private String jour_panne;
-    private String heure_panne;
     private Date date_panne;
     private String nom_capteur;
 
     public CLog(int _id, boolean _estFonctionnel, String _date_panne, String _nom_capteur) {
         id = _id;
         estFonctionnel = _estFonctionnel;
-        Log.i("CustomLog","DATE CONVERT");
-        date_panne = stringToDate(_date_panne);
-        Log.i("CustomLog","DATE INCOMMING");
-        Log.i("CustomLog","DATE : " + date_panne.toString());
         nom_capteur = _nom_capteur;
+        date_panne = stringToDate(_date_panne);
+
         Log.i("CustomLog","[CLog] Nouveau log, date = " + _date_panne);
     }
 
@@ -45,11 +41,13 @@ public class CLog {
     public String getJourPanne() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         String jourPanne = dateFormat.format(date_panne);
+        Log.i("CustomLog","[CLog] date = " + jourPanne);
         return jourPanne;
     }
     public String getHeurePanne() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
         String heurePanne = dateFormat.format(date_panne);
+        Log.i("CustomLog","[CLog] heure = " + heurePanne);
         return heurePanne;
     }
     public void setDate_panne(Date date_panne) {
@@ -62,14 +60,14 @@ public class CLog {
         this.nom_capteur = nom_capteur;
     }
     private Date stringToDate(String _date) {
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss");
+        Date date = null;
         try {
-            Date date = format.parse(_date);
-            System.out.println(date);
+            date = format.parse(_date);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return null;
+        return date;
     }
 
 }
