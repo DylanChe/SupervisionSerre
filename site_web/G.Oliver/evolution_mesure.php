@@ -55,41 +55,6 @@ include('inc/connect.php');
         __gaTracker('set', 'forceSSL', true);
         __gaTracker('send','pageview');
     </script>
-    <!-- JQuery for open the calendar/-->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $(function() {
-            $( "#datepicker" ).datepicker({
-                altField: "#datepicker",
-                closeText: 'Fermer',
-                prevText: 'Précédent',
-                nextText: 'Suivant',
-                currentText: 'Aujourd\'hui',
-                monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-                monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
-                dayNames: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
-                dayNamesShort: ['Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.', 'Dim.'],
-                dayNamesMin: ['L', 'M', 'M', 'J', 'V', 'S', 'D'],
-                weekHeader: 'Sem.',
-                dateFormat: 'dd-mm-yy'
-            });
-			$( "#datepicker2" ).datepicker({
-                altField: "#datepicker2",
-                closeText: 'Fermer',
-                prevText: 'Précédent',
-                nextText: 'Suivant',
-                currentText: 'Aujourd\'hui',
-                monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-                monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
-                dayNames: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
-                dayNamesShort: ['Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.', 'Dim.'],
-                dayNamesMin: ['L', 'M', 'M', 'J', 'V', 'S', 'D'],
-                weekHeader: 'Sem.',
-                dateFormat: 'dd-mm-yy'
-            });
-        });
-    </script>
     <script type='text/javascript' src='http://www.groupe-olivier.fr/wp-includes/js/jquery/jquery.js?ver=1.11.1'></script>
     <script type='text/javascript' src='http://www.groupe-olivier.fr/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.2.1'></script>
     <script type='text/javascript' src='http://www.groupe-olivier.fr/wp-content/plugins/fluid-responsive-slideshow/js/frs.js?ver=2.0.3'></script>
@@ -100,6 +65,15 @@ include('inc/connect.php');
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.groupe-olivier.fr/xmlrpc.php?rsd" />
     <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.groupe-olivier.fr/wp-includes/wlwmanifest.xml" />
     <meta name="generator" content="WordPress 4.0.22" />
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
     <style type="text/css">.entry-content {font-family: Helvetica Neue; font-size:15px; font-weight: normal; color:#6B6B6B;}</style>
 </head>
 
@@ -162,15 +136,16 @@ include('inc/connect.php');
 
     <div class="container">
         <br>
+        <form method="get">
         <div class="home-widget-area row col-sm-6">
             <div>
-                <div class="textwidget" id="calendarMain1" style="text-align: center">
+                <div class="textwidget" style="text-align: center">
                     <a>
                         <br>
                         <img style="border: 0 none;" src="inc/img/calendrier.png" alt="" width="150" height="150" />
                         <br>
                         <br>
-                        <span><p>Début : <input type="text"  id="datepicker"></p></span>
+                        <span><p>Début : <input type="date" name="date_1" required maxlength="10"></p></span>
                         <br>
                     </a>
                 </div>
@@ -178,108 +153,130 @@ include('inc/connect.php');
         </div>
         <div class="home-widget-area row col-sm-6">
             <div>
-                <div class="textwidget" id="calendarMain2" style="text-align: center">
+                <div class="textwidget" style="text-align: center">
                     <a>
                         <br>
                         <img style="border: 0 none;" src="inc/img/calendrier.png" alt="" width="150" height="150" />
                         <br>
                         <br>
-                        <span><p>Fin : <input type="text" id="datepicker2"></p></span>
+                        <span><p>Fin : <input type="date" name="date_2" required maxlength="10"></p></span>
                         <br>
                     </a>
                 </div>
             </div>
         </div>
         <div class="textwidget" style="text-align: center">
-            <button type="button" class="btn btn-primary">Valider</button>
+            <button type="submit" value="submit" class="btn btn-primary">Valider</button>
             <hr>
         </div>
+        </form>
+        <?php
+        $date_debut = $_GET['date_1'];
+        $date_fin = $_GET['date_2'];
+        if ($date_fin < $date_debut) {
+            echo ' <center>Veuillez resaisir les dates !</center> <br>';
+        }
+        ;?>
 
         <!-- -----------------------------------------------------------------------------------------------------------
         ---------------------------------------ECHO-LE-JS-POUR-FONCTIONNER----------------------------------------------
         ------------------------------------------------------------------------------------------------------------ -->
+        
+
 
         <?php
-        $resultats=$bdd->query("SELECT * FROM type_materiel");
-        while( $resultat = $resultats->fetch() )
-        {
-        $tab[] =  $resultat['nom']; // On récupère les données sous forme de tableau, pour récupérer les valeurs 1à1.
-        }
-        $nom1 = $tab[0];
-        echo $nom1;
 
-        echo'<div id="graph" style="height: 500%" class="home">
+        // -----------------------------------------------------------------------------------
+
+        $materiels=$bdd->query("SELECT * FROM materiel");
+        while( $materiel = $materiels->fetch() )
+        {
+        $tab[] =  $materiel['nom']; // On récupère les données sous forme de tableau, pour récupérer les valeurs 1à1.
+        }
+        $taille_tab = count($tab); // On compte le nombre de valeurs dans le tableau.
+        $nom = "nom";
+        for ($i = 0; $i <= $taille_tab-1; $i++){
+            // à completer pour que ça puisse le faire en fonction du nombre de
+            //valeur dans la BDD.
+        }
+        $nom1 = $tab[0]; // On récupère le nom du capteur 1.
+        $nom2 = $tab[1]; // On récupère le nom du capteur 2.
+        $nom3 = $tab[2]; // On récupère le nom du capteur 3.
+        // -----------------------------------------------------------------------------------
+
+        // On récupère les données du capteur numéro 1.
+        $releves=$bdd->query("SELECT * FROM releve WHERE id_materiel = 1");
+        while( $releve = $releves->fetch() )
+        {
+            $tableau[] = $releve['valeur'];
+        }
+        $taille_tableau = count($tableau);
+        for ($u = 0; $u <= $taille_tab-1; $u++){
+        }
+
+        // On récupère les données du capteur numéro 2.
+        $releves2=$bdd->query("SELECT * FROM releve WHERE id_materiel = 2");
+        while( $releve2 = $releves2->fetch() )
+        {
+            $tableau2[] = $releve2['valeur'];
+        }
+        $taille_tableau2 = count($tableau2);
+        for ($u = 0; $u <= $taille_tableau2-1; $u++){
+        }
+
+
+        // -----------------------------------------------------------------------------------
+
+        $affichage_date_1 = $_GET['date_1'];
+        $affichage_date_2 = $_GET['date_2'];
+        echo "<h3>Du $affichage_date_1 au $affichage_date_2 :</h3>";
+        echo "<div id=\"graph\" style=\"height: 500%\" class=\"home\">
         </div>
-            <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
-            <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
-            <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
-            <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
-            <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
-            <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
-            <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
-            <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
-            <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
-            <script type="text/javascript">
-                var dom = document.getElementById("graph");
+            <script type=\"text/javascript\">
+                var dom = document.getElementById(\"graph\");
                 var myChart = echarts.init(dom);
                 var app = {};
                 option = null;
                 option = {
                     tooltip: {
-                        trigger: \'axis\'
-                    },
-                    legend: {
-                        data:[("$nom1"),\'Temperature_int\',\'Intensité_soleil\',\'Vitesse_vent\',\'Pluviometrie\']
+                        trigger: 'axis'
                     },
                     grid: {
-                        left: \'3%\',
-                        right: \'4%\',
-                        bottom: \'3%\',
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
                         containLabel: true
                     },
-                    xAxis: {
-                        type: \'category\',
-                        boundaryGap: false,
-                        data: [\'19/02/2018\',\'20/02/2018\',\'21/02/2018\',\'22/02/2018\',\'23/02/2018\',\'24/02/2018\',\'25/02/2018\',\'26/02/2018\',\'27/02/2018\',\'28/02/2018\',\'29/02/2018\',\'30/02/2018\']
-                    },
                     yAxis: {
-                        type: \'value\'
+                        type: 'value'
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['$date_debut','$date_fin']
+                    },
+                    legend: {
+                        data:[('$nom1'),('$nom2')]
                     },
                     series: [
                         {
-                            name:("$nom1"),
-                            type:\'line\',
-                            data:[20, 21, 20, 24, 21, 22, 23, 10, 12, 15, 45, 74]
+                            name:('$nom1'),
+                            type:'line',
+                            data:['$tableau[0]','$tableau[1]']
                         },
                         {
-                            name:\'Temperature_int\',
-                            type:\'line\',
-                            data:[16, 17, 16, 15, 14, 14, 12, 1, 45, 12, 42, 15]
-                        },
-                        {
-                            name:\'Intensité_soleil\',
-                            type:\'line\',
-                            data:[150, 232, 201, 154, 190, 330, 410, 125, 451, 745, 625, 452]
-                        },
-                        {
-                            name:\'Vitesse_vent\',
-                            type:\'line\',
-                            data:[40, 50, 51, 62, 71, 78, 105, 74, 54, 12, 12, 45]
-                        },
-                        {
-                            name:\'Pluviometrie\',
-                            type:\'line\',
-                            data:[200, 150, 120, 145, 175, 200, 154, 145, 165, 184, 200, 121]
+                            name:('$nom2'),
+                            type:'line',
+                            data:['$tableau2[0]','$tableau2[1]']
                         }
                     ]
                 };
                 ;
-                if (option && typeof option === "object") {
+                if (option && typeof option === \"object\") {
                     myChart.setOption(option, true);
                 }
             </script>
-    </div>';
-        $resultats->closeCursor();
+    </div>}";
         ?>
 
     <!-- --------------- -->
