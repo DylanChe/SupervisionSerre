@@ -14,8 +14,11 @@ include('connect.php');
 <body>
 
 <?php
-$materiels=$bdd->query("SELECT * FROM materiel");
-        while( $materiel = $materiels->fetch() )
+$releve=$bdd->query("SELECT * FROM `releve` WHERE id_materiel=1 ORDER BY `releve`.`date_releve` DESC LIMIT 1");
+        
+		$releves = $releve->fetch();
+		print_r $releves ;
+		/*while( $materiel = $materiels->fetch() )
         {
         $tab[] =  $materiel['nom']; // On récupère les données sous forme de tableau, pour récupérer les valeurs 1à1.
         }
@@ -30,7 +33,7 @@ $materiels=$bdd->query("SELECT * FROM materiel");
         $nom3 = $tab[2]; // On récupère le nom du capteur 3.
 		echo $nom1; 
 		echo $nom2;
-		echo $nom3;
+		echo $nom3; */
 ?>
 
 <div class="container">
