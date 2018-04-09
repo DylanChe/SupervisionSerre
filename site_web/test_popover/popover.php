@@ -1,5 +1,8 @@
+<?php>
+include('connect.php');
+<?>
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
   <title>Bootstrap Example</title>
   <meta charset="utf-8">
@@ -9,6 +12,26 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+
+<?php>
+$materiels=$bdd->query("SELECT * FROM materiel");
+        while( $materiel = $materiels->fetch() )
+        {
+        $tab[] =  $materiel['nom']; // On récupère les données sous forme de tableau, pour récupérer les valeurs 1à1.
+        }
+        $taille_tab = count($tab); // On compte le nombre de valeurs dans le tableau.
+        $nom = "nom";
+        for ($i = 0; $i <= $taille_tab-1; $i++){
+            // à completer pour que ça puisse le faire en fonction du nombre de
+            //valeur dans la BDD.
+        }
+        $nom1 = $tab[0]; // On récupère le nom du capteur 1.
+        $nom2 = $tab[1]; // On récupère le nom du capteur 2.
+        $nom3 = $tab[2]; // On récupère le nom du capteur 3.
+		echo $nom1 ; 
+		echo $nom2 ;
+		echo $nom3;
+<?>
 
 <div class="container">
   <h3>Popover Example</h3>
@@ -23,7 +46,7 @@ $(document).ready(function(){
 </script>
 
 </body>
-</html>
+
 
 
 
