@@ -30,9 +30,9 @@ import java.util.concurrent.Future;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    private TextView lbl_version;
     private TextView lbl_nbCapteurs;
     private LinearLayout layout_capteurs;
+    private LinearLayout layout_logs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +41,6 @@ public class DashboardActivity extends AppCompatActivity {
 
         // CONTROLS
         lbl_nbCapteurs = findViewById(R.id.lbl_nbCapteurs);
-        lbl_version = findViewById(R.id.lbl_version);
-        lbl_version.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CNotification.AfficherToast(v.getContext(), "Samuel tu suces des bites !", 1);
-            }
-        });
         layout_capteurs = findViewById(R.id.layout_capteurs);
         layout_capteurs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +49,14 @@ public class DashboardActivity extends AppCompatActivity {
                 startActivity(dashboardIntent);
             }
         });
-
+        layout_logs = findViewById(R.id.layout_logs);
+        layout_logs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent LogIntent = new Intent(DashboardActivity.this, LogActivity.class);
+                startActivity(LogIntent);
+            }
+        });
 
         // LOAD DATA
         try {

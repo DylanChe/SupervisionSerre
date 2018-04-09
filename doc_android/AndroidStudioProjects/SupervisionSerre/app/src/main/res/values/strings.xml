@@ -9,6 +9,6 @@
     <string name="dashboard_lbl_slash">/</string>
     <string name="dashboard_lbl_capteurs">Capteurs</string>
     <string name="dashboard_lbl_liste_capteurs">Liste des capteurs</string>
-    <string name="dashboard_lbl_logs">Erreurs</string>
+    <string name="dashboard_lbl_logs">Journaux</string>
     <string name="dashboard_lbl_liste_logs">Liste des erreurs</string>
 </resources>
