@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!-- BASICS -->
+    <color name="white">#ffffff</color>
+    <!-- GROUPE OLIVIER -->
+    <color name="noirOlivier">#37302f</color>
+    <color name="bleuOlivier">#0694c4</color>
+    <!-- FLATUICOLORS.COM -->
+    <color name="turquoise">#1abc9c</color>
+    <color name="greenSea">#16a085</color>
+    <color name="emerald">#2ecc71</color>
+    <color name="nephritis">#27ae60</color>
+    <color name="peterRiver">#3498db</color>
+    <color name="belizeHole">#2980b9</color>
+    <color name="amethyst">#9b59b6</color>
+    <color name="wisteria">#8e44ad</color>
+    <color name="wetAsphalt">#34495e</color>
+    <color name="midnightBlue">#2c3e50</color>
+    <color name="sunFlower">#f1c40f</color>
+    <color name="orange">#f39c12</color>
+    <color name="carrot">#e67e22</color>
+    <color name="pumpkin">#d35400</color>
+    <color name="alizarin">#e74c3c</color>
+    <color name="pomeGranate">#c0392b</color>
+    <color name="clouds">#ecf0f1</color>
+    <color name="silver">#bdc3c7</color>
+    <color name="concrete">#95a5a6</color>
+    <color name="asbestos">#7f8c8d</color>
+</resources>

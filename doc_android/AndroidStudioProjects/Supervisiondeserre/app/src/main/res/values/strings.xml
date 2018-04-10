@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Supervision de serre</string>
+    <!-- MAIN_ACTIVITY -->
+    <string name="main_lbl_serverInfos">Information sur le serveur :</string>
+    <string name="main_lbl_serverIp">Adresse IP :</string>
+    <string name="main_txt_serverIp">92.222.92.147</string>
+    <string name="main_bt_connect">Connexion</string>
+    <!-- DASHBOARD_ACTIVITY -->
+
+</resources>
