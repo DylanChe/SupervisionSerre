@@ -1,16 +1,21 @@
 <resources>
     <string name="app_name">SupervisionSerre</string>
-    <string name="main_bt_connexion">Connexion</string>
-    <string name="main_lbl_bdd_info">Information sur la base de données :</string>
-    <string name="main_lbl_bdd_url">Adresse IP :</string>
-    <string name="main_txt_bdd_url">92.222.92.147</string>
+    <!-- ===== MainActivity ===== -->
+    <string name="main_lbl_db_info">Information sur la base de données :</string>
+    <string name="main_lbl_db_url">Adresse IP :</string>
+    <string name="main_txt_db_url">92.222.92.147</string>
+    <string name="main_bt_connection">Connexion</string>
+    <!-- ===== DashboardActivity ===== -->
     <string name="dashboard_lbl_dashboard">Dashboard</string>
     <string name="dashboard_lbl_version">Version 1.0</string>
     <string name="dashboard_lbl_slash">/</string>
+    <!-- Capteurs -->
     <string name="dashboard_lbl_capteurs">Capteurs</string>
     <string name="dashboard_lbl_liste_capteurs">Liste des capteurs</string>
-    <string name="dashboard_lbl_microcontrolleurs">Microcontrolleurs</string>
-    <string name="dashboard_lbl_liste_microcontrolleurs">Liste des microcontrolleurs</string>
+    <!-- Microcontroleurs -->
+    <string name="dashboard_lbl_microcontrolleurs">Microcontroleurs</string>
+    <string name="dashboard_lbl_liste_microcontrolleurs">Liste des microcontroleurs</string>
+    <!-- Capteurs -->
     <string name="dashboard_lbl_logs">Journaux</string>
     <string name="dashboard_lbl_liste_logs">Liste des erreurs</string>
     <string name="sensor_lbl_astuceLogs">Appuyer sur un capteur pour accéder à ses journaux</string>

@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="75dp"
             android:layout_marginBottom="10dp"
-            android:text="@string/main_lbl_bdd_info"
+            android:text="@string/main_lbl_db_info"
             android:textColor="@color/noirOlivier"/>
 
             <LinearLayout
@@ -34,15 +34,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/main_lbl_bdd_url"
+                    android:text="@string/main_lbl_db_url"
                     android:textColor="@color/noirOlivier"/>
 
                 <EditText
-                    android:id="@+id/txt_serveurURL"
+                    android:id="@+id/txt_serverUrl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
-                    android:text="@string/main_txt_bdd_url"
+                    android:text="@string/main_txt_db_url"
                     android:textColor="@color/noirOlivier"
                     android:backgroundTint="@color/bleuOlivier"/>
 
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="70dp"
             android:layout_marginTop="75dp"
-            android:text="@string/main_bt_connexion"
+            android:text="@string/main_bt_connection"
             android:textColor="@color/white"
             android:backgroundTint="@color/bleuOlivier"/>
 

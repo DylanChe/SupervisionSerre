@@ -61,13 +61,17 @@
     <script type='text/javascript' src='http://www.groupe-olivier.fr/wp-content/plugins/fluid-responsive-slideshow/js/frs.js?ver=2.0.3'></script>
     <script type='text/javascript' src='http://www.groupe-olivier.fr/wp-content/plugins/fluid-responsive-slideshow/js/jquery.touchSwipe.min.js?ver=4.0.22'></script>
     <script type='text/javascript' src='http://www.groupe-olivier.fr/wp-content/plugins/fluid-responsive-slideshow/js/imagesloaded.min.js?ver=2.0.3'></script>
-    <script type='text/javascript' src='http://www.groupe-olivier.fr/wp-content/themes/unite/inc/js/bootstrap.min.js?ver=4.0.22'></script>
+    <!--<script type='text/javascript' src='http://www.groupe-olivier.fr/wp-content/themes/unite/inc/js/bootstrap.min.js?ver=4.0.22'></script> -->
     <script type='text/javascript' src='http://www.groupe-olivier.fr/wp-content/themes/unite/inc/js/main.min.js?ver=4.0.22'></script>
     <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.groupe-olivier.fr/xmlrpc.php?rsd" />
     <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.groupe-olivier.fr/wp-includes/wlwmanifest.xml" />
     <meta name="generator" content="WordPress 4.0.22" />
     <link rel='shortlink' href='http://www.groupe-olivier.fr/' />
     <style type="text/css">.entry-content {font-family: Helvetica Neue; font-size:15px; font-weight: normal; color:#6B6B6B;}</style>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 </head>
 
     <!-- ------------ -->
@@ -126,15 +130,16 @@
 	<div>
 		<div id="zone-serre">
 			<img class="serre" src="inc/img/serre.png" alt="serre" />
-
-			<img class="wid wid-temperature_tuyau" src="inc/img/temperature_tuyau.png" alt="temperature des tuyaux de chauffage" title="Température des tuyaux de chauffage" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?" />
+			
+			<a href="#" data-toggle="popover" title="Pluviométrie" data-content="mm"> <img class="wid wid-pluviometre" src="inc/img/pluviometre.png" alt="Pluviométrie" title="Pluviométrie" /> </a>
+			<img class="wid wid-temperature_tuyau" src="inc/img/temperature_tuyau.png" alt="temperature des tuyaux de chauffage" title="Température des tuyaux de chauffage" />
 			<img class="wid wid-temperature" src="inc/img/temperature.png" alt="temperature sous serre" title="Température sous serre" />
-			<img class="wid wid-pluviometre" src="inc/img/pluviometre.png" alt="Pluviométrie" title="Pluviométrie" />
 			<img class="wid wid-direction_vent" src="inc/img/direction_vent.png" alt="Direction du vent" title="Direction du vent" />
 			<img class="wid wid-vitesse_vent" src="inc/img/vitesse_vent.png" alt="Vitesse du vent" title="Vitesse du vent" />
 			<img class="wid wid-solarimetre" src="inc/img/solarimetre.png" alt="Intensité lumineuse" title="Intensité lumineuse" />
 		</div>
 	</div>
+	
 	
 	<!-- ------------ -->
     <!-- FOOTER DEBUT -->
@@ -188,6 +193,12 @@
 <script type='text/javascript' src='http://www.groupe-olivier.fr/wp-includes/js/jquery/ui/jquery.ui.slider.min.js?ver=1.10.4'></script>
 <script type='text/javascript' src='http://www.groupe-olivier.fr/wp-includes/js/jquery/ui/jquery.ui.button.min.js?ver=1.10.4'></script>
 <script type='text/javascript' src='http://www.groupe-olivier.fr/wp-content/plugins/contact-form-7-datepicker/js/jquery-ui-sliderAccess.js?ver=4.0.22'></script>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();   
+});
+</script>
+<script ></script>
 
 </body>
 </html>

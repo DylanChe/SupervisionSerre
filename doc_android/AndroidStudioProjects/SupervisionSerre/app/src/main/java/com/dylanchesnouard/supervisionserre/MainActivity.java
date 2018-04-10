@@ -31,44 +31,48 @@ import java.util.concurrent.Future;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button bt_connexion;
-    private EditText txt_serveurURL;
+    // ATTRIBUTES
+    private Button bt_connection;
+    private EditText txt_serverUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // CONTROLS
-        bt_connexion = findViewById(R.id.bt_connexion);
-        bt_connexion.setOnClickListener(new View.OnClickListener() {
+        // CONTROLS & LISTENERS
+        bt_connection = findViewById(R.id.bt_connexion);
+        bt_connection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                connexion();
+                connect();
             }
         });
-        txt_serveurURL = findViewById(R.id.txt_serveurURL);
+        txt_serverUrl = findViewById(R.id.txt_serverUrl);
     }
 
-    private void connexion() {
-        CConnexion.setUrl(txt_serveurURL.getText().toString());
+    /**
+     * Permet de tester la connexion Internet puis d'établir une connexion aves le serveur contenant la BDD
+     */
+    private void connect() {
+        CConnexion.setUrl(txt_serverUrl.getText().toString());
         if(CConnexion.getUrl().length() == 0) {
             CNotification.AfficherErreur(this, 3);
         } else {
             try {
-                Log.i("CustomLog","[connexion] testInternet : " + CConnexion.testInternet(this));
-                Log.i("CustomLog","[connexion] testConnexion : " + CConnexion.testConnexion());
-                if(!CConnexion.testInternet(this)) {
+                Log.i("CustomLog","[connect] testInternet = " + CConnexion.testInternet(this));
+                Log.i("CustomLog","[connect] testConnexion = " + CConnexion.testConnexion());
+                if(!CConnexion.testInternet(this)) { // Vérifie que les itinérances de données sont activées
                     CNotification.AfficherErreur(this, 1);
-                } else if(!CConnexion.testConnexion()) {
+                } else if(!CConnexion.testConnexion()) { // Vérifie la connexion avec le serveur
                     CNotification.AfficherErreur(this, 2);
-                } else {
+                } else { // Aucun problème donc la connexion fonctionne
                     CNotification.AfficherToast(this, "Connexion réussie !", 1);
                     Intent dashboardIntent = new Intent(MainActivity.this, DashboardActivity.class);
                     startActivity(dashboardIntent);
                 }
             } catch (Exception e) {
-                Log.e("CustomLog", "[connexion] ERROR : " + e.getMessage());
+                Log.e("CustomLog", "[connect] ERROR : " + e.getMessage());
                 CNotification.AfficherErreur(this, 0);
             }
         }
