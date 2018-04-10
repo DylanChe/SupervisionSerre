@@ -1231,8 +1231,8 @@ body.search #primary,
 
 div#zone-serre {
 	position: relative;
-	border: dotted red;
-	/*background: url('../inc/img/serre.png') no-repeat center top;*/
+	/*border: dotted red;
+	background: url('../inc/img/serre.png') no-repeat center top;*/
 	background-size: cover;
 	text-align: center;
 }
@@ -1267,8 +1267,8 @@ img.wid-temperature {
 img.wid-pluviometre {
 	margin-left: -32%;
 	margin-top: 22%;
-	margin-right: -50px;
-	margin-bottom: -50px;
+	/*margin-right: -50px;
+	margin-bottom: -50px;*/
 }
 
 img.wid-direction_vent {
