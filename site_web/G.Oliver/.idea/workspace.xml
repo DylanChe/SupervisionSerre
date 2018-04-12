@@ -26,29 +26,35 @@
       <file leaf-file-name="evolution_mesure.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/evolution_mesure.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="172" column="13" lean-forward="true" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
+            <state relative-caret-position="306">
+              <caret line="198" column="51" lean-forward="true" selection-start-line="198" selection-start-column="51" selection-end-line="198" selection-end-column="51" />
               <folding>
-                <marker date="1523258775701" expanded="true" signature="10580:10608" ph="..." />
-                <marker date="1523258775701" expanded="true" signature="10672:10737" ph="..." />
-                <marker date="1523258775701" expanded="true" signature="12037:12059" ph="SELECT * FRO... materiel" />
-                <marker date="1523258775701" expanded="true" signature="12896:12938" ph="SELECT * FRO... releve" />
-                <marker date="1523258775701" expanded="true" signature="13241:13283" ph="SELECT * FRO... releve" />
-                <marker date="1523258775701" expanded="true" signature="13806:13818" ph="..." />
-                <marker date="1523258775701" expanded="true" signature="13835:13850" ph="..." />
-                <marker date="1523258775701" expanded="true" signature="13896:15431" ph="..." />
-                <marker date="1523258775701" expanded="true" signature="14095:15258" ph="{...}" />
-                <marker date="1523258775701" expanded="true" signature="14126:14189" ph="{&quot;trigger&quot;: 'axis'...}" />
-                <marker date="1523258775701" expanded="true" signature="14217:14394" ph="{&quot;left&quot;: '3%'...}" />
-                <marker date="1523258775701" expanded="true" signature="14423:14484" ph="{&quot;type&quot;: 'value'...}" />
-                <marker date="1523258775701" expanded="true" signature="14513:14680" ph="{&quot;type&quot;: 'category'...}" />
-                <marker date="1523258775701" expanded="true" signature="14710:14784" ph="{...}" />
-                <marker date="1523258775701" expanded="true" signature="14814:15240" ph="[...]" />
-                <marker date="1523258775701" expanded="true" signature="14840:15015" ph="{&quot;type&quot;: 'line'...}" />
-                <marker date="1523258775701" expanded="true" signature="15041:15218" ph="{&quot;type&quot;: 'line'...}" />
-                <marker date="1523258775701" expanded="true" signature="15338:15410" ph="{...}" />
-                <marker date="1523258775701" expanded="true" signature="17199:17238" ph="..." />
+                <marker date="1523543296670" expanded="true" signature="10628:10656" ph="..." />
+                <marker date="1523543296670" expanded="true" signature="10720:10785" ph="..." />
+                <marker date="1523543296670" expanded="true" signature="11501:11512" ph="..." />
+                <marker date="1523543296670" expanded="true" signature="12095:12117" ph="SELECT * FRO... materiel" />
+                <marker date="1523543296670" expanded="true" signature="12449:12488" ph="SELECT * FRO... releve" />
+                <marker date="1523543296670" expanded="true" signature="12449:12490" ph="SELECT * FRO... releve" />
+                <marker date="1523543296670" expanded="true" signature="13084:13097" ph="..." />
+                <marker date="1523543296670" expanded="true" signature="13114:13129" ph="..." />
+                <marker date="1523543296670" expanded="true" signature="13175:13227" ph="..." />
+                <marker date="1523543296670" expanded="true" signature="13175:15479" ph="..." />
+                <marker date="1523543296670" expanded="true" signature="13175:15486" ph="..." />
+                <marker date="1523543296670" expanded="true" signature="14062:14084" ph="SELECT * FRO... materiel" />
+                <marker date="1523543296670" expanded="true" signature="14898:14937" ph="SELECT * FRO... releve" />
+                <marker date="1523543296670" expanded="true" signature="17337:17376" ph="..." />
+                <marker date="1523543296670" expanded="true" signature="17343:17358" ph="/*...*/" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Recuperer_capteur.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inc/Recuperer_capteur.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,8 +72,8 @@
       <file leaf-file-name="connect.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/inc/connect.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="94" lean-forward="false" selection-start-line="3" selection-start-column="94" selection-end-line="3" selection-end-column="94" />
+            <state relative-caret-position="119">
+              <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -85,11 +91,19 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>footer</find>
       <find>datepicker</find>
       <find>index.html</find>
+      <find>html</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -101,6 +115,7 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/evolution_mesure.html" />
         <option value="$PROJECT_DIR$/inc/connect.php" />
+        <option value="$PROJECT_DIR$/inc/Recuperer_capteur.js" />
         <option value="$PROJECT_DIR$/evolution_mesure.php" />
       </list>
     </option>
@@ -112,7 +127,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds">
     <option name="x" value="953" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -132,8 +147,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -150,6 +163,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -202,18 +217,23 @@
       <workItem from="1522327164242" duration="5717000" />
       <workItem from="1522755569082" duration="3340000" />
       <workItem from="1522910947105" duration="11424000" />
-      <workItem from="1523254352398" duration="4466000" />
+      <workItem from="1523254352398" duration="10348000" />
+      <workItem from="1523360395728" duration="10262000" />
+      <workItem from="1523515067911" duration="557000" />
+      <workItem from="1523516108862" duration="10570000" />
+      <workItem from="1523534710627" duration="2672000" />
+      <workItem from="1523542837863" duration="622000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75887000" />
+    <option name="totallyTimeSpent" value="106452000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.035416666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25887266" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -243,16 +263,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <marker date="1522045324779" expanded="true" signature="13047:13319" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/evolution_mesure.html" />
     <entry file="file://$PROJECT_DIR$/etat_serre.html" />
     <entry file="file://$PROJECT_DIR$/css/style.css">
@@ -376,6 +386,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/inc/connect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="1" lean-forward="false" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/inc/db.connect.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -384,10 +402,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/connect.php">
+    <entry file="file://$PROJECT_DIR$/inc/Recuperer_capteur.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="94" lean-forward="false" selection-start-line="3" selection-start-column="94" selection-end-line="3" selection-end-column="94" />
+        <state relative-caret-position="34">
+          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="20" selection-end-line="2" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -404,28 +422,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/evolution_mesure.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="172" column="13" lean-forward="true" selection-start-line="172" selection-start-column="13" selection-end-line="172" selection-end-column="13" />
+        <state relative-caret-position="306">
+          <caret line="198" column="51" lean-forward="true" selection-start-line="198" selection-start-column="51" selection-end-line="198" selection-end-column="51" />
           <folding>
-            <marker date="1523258775701" expanded="true" signature="10580:10608" ph="..." />
-            <marker date="1523258775701" expanded="true" signature="10672:10737" ph="..." />
-            <marker date="1523258775701" expanded="true" signature="12037:12059" ph="SELECT * FRO... materiel" />
-            <marker date="1523258775701" expanded="true" signature="12896:12938" ph="SELECT * FRO... releve" />
-            <marker date="1523258775701" expanded="true" signature="13241:13283" ph="SELECT * FRO... releve" />
-            <marker date="1523258775701" expanded="true" signature="13806:13818" ph="..." />
-            <marker date="1523258775701" expanded="true" signature="13835:13850" ph="..." />
-            <marker date="1523258775701" expanded="true" signature="13896:15431" ph="..." />
-            <marker date="1523258775701" expanded="true" signature="14095:15258" ph="{...}" />
-            <marker date="1523258775701" expanded="true" signature="14126:14189" ph="{&quot;trigger&quot;: 'axis'...}" />
-            <marker date="1523258775701" expanded="true" signature="14217:14394" ph="{&quot;left&quot;: '3%'...}" />
-            <marker date="1523258775701" expanded="true" signature="14423:14484" ph="{&quot;type&quot;: 'value'...}" />
-            <marker date="1523258775701" expanded="true" signature="14513:14680" ph="{&quot;type&quot;: 'category'...}" />
-            <marker date="1523258775701" expanded="true" signature="14710:14784" ph="{...}" />
-            <marker date="1523258775701" expanded="true" signature="14814:15240" ph="[...]" />
-            <marker date="1523258775701" expanded="true" signature="14840:15015" ph="{&quot;type&quot;: 'line'...}" />
-            <marker date="1523258775701" expanded="true" signature="15041:15218" ph="{&quot;type&quot;: 'line'...}" />
-            <marker date="1523258775701" expanded="true" signature="15338:15410" ph="{...}" />
-            <marker date="1523258775701" expanded="true" signature="17199:17238" ph="..." />
+            <marker date="1523543296670" expanded="true" signature="10628:10656" ph="..." />
+            <marker date="1523543296670" expanded="true" signature="10720:10785" ph="..." />
+            <marker date="1523543296670" expanded="true" signature="11501:11512" ph="..." />
+            <marker date="1523543296670" expanded="true" signature="12095:12117" ph="SELECT * FRO... materiel" />
+            <marker date="1523543296670" expanded="true" signature="12449:12488" ph="SELECT * FRO... releve" />
+            <marker date="1523543296670" expanded="true" signature="12449:12490" ph="SELECT * FRO... releve" />
+            <marker date="1523543296670" expanded="true" signature="13084:13097" ph="..." />
+            <marker date="1523543296670" expanded="true" signature="13114:13129" ph="..." />
+            <marker date="1523543296670" expanded="true" signature="13175:13227" ph="..." />
+            <marker date="1523543296670" expanded="true" signature="13175:15479" ph="..." />
+            <marker date="1523543296670" expanded="true" signature="13175:15486" ph="..." />
+            <marker date="1523543296670" expanded="true" signature="14062:14084" ph="SELECT * FRO... materiel" />
+            <marker date="1523543296670" expanded="true" signature="14898:14937" ph="SELECT * FRO... releve" />
+            <marker date="1523543296670" expanded="true" signature="17337:17376" ph="..." />
+            <marker date="1523543296670" expanded="true" signature="17343:17358" ph="/*...*/" />
           </folding>
         </state>
       </provider>
