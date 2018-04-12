@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Anchor Bootstrap Multi-purpose Responsive Template</title>
+    <title>Groupe Oliver - Supervision</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <!-- css -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -61,82 +61,12 @@
 
     <!-- FIN HEADER -->
 
-    <section id="banner">
-
-
-        <!-- SLIDER -->
-
-        <div class="flexslider" id="main-slider">
-            <ul class="slides">
-                <li>
-                    <img alt="" src="img/slides/1.jpg">
-
-                    <div class="flex-caption wow fadeInLeft" data-wow-animation-name="none">
-                        <h3>SIMPLE D'ACCES</h3>
-                    </div>
-                </li>
-
-                <li>
-                    <img alt="" src="img/slides/2.jpg">
-
-                    <div class="flex-caption wow fadeInRight" data-wow-animation-name="none">
-                        <h3>DANS VOS LOCAUX</h3>
-                    </div>
-                </li>
-            </ul>
-        </div><!-- end slider -->
-    </section>
-
-
-
-
-    <section class="our-services">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="aligncenter">
-                        <h2 class="aligncenter">Fonctionnalités</h2>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="skill-home">
-                    <div class="skill-home-solid clearfix">
-
-                        <div class="col-md-4 text-center">
-                            <div class="box-area">
-								<span class="icons c1 fa fa-trophy" style="font-style: italic"></span>
-                                <h3> Etat de la serre</h3>
-                                <p>Vous permet de recevoir les dernières valeurs des capteurs en temps réel.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 text-center">
-                            <div class="box-area">
-								 <span class="icons c2 fa fa-picture-o" style="font-style: italic"></span>
-                                <h3>Evolution des mesures</h3>
-
-                                <p>Vous permet d'afficher les valeurs des capteurs dans un graphique entre deux dates.</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 text-center">
-
-
-                            <div class="box-area">
-								 <span class="icons c3 fa fa-desktop" style="font-style: italic"></span>
-                                <h3>Ajouter un capteur</h3>
-                                <p>Vous permet de rajouter autant de capteurs que vous voulez dans la base de données.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
+	<section class="our-services">
+		<div class="container">
+		</div>
+	</section>
+	
+	<!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="row">
@@ -151,19 +81,19 @@
 
                 <div class="col-lg-2">
                     <div class="widget" style="text-align: center">
-                        <h5 class="widgetheading">Etat de la serre</h5>
+                        <a href="etat_serre.php"><h5 class="widgetheading">Etat de la serre</h5></a>
                     </div>
                 </div>
 
                 <div class="col-lg-2">
                     <div class="widget" style="text-align: center">
-                        <h5 class="widgetheading">Evolution des mesures</h5>
+                        <a href="evolution_mesure.php"><h5 class="widgetheading">Evolution des mesures</h5></a>
                     </div>
                 </div>
 
                 <div class="col-lg-2">
                     <div class="widget" style="text-align: center">
-                        <h5 class="widgetheading">Ajouter un capteur</h5>
+                        <a href="ajout_capteur.php"><h5 class="widgetheading">Ajouter un capteur</h5></a>
                     </div>
                 </div>
             </div>

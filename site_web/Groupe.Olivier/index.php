@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Anchor Bootstrap Multi-purpose Responsive Template</title>
+    <title>Groupe Oliver - Supervision</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <!-- css -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -42,16 +42,16 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="index.html">Accueil</a>
+                            <a href="index.php">Accueil</a>
                         </li>
                         <li>
-                            <a href="about.html">Etat de la serre</a>
+                            <a href="etat_serre.php">Etat de la serre</a>
                         </li>
                         <li>
-                            <a href="services.html">Evolution des mesures</a>
+                            <a href="evolution_mesure.php">Evolution des mesures</a>
                         </li>
                         <li>
-                            <a href="services.html">Ajouter un capteur</a>
+                            <a href="ajout_capteur.php">Ajouter un capteur</a>
                         </li>
                     </ul>
                 </div>
@@ -151,19 +151,19 @@
 
                 <div class="col-lg-2">
                     <div class="widget" style="text-align: center">
-                        <h5 class="widgetheading">Etat de la serre</h5>
+                        <a href="etat_serre.php"><h5 class="widgetheading">Etat de la serre</h5></a>
                     </div>
                 </div>
 
                 <div class="col-lg-2">
                     <div class="widget" style="text-align: center">
-                        <h5 class="widgetheading">Evolution des mesures</h5>
+                        <a href="evolution_mesure.php"><h5 class="widgetheading">Evolution des mesures</h5></a>
                     </div>
                 </div>
 
                 <div class="col-lg-2">
                     <div class="widget" style="text-align: center">
-                        <h5 class="widgetheading">Ajouter un capteur</h5>
+                        <a href="ajout_capteur.php"><h5 class="widgetheading">Ajouter un capteur</h5></a>
                     </div>
                 </div>
             </div>
