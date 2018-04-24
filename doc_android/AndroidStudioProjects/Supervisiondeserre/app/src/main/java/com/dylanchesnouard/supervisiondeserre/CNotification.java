@@ -7,6 +7,8 @@ import android.widget.Toast;
 
 public final class CNotification {
 
+    // METHODS
+
     /**
      * Affiche une fenêtre sur la vue "context" afin d'afficher un message prédéfini en fonction de "errorType".
      * La fenêtre possède un bouton "Ok" afin de la fermer.
@@ -15,19 +17,43 @@ public final class CNotification {
      */
     public static void displayError(Context context, int errorType) {
         AlertDialog.Builder alert = new AlertDialog.Builder(context);
-        alert.setTitle("Erreur");
+        alert.setTitle(context.getString(R.string.cnotification_error));
         switch (errorType) {
-            case 1: alert.setMessage("Les itinérances de données sont désactivées.\nVeuillez les activées.");
+            case 1: alert.setMessage(context.getString(R.string.cnotification_error_roaming));
                 break;
-            case 2: alert.setMessage("Impossible d'établir une connexion avec la base de données.\nVeuillez vérifier que l'adresse du serveur est correcte.");
+            case 2: alert.setMessage(context.getString(R.string.cnotification_error_serverConnection));
                 break;
-            case 3: alert.setMessage("Veuillez saisir une adresse IP valide.");
+            case 3: alert.setMessage(context.getString(R.string.cnotification_error_serverIp));
                 break;
-            default: alert.setMessage("Erreur.");
+            case 4: alert.setMessage(context.getString(R.string.cnotification_error_raspberryDown));
+                break;
+            default: alert.setMessage(context.getString(R.string.cnotification_error_default));
         }
         alert.setCancelable(true);
         alert.setNeutralButton(
-                "Ok",
+                context.getString(R.string.cnotification_error_ok),
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+        AlertDialog alert_connexionBdd = alert.create();
+        alert_connexionBdd.show();
+    }
+
+    /**
+     * Affiche une fenêtre sur la vue "context" afin d'afficher un message "message".
+     * La fenêtre possède un bouton "Ok" afin de la fermer.
+     * @param context
+     * @param message
+     */
+    public static void displayError(Context context, String message) {
+        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        alert.setTitle(context.getString(R.string.cnotification_error));
+        alert.setMessage(message);
+        alert.setCancelable(true);
+        alert.setNeutralButton(
+                context.getString(R.string.cnotification_error_ok),
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
