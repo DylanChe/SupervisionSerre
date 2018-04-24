@@ -76,6 +76,7 @@ include('inc/connect.php');
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
     <style type="text/css">.entry-content {font-family: Helvetica Neue; font-size:15px; font-weight: normal; color:#6B6B6B;}</style>
+
 </head>
 
 <!-- ------------ -->
@@ -170,6 +171,11 @@ include('inc/connect.php');
             <button type="submit" value="submit" class="btn btn-primary">Valider</button>
             <hr>
         </div>
+
+            <div id="donnees_test">
+
+            </div>
+
         </form>
         <?php
         $date_debut = $_GET['date_1'];
@@ -185,26 +191,8 @@ include('inc/connect.php');
 
         <?php
 
-        //$tableau_valeur[0] = 0;
-        // ---------------------------------------------------------------------
-        $materiels=$bdd->query("SELECT * FROM materiel");
-        while( $materiel = $materiels->fetch() )
-            $tab[] =  $materiel['nom']; // On récupère les données sous forme de tableau, pour récupérer les valeurs 1à1.
-        for ($i = 1; $i < count($tab); $i++) {
-            $tableau_valeur = NULL;
-            echo $tab[$i] . ",";
-            $test_releves = $bdd->query("SELECT * FROM releve WHERE id_materiel=$i");
-            while ($test_releve = $test_releves->fetch())
-                $tableau_valeur[] = $test_releve['valeur'];
-                //var_dump($test_releve['valeur']);
-            for ($z = 0; $z < count($tableau_valeur); $z++) {
-                echo $tableau_valeur[$z] . ",";
-            }
-        }
-
 
         // ---------------------------------------------------------------------
-
 
 
 
@@ -313,6 +301,7 @@ include('inc/connect.php');
     var _wpcf7 = {"loaderUrl":"http:\/\/www.groupe-olivier.fr\/wp-content\/plugins\/contact-form-7\/images\/ajax-loader.gif","sending":"Envoi en cours ..."};
     /* ]]> */
 </script>
+<script type="text/javascript" src="inc/recuperer_donnees.js"></script>
 <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/i18n/jquery.ui.datepicker-fr.min.js?ver=1.10.3'></script>
 <script type='text/javascript' src='http://www.groupe-olivier.fr/wp-content/plugins/contact-form-7-datepicker/js/jquery-ui-timepicker/jquery-ui-timepicker-addon.min.js?ver=4.0.22'></script>
 <script type='text/javascript' src='http://www.groupe-olivier.fr/wp-content/plugins/contact-form-7-datepicker/js/jquery-ui-timepicker/i18n/jquery-ui-timepicker-fr.js?ver=4.0.22'></script>
