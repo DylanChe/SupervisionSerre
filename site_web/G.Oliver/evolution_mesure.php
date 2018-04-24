@@ -1,5 +1,6 @@
 <?php
 include('inc/connect.php');
+//ini_set("display_errors",0);error_reporting(0);
 ?>
 
 <!DOCTYPE html>
@@ -113,10 +114,10 @@ include('inc/connect.php');
                                 <div class="collapse navbar-collapse navbar-ex-collapse">
                                     <ul id="menu-menu-principale" class="nav navbar-nav">
                                         <li id="menu-item-2" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-41 dropdown">
-                                            <a title="etat_serre" href="etat_serre.html"=>Etat de la serre</a>
+                                            <a title="etat_serre" href="etat_serre.php"=>Etat de la serre</a>
                                         </li>
                                         <li id="menu-item-3" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-42 dropdown">
-                                            <a title="evolution_mesure" href="evolution_mesure.html"=>Visualisation des mesures</a>
+                                            <a title="evolution_mesure" href="evolution_mesure.php"=>Visualisation des mesures</a>
                                         </li>
                                     </ul></div>
                             </nav><!-- Fermeture de la navigation du site.  -->
@@ -174,66 +175,47 @@ include('inc/connect.php');
         $date_debut = $_GET['date_1'];
         $date_fin = $_GET['date_2'];
         if ($date_fin < $date_debut) {
-            echo ' <center>Veuillez resaisir les dates !</center> <br>';
+            echo '<h1 style="color: red;">Les dates sont erronées.</h1>';
         }
         ;?>
 
         <!-- -----------------------------------------------------------------------------------------------------------
         ---------------------------------------ECHO-LE-JS-POUR-FONCTIONNER----------------------------------------------
         ------------------------------------------------------------------------------------------------------------ -->
-        
-
 
         <?php
 
-        // -----------------------------------------------------------------------------------
-
+        //$tableau_valeur[0] = 0;
+        // ---------------------------------------------------------------------
         $materiels=$bdd->query("SELECT * FROM materiel");
         while( $materiel = $materiels->fetch() )
-        {
-        $tab[] =  $materiel['nom']; // On récupère les données sous forme de tableau, pour récupérer les valeurs 1à1.
-        }
-        $taille_tab = count($tab); // On compte le nombre de valeurs dans le tableau.
-        $nom = "nom";
-        for ($i = 0; $i <= $taille_tab-1; $i++){
-            // à completer pour que ça puisse le faire en fonction du nombre de
-            //valeur dans la BDD.
-        }
-        $nom1 = $tab[0]; // On récupère le nom du capteur 1.
-        $nom2 = $tab[1]; // On récupère le nom du capteur 2.
-        $nom3 = $tab[2]; // On récupère le nom du capteur 3.
-        // -----------------------------------------------------------------------------------
-
-        // On récupère les données du capteur numéro 1.
-        $releves=$bdd->query("SELECT * FROM releve WHERE id_materiel = 1");
-        while( $releve = $releves->fetch() )
-        {
-            $tableau[] = $releve['valeur'];
-        }
-        $taille_tableau = count($tableau);
-        for ($u = 0; $u <= $taille_tab-1; $u++){
-        }
-
-        // On récupère les données du capteur numéro 2.
-        $releves2=$bdd->query("SELECT * FROM releve WHERE id_materiel = 2");
-        while( $releve2 = $releves2->fetch() )
-        {
-            $tableau2[] = $releve2['valeur'];
-        }
-        $taille_tableau2 = count($tableau2);
-        for ($u = 0; $u <= $taille_tableau2-1; $u++){
+            $tab[] =  $materiel['nom']; // On récupère les données sous forme de tableau, pour récupérer les valeurs 1à1.
+        for ($i = 1; $i < count($tab); $i++) {
+            $tableau_valeur = NULL;
+            echo $tab[$i] . ",";
+            $test_releves = $bdd->query("SELECT * FROM releve WHERE id_materiel=$i");
+            while ($test_releve = $test_releves->fetch())
+                $tableau_valeur[] = $test_releve['valeur'];
+                //var_dump($test_releve['valeur']);
+            for ($z = 0; $z < count($tableau_valeur); $z++) {
+                echo $tableau_valeur[$z] . ",";
+            }
         }
 
 
-        // -----------------------------------------------------------------------------------
+        // ---------------------------------------------------------------------
+
+
+
 
         $affichage_date_1 = $_GET['date_1'];
         $affichage_date_2 = $_GET['date_2'];
         echo "<h3>Du $affichage_date_1 au $affichage_date_2 :</h3>";
-        echo "<div id=\"graph\" style=\"height: 500%\" class=\"home\">
-        </div>
-            <script type=\"text/javascript\">
-                var dom = document.getElementById(\"graph\");
+        echo "<div id=\"graph\" style=\"height: 500% \" class=\"home\">
+        </div> ";?>
+
+        <script type="text/javascript">
+                var dom = document.getElementById("graph");
                 var myChart = echarts.init(dom);
                 var app = {};
                 option = null;
@@ -253,31 +235,42 @@ include('inc/connect.php');
                     xAxis: {
                         type: 'category',
                         boundaryGap: false,
-                        data: ['$date_debut','$date_fin']
+                        data: ['<?= $date_debut?>','<?= $date_fin?>']
                     },
                     legend: {
-                        data:[('$nom1'),('$nom2')]
+                        data:['<?php $materiels=$bdd->query("SELECT * FROM materiel");
+                            while( $materiel = $materiels->fetch() )
+                                $tab[] =  $materiel['nom']; // On récupère les données sous forme de tableau, pour récupérer les valeurs 1à1.
+                            for ($i = 0; $i <= count($tab)-1; $i++) {
+                                echo $tab[$i] . ",";
+                            }
+                            ?>']
                     },
-                    series: [
-                        {
-                            name:('$nom1'),
-                            type:'line',
-                            data:['$tableau[0]','$tableau[1]']
-                        },
-                        {
-                            name:('$nom2'),
-                            type:'line',
-                            data:['$tableau2[0]','$tableau2[1]']
-                        }
-                    ]
+                    series: {
+                            <?php
+                            for($i = 0; $i < count($tab); $i++) {?>
+                                name:('<?= $tab[$i];?>'),
+                                type:'line',
+                                <?php
+                                $tableau_valeur = NULL;
+                                $test_releves = $bdd->query("SELECT * FROM releve WHERE id_materiel=$i");
+                                while ($test_releve = $test_releves->fetch())
+                                    $tableau_valeur[] = $test_releve['valeur'];
+                                for ($z = 0; $z < count($tableau_valeur); $z++) {?>
+                                data:['<?=$tableau_valeur[$z]+",";?>']
+                                <?php
+                                }
+                            }
+                            ?>
+                    },
                 };
-                ;
-                if (option && typeof option === \"object\") {
+                if (option && typeof option === "object") {
                     myChart.setOption(option, true);
                 }
             </script>
-    </div>}";
-        ?>
+
+    </div>
+
 
     <!-- --------------- -->
     <!-- TESTIMONIAL FIN -->
@@ -295,7 +288,7 @@ include('inc/connect.php');
                 <nav role="navigation" class="col-md-2">
                     <ul id="menu-pied-de-page" class="nav footer-nav clearfix">
                         <li id="menu-item-145" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-2 current_page_item menu-item-145">
-                            <a href="index.html">Accueil</a>
+                            <a href="index.php">Accueil</a>
                         </li>
                     </ul>
                 </nav>

@@ -1266,9 +1266,10 @@ img.wid-temperature {
 
 img.wid-pluviometre {
 	margin-left: -32%;
-	margin-top: 22%;
-	/*margin-right: -50px;
-	margin-bottom: -50px;*/
+	margin-top: 32%;
+	margin-right: -50px;
+	margin-bottom: -50px;
+	background-image:url(inc/img/pluviometre.png);
 }
 
 img.wid-direction_vent {
