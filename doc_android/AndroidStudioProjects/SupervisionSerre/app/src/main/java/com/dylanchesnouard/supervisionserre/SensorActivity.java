@@ -1,5 +1,6 @@
 package com.dylanchesnouard.supervisionserre;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Typeface;
@@ -44,8 +45,8 @@ public class SensorActivity extends AppCompatActivity {
 
     }
 
-    private int dpToInt(int _dpMesure) {
-        Resources r = getResources();
+    private int dpToInt(int _dpMesure, Context context) {
+        Resources r = context.getResources();
         int px = (int) TypedValue.applyDimension(
                 TypedValue.COMPLEX_UNIT_DIP,
                 _dpMesure,
@@ -105,6 +106,7 @@ public class SensorActivity extends AppCompatActivity {
             layout_description.setBackgroundColor(getResources().getColor(R.color.alizarin));
         }
         layout_description.setLayoutParams(layout_description_params);
+        //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         // --- TEXT_VIEW
         LinearLayout.LayoutParams layout_lblEtat_params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
         layout_lblEtat_params.leftMargin = dpToInt(15);
@@ -118,6 +120,11 @@ public class SensorActivity extends AppCompatActivity {
         }
         lbl_etat.setTextColor(getResources().getColor(R.color.clouds));
         layout_description.addView(lbl_etat, layout_lblEtat_params);
+
+
+
+
+
         layout_main.addView(layout_title);
         layout_main.addView(layout_description);
         layout_listeCapteurs.addView(layout_main);

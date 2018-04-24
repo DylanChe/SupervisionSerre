@@ -38,18 +38,7 @@ public class CLog {
     public Date getDate_panne() {
         return date_panne;
     }
-    public String getJourPanne() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String jourPanne = dateFormat.format(date_panne);
-        Log.i("CustomLog","[CLog] date = " + jourPanne);
-        return jourPanne;
-    }
-    public String getHeurePanne() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
-        String heurePanne = dateFormat.format(date_panne);
-        Log.i("CustomLog","[CLog] heure = " + heurePanne);
-        return heurePanne;
-    }
+
     public void setDate_panne(Date date_panne) {
         this.date_panne = date_panne;
     }

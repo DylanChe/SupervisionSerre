@@ -19,15 +19,15 @@ void loop() {
 void count() {
   unsigned long curtime = millis();
   
-  if ((curtime - tiptime) < interval) {
-    return;
+  if ((curtime - tiptime) > interval) {
+    nbImpulsion = nbImpulsion + 1;
+    tiptime = millis();
   }
   
-  nbImpulsion = nbImpulsion + 1;
 }
 
 void mesurer() {
-  Serial.println(nbImpulsion);
+  Serial.print(nbImpulsion);
   nbImpulsion = 0;
 }
 

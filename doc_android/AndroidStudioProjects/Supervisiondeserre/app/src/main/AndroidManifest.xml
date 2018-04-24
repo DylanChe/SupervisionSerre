@@ -21,7 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".DashboardActivity" />
+        <activity android:name=".SensorActivity" />
+        <activity android:name=".MicrocontrollerActivity" />
+        <activity android:name=".LogActivity"></activity>
     </application>
 
 </manifest>

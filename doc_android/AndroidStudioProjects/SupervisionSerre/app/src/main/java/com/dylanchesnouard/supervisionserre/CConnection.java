@@ -40,7 +40,7 @@ public final class CConnection {
     */
 
 
-/*
+
     // ATTRIBUTES
     private static String url = null;
 
@@ -262,6 +262,6 @@ public final class CConnection {
         _reader.endObject();
         return new CLog(id, isFunctional, breakdateDate, sensorName);
     }
-*/
+
 
 }

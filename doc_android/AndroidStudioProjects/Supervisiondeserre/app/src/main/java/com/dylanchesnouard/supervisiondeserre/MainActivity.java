@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
@@ -13,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     // ATTRIBUTES
     private Button main_bt_connect;
     private EditText main_txt_serverIp;
+    private CheckBox main_check_allowModification;
 
     /**
      * Méthode appelée à la création de la fenêtre.
@@ -35,6 +37,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         main_txt_serverIp = findViewById(R.id.main_txt_serverIp);
+        main_check_allowModification = findViewById(R.id.main_check_allowModification);
+        main_check_allowModification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (main_txt_serverIp.isEnabled()) {
+                    main_txt_serverIp.setEnabled(false);
+                    main_txt_serverIp.setBackgroundTintList(getResources().getColorStateList(R.color.noirOlivier));
+                } else {
+                    main_txt_serverIp.setEnabled(true);
+                    main_txt_serverIp.setBackgroundTintList(getResources().getColorStateList(R.color.bleuOlivier));
+                }
+            }
+        });
     }
 
     /**
@@ -66,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
      * Méthode permettant d'accéder à l'activité DashboardActivity.
      */
     private void openDashboardActivity() {
-        CNotification.displayToast(this, "Connexion réussie !", 1);
+        CNotification.displayToast(this, getString(R.string.main_toast_successConnect), 1);
         Intent dashboardIntent = new Intent(MainActivity.this, DashboardActivity.class);
         startActivity(dashboardIntent);
     }
