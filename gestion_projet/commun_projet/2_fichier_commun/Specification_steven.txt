@@ -1,5 +1,0 @@
-
-
-Le bloc rasperry/anémomètre devra pouvoir relever automatiquement les mesures de chaque capteur et les enregistrer dans la base de données avec un programme codé en Python3.4.
-
- 
