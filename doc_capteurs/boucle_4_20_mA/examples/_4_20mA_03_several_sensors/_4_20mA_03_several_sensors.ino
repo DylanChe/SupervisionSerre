@@ -61,7 +61,9 @@ void loop()
     Serial.print(current);
     Serial.println(" mA");
     valeur = ((current-4)*45)/16;
-    Serial.println(valeur);
+    Serial.print("La température de l'air est de");
+    Serial.print(valeur);
+    Serial.println(" °C");
   }
   else {
     Serial.println("Il n'y a pas de capteur connecté au port 1..");
@@ -80,7 +82,9 @@ void loop()
     Serial.print(current);
     Serial.println(" mA"); 
     valeur = ((current-4)*100)/16;
-    Serial.println(valeur);
+    Serial.print("La température de l'eau est de : ");
+    Serial.print(valeur);
+    Serial.println(" °C");
   }
   else {
     Serial.println("Il n'y a pas de capteur connecté au port 3..");
