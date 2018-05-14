@@ -1,0 +1,35 @@
+.pluviometre {
+    position: absolute;
+    margin-top: 500px;
+    margin-left: 1000px;
+}
+
+.vitesse_vent{
+    position: absolute;
+    margin-top: 500px;
+    margin-left: 800px;
+}
+
+.direction_vent{
+    position: absolute;
+    margin-top: 500px;
+    margin-left: 600px;
+}
+
+.intensite_lumineuse{
+    position: absolute;
+    margin-top: 500px;
+    margin-left: 400px;
+}
+
+.temperature_tuyau{
+    position: absolute;
+    margin-top: 500px;
+    margin-left: 200px;
+}
+
+.temperature_serre{
+    position: absolute;
+    margin-top: 500px;
+    margin-left: 0px;
+}
