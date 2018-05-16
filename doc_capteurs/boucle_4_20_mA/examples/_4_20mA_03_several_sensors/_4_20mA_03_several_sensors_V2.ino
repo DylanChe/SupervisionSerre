@@ -33,7 +33,6 @@
 #define TEMPERATURE_AIR CHANNEL1
 #define TEMPERATURE_EAU CHANNEL3
 
-
 float current;
 float valeur;
 
