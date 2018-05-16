@@ -143,14 +143,14 @@ float get_temperature_eau() {
 }
 
 //test unitaire mA température air
-test(current_air) 
+test(current_air_max) 
 {
   float current=get_current_air;
   int max_ma=20;
   assertLessOrEqual(current,y);
 }
 
-test(current_air)
+test(current_air_min)
 {
   float current=get_current_air;
   int min_ma=4;
@@ -158,14 +158,14 @@ test(current_air)
 }
 
 //test unitaire ma temperature eau
-test(current_eau)
+test(current_eau_max)
 {
   float current=get_current_eau;
   int max_ma=20;
   assertLessOrEqual(current,y);
 }
 
-test(current_eau)
+test(current_eau_min)
 {
   float current=get_current_eau;
   int min_ma=4;
