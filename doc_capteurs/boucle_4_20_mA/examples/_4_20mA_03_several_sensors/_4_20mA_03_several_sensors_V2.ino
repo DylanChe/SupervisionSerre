@@ -29,7 +29,7 @@
 
 // Include this library for using current loop functions
 #include <currentLoop.h>
-#include <ArduinoUnit.h>
+
 #define TEMPERATURE_AIR CHANNEL1
 #define TEMPERATURE_EAU CHANNEL3
 
@@ -56,11 +56,11 @@ void loop()
   if (sensorBoard.isConnected(TEMPERATURE_AIR))
   {
     // Get the sensor value as a curren in mA
-	current=get_current_air;
+	  current=get_current_air;
     Serial.print("La valeur du capteur temperature de l'air est : ");
     Serial.print(current);
     Serial.println(" mA");
-    valeur = ((current-4)*45)/16;
+    valeur=get_temperature_air; 
     Serial.print("La température de l'air est de");
     Serial.print(valeur);
     Serial.println(" °C");
@@ -77,11 +77,11 @@ void loop()
   if (sensorBoard.isConnected(TEMPERATURE_EAU))
   {
     // Get the sensor value as a curren in mA.
-    current = sensorBoard.readCurrent(TEMPERATURE_EAU);
+    current=get_current_eau;
     Serial.print("La valeur du capteur temperature de l'eau est : ");
     Serial.print(current);
     Serial.println(" mA"); 
-    valeur = ((current-4)*100)/16;
+    valeur=get_temperature_eau;
     Serial.print("La température de l'eau est de : ");
     Serial.print(valeur);
     Serial.println(" °C");
@@ -101,23 +101,40 @@ float get_current_air() {
 	current=0;
 	if (sensorBoard.isConnected(TEMPERATURE_AIR))		
   {
-    // Get the sensor value as a curren in mA
+    // Obtenir la valeur du capteur en mA
     current = sensorBoard.readCurrent(TEMPERATURE_AIR );
   }
   return current;
 }
+
 float get_current_eau() {
+  current=0;
 	if (sensorBoard.isConnected(TEMPERATURE_EAU))
   {
-    // Get the sensor value as a curren in mA.
+    // Obtenir la valeur du capteur en mA
     current = sensorBoard.readCurrent(TEMPERATURE_EAU);
   }
+  return current;
 }
+
+
 float get_temperature_air() {
-	
+  valeur=0;
+  if (sensorBoard.isConnected(TEMPERATURE_EAU))
+  {
+	  // Calcul pour obtenir la valeur en degrés
+	  valeur = ((get_current_air-4)*45)/16;
+  }
+  return valeur;
 }
 float get_temperature_eau() {
-	
+	valeur=0;
+  if (sensorBoard.isConnected(TEMPERATURE_EAU))
+  {
+    // Calcul pour obtenir la valeur en degrés
+    valeur = ((get_current_eau-4)*45)/16;
+  }
+  return valeur;
 }
 
 
