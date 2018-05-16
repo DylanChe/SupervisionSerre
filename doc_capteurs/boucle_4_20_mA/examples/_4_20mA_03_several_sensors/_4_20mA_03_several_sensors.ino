@@ -1,33 +1,3 @@
-/*
- *
- *  Explanation: This sketch shows how to use the most important
- *  features of the 4-20mA current loop board in Waspmote. This
- *  standard is used to transmit information of sensor over long
- *  distances. Waspmote uses analog inputs for reading the sensor
- *  values.
- *
- *  Copyright (C) 2014 Libelium Comunicaciones Distribuidas S.L.
- *  http://www.libelium.com
- *
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 2 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program. If not, see <http://www.gnu.org/licenses/>.
- *
- *  Version:          0.1
- *  Design:           David Gascon
- *  Implementation:   Ahmad Saad
- */
-
-// Include this library for using current loop functions
 #include <currentLoop.h>
 
 #define TEMPERATURE_AIR CHANNEL1
@@ -50,7 +20,7 @@ void setup()
 void loop()
 {
 
-  // Temprature sensor measure
+  // Temprature intérieur
   //=========================================================
 
   if (sensorBoard.isConnected(TEMPERATURE_AIR))
@@ -69,9 +39,9 @@ void loop()
     Serial.println("Il n'y a pas de capteur connecté au port 1..");
   }
 
-  // Humidity sensor measure
-  //=======================================================
-
+  // Temprature eau des tuyaux
+  //=========================================================
+  
   delay(100);
 
   if (sensorBoard.isConnected(TEMPERATURE_EAU))
