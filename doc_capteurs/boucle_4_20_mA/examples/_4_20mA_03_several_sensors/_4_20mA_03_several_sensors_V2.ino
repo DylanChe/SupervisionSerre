@@ -28,6 +28,9 @@
  */
 
 // Include this library for using current loop functions
+#line 2 "sketch.ino"
+#include <ArduinoUnit.h>
+
 #include <currentLoop.h>
 
 #define TEMPERATURE_AIR CHANNEL1
@@ -49,7 +52,7 @@ void setup()
 void loop()
 {
 
-  // Temprature sensor measure
+  // Mesure température de l'air
   //=========================================================
 
   if (sensorBoard.isConnected(TEMPERATURE_AIR))
@@ -68,14 +71,13 @@ void loop()
     Serial.println("Il n'y a pas de capteur connecté au port 1..");
   }
 
-  // Humidity sensor measure
+  // mesure température eau
   //=======================================================
 
   delay(100);
 
   if (sensorBoard.isConnected(TEMPERATURE_EAU))
   {
-    // Get the sensor value as a curren in mA.
     current=get_current_eau;
     Serial.print("La valeur du capteur temperature de l'eau est : ");
     Serial.print(current);
@@ -96,6 +98,7 @@ void loop()
   delay(3000);
 }
 
+//obtention valeur mA capteur
 float get_current_air() {
 	current=0;
 	if (sensorBoard.isConnected(TEMPERATURE_AIR))		
@@ -106,6 +109,7 @@ float get_current_air() {
   return current;
 }
 
+//obtention valeur mA capteur
 float get_current_eau() {
   current=0;
 	if (sensorBoard.isConnected(TEMPERATURE_EAU))
@@ -116,25 +120,66 @@ float get_current_eau() {
   return current;
 }
 
-
+//obtention valeur °C
 float get_temperature_air() {
   valeur=0;
-  if (sensorBoard.isConnected(TEMPERATURE_EAU))
+  if (sensorBoard.isConnected(TEMPERATURE_AIR))
   {
 	  // Calcul pour obtenir la valeur en degrés
 	  valeur = ((get_current_air-4)*45)/16;
   }
   return valeur;
 }
+
+//obtention valeur °C
 float get_temperature_eau() {
 	valeur=0;
   if (sensorBoard.isConnected(TEMPERATURE_EAU))
   {
     // Calcul pour obtenir la valeur en degrés
-    valeur = ((get_current_eau-4)*45)/16;
+    valeur = ((get_current_eau-4)*100)/16;
   }
   return valeur;
 }
 
+//test unitaire mA température air
+test(current_air) 
+{
+  float current=get_current_air;
+  int max_ma=20;
+  assertLessOrEqual(current,y);
+}
 
+test(current_air)
+{
+  float current=get_current_air;
+  int min_ma=4;
+  assertMoreOrEqual(current,min_ma);
+}
+
+//test unitaire ma temperature eau
+test(current_eau)
+{
+  float current=get_current_eau;
+  int max_ma=20;
+  assertLessOrEqual(current,y);
+}
+
+test(current_eau)
+{
+  float current=get_current_eau;
+  int min_ma=4;
+  assertMoreOrEqual(current,min_ma);
+}
+
+void setup()
+{
+  Serial.begin(9600);
+  while(!Serial) {} // Portability for Leonardo/Micro
+}
+
+void loop()
+{
+  Test::run();
+}
 
