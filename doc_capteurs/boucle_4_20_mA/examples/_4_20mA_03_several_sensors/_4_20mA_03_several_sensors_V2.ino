@@ -27,7 +27,7 @@
  *  Implementation:   Ahmad Saad
  */
 
-// Include this library for using current loop functions
+
 #line 2 "sketch.ino"
 #include <ArduinoUnit.h>
 
