@@ -1,3 +1,6 @@
+#line 2 "sketch.ino"
+#include <ArduinoUnit.h>
+
 #include <currentLoop.h>
 
 #define TEMPERATURE_AIR CHANNEL1
@@ -6,6 +9,16 @@
 
 float current;
 float valeur;
+float current_eau_min;
+
+
+test(ok)
+  {
+    current = sensorBoard.readCurrent(CHANNEL1);
+    float min_ma = 4;
+    assertMoreOrEqual(current,min_ma);
+  }
+
 
 void setup()
 {
@@ -20,7 +33,7 @@ void setup()
 void loop()
 {
 
-  // Temprature intérieur
+  // Temprature sensor measure
   //=========================================================
 
   if (sensorBoard.isConnected(TEMPERATURE_AIR))
@@ -31,17 +44,15 @@ void loop()
     Serial.print(current);
     Serial.println(" mA");
     valeur = ((current-4)*45)/16;
-    Serial.print("La température de l'air est de");
-    Serial.print(valeur);
-    Serial.println(" °C");
+    Serial.println(valeur);
   }
   else {
     Serial.println("Il n'y a pas de capteur connecté au port 1..");
   }
 
-  // Temprature eau des tuyaux
-  //=========================================================
-  
+  // Humidity sensor measure
+  //=======================================================
+
   delay(100);
 
   if (sensorBoard.isConnected(TEMPERATURE_EAU))
@@ -52,9 +63,7 @@ void loop()
     Serial.print(current);
     Serial.println(" mA"); 
     valeur = ((current-4)*100)/16;
-    Serial.print("La température de l'eau est de : ");
-    Serial.print(valeur);
-    Serial.println(" °C");
+    Serial.println(valeur);
   }
   else {
     Serial.println("Il n'y a pas de capteur connecté au port 3..");
@@ -65,8 +74,9 @@ void loop()
   Serial.print("\n");
 
   delay(3000);
+  Test::run();
+
+
 }
-
-
 
 
