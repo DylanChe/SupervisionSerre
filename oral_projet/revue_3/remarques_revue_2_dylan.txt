@@ -1,0 +1,19 @@
+Ajouter numéro des diapos
+Android <-> BDD = php
+Renommer le champ "Etat" en "EstFonctionnel" dans la BDD
+Concevoir des IHM Android
+Solution finale pour le client = Serveur distant ? Serveur local ? + de précision
+BDD -> Ajouter une table "Journal" (id, idCapteur, estFonctionnel, date)
+	Pour chaque capteur, un journal toutes les X heures max -> Ajouter une 'frequence' dans la table "Parametres"
+BDD -> Dans la table "Releve" si 'valeur' = NULL alors ERREUR donc création d'un log dans la table "Journal"
+Diagramme de classe -> COMPOSITION : 	RASP <>- Arduino (listeArduino)
+					Arduino <>- Capteur (listeCapteur)
+	Anemomètre : Attribut (valeur1, valeur2, grandeur1, grandeur2)
+
+		rasp = Rasp()
+		rasp.creerArduino()
+		rasp.listeArduino[1].blabla
+
+Etablir les données qui circule au moment :
+	- Entre capteur et Arduino
+	- Entre arduino et Rasp
