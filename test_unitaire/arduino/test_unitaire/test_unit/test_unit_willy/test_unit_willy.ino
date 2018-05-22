@@ -4,7 +4,7 @@
 #include <currentLoop.h>
 
 
-test(current_eau_min)
+test(current_eau_min)            
   {
     int current = sensorBoard.readCurrent(CHANNEL1);
     int min_ma = 4;
@@ -18,18 +18,24 @@ test(current_eau_max)
     assertLessOrEqual(current,max_ma);
   }
   
-test(probleme)
+test(probleme_inferieur)
   {
     int current = sensorBoard.readCurrent(CHANNEL1);
-    int probleme = 0;
+    int probleme = 4;
     assertLess(current,probleme);
   }
-
+  
+test(probleme_superieur)
+  {
+    int current = sensorBoard.readCurrent(CHANNEL1);
+    int probleme = 20;
+    assertMore(current,probleme);
+  }
   
 void setup()
 {
   Serial.begin(9600);
-  while(!Serial) {} // Portability for Leonardo/Micro
+  while(!Serial) {}
 }
 
 void loop()
