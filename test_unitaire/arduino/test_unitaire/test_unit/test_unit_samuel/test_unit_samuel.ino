@@ -17,21 +17,7 @@ test(current_eau_tuyau_max)
     int max_ma = 20;
     assertLessOrEqual(current,max_ma);
   }
-  
-test(probleme_inferieur)
-  {
-    int current = sensorBoard.readCurrent(CHANNEL3);
-    int probleme = 4;
-    assertLess(current,probleme);
-  }
-  
-test(probleme_superieur)
-  {
-    int current = sensorBoard.readCurrent(CHANNEL3);
-    int probleme = 20;
-    assertMore(current,probleme);
-  }
-  
+    
 void setup()
 {
   Serial.begin(9600);
