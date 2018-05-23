@@ -21,12 +21,13 @@ void count() {
   
   if ((curtime - tiptime) > interval) {
     nbImpulsion = nbImpulsion + 1;
+    Serial.print("TIP");
     tiptime = millis();
   }
   
 }
 
-void mesurer() {
+void mesurerPluviometrie() {
   Serial.print(nbImpulsion);
   nbImpulsion = 0;
 }
