@@ -2,6 +2,10 @@
 #define anemometrePin (18) // Pin de l'anemometre
 #define pluviometrePin (2) // Pin du pluviometre
 
+// COMMUNICATION
+String requestFromRaspberry = "";
+boolean requestComplete = false;
+
 // ANEMOMETRE
 // --- DIRECTION DU VENT
 int windDirection;
@@ -59,6 +63,7 @@ void setup() {
 
   // INITIALISATION DES VARIABLES
   lastDirectionValue = 1;
+  requestFromRaspberry.reserve(200);
 
   // PARAMETRAGE DES ENTREES/SORTIES
   // --- ANEMOMETRE
@@ -84,9 +89,27 @@ void pluvio_tip() {
 }
 
 void loop() {
+  if (requestComplete) {
+    if (requestFromRaspberry.equals("GET")) {
+      Serial.println("OK");
+    }
+  }
+  
   /*
   trame trameToSend;
   setUpTrame(&trameToSend, 1, 2, 565);
   sendTrame(&trameToSend);
   */
+
 }
+
+void serialEvent() {
+  while (Serial.available()) {
+    char inChar = (char)Serial.read();
+    requestFromRaspberry += inChar;
+    if (inChar == '\n') {
+      requestComplete = true;
+    }
+  }
+}
+
