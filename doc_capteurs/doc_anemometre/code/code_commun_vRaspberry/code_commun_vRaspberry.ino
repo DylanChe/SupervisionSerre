@@ -136,7 +136,7 @@ void loop() {
   WindSpeed = Rotations * 0.75 *1.61; 
 
   //Serial.print(Rotations); Serial.print("\t\t"); 
-  Serial.print(WindSpeed);Serial.println("Km/h");
+  Serial.print(WindSpeed);
   getVitesse(WindSpeed);
   
   VaneValue = analogRead(A2); 
@@ -154,8 +154,8 @@ void loop() {
   
    
     //Serial.print(VaneValue); Serial.print("\t\t"); 
-   Serial.print(CalDirection);Serial.println("°");
-   getHeading(CalDirection); 
+   Serial.print(CalDirection);
+  // getHeading(CalDirection); 
    LastValue = CalDirection; 
   
    
