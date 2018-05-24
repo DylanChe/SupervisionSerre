@@ -1,0 +1,10 @@
+﻿SELECT valeur AS 'Dernier relevé', unite AS 'Unité', date_releve AS 'Date du relevé', nom AS 'Capteur'
+FROM releve, materiel, unite
+WHERE date_releve IN (
+    SELECT MAX(date_releve)
+    FROM releve
+    GROUP BY id_materiel
+)
+AND releve.id_materiel = materiel.id
+AND releve.id_unite = unite.id
+GROUP BY id_materiel
