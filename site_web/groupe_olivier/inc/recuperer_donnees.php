@@ -63,5 +63,5 @@ $xAxis = [
 print json_encode($legend);
 print json_encode($series);
 print json_encode($xAxis);
-
+print "https://hastebin.com/uzexanepag.json";
 ?>
