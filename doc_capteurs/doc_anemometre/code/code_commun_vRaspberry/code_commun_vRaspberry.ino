@@ -10,12 +10,14 @@ int VaneValue;// raw analog value from wind vane
 int Direction;// translated 0 - 360 direction 
 int CalDirection;// converted value with offset applied 
 int LastValue; 
+int degre = 0;
+int vitesse = 0;
 const byte PluviometrePin = 2;
 const int interval = 500;
 volatile unsigned long tiptime = millis();
 
 
-#define Offset 0; 
+int Offset = 0; 
 
 void setup() { 
   Serial.begin(9600); 
@@ -136,13 +138,15 @@ void loop() {
   WindSpeed = Rotations * 0.75 *1.61; 
 
   //Serial.print(Rotations); Serial.print("\t\t"); 
-  Serial.print(WindSpeed);
-  getVitesse(WindSpeed);
+  vitesse = int(WindSpeed); 
+  Serial.println(vitesse);
+  //getVitesse(WindSpeed);
   
   VaneValue = analogRead(A2); 
   //delay(500);
   Direction = map(VaneValue, 0, 1023, 0, 360); 
-  CalDirection = Direction + Offset; 
+  CalDirection = (Direction + Offset); 
+  degre = int(CalDirection);
 
   if(CalDirection > 360) 
     CalDirection = CalDirection - 360; 
@@ -154,9 +158,9 @@ void loop() {
   
    
     //Serial.print(VaneValue); Serial.print("\t\t"); 
-   Serial.print(CalDirection);
+   Serial.println(degre);
   // getHeading(CalDirection); 
-   LastValue = CalDirection; 
+   LastValue = degre; 
   
    
   
