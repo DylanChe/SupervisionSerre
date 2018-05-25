@@ -9,9 +9,7 @@
     <!-- css -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
-    <link href="css/jcarousel.css" rel="stylesheet">
     <link href="css/flexslider.css" rel="stylesheet">
-    <link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -265,7 +263,7 @@
 </div>
 <!-- Placed at the end of the document so the pages load faster -->
 <script type="text/javascript" src="inc/recuperer_donnees.js"></script>
-<script src="js/jquery.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js/jquery.easing.1.3.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.fancybox.pack.js"></script>
@@ -275,6 +273,5 @@
 <script src="js/jquery.flexslider.js"></script>
 <script src="js/animate.js"></script>
 <script src="js/custom.js"></script>
-<script src="js/owl-carousel/owl.carousel.js"></script>
 </body>
 </html>
