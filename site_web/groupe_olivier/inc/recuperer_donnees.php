@@ -60,8 +60,15 @@ $xAxis = [
     'boundaryGap' => [false],
     'data' => [$dates]
 ];
-print json_encode($legend);
-print json_encode($series);
-print json_encode($xAxis);
-print "https://hastebin.com/uzexanepag.json";
+
+$test = array(
+    'legend' => $legend,
+    'series' => $series,
+    'xAxis' => $xAxis
+    );
+
+//print json_encode($legend);
+//print json_encode($series);
+//print json_encode($xAxis);
+print json_encode($test);
 ?>

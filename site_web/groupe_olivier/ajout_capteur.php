@@ -63,6 +63,31 @@
 
 	<section class="our-services">
 		<div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="input_Nom_Capteur">Nom du capteur :</label>
+                                <input type="text" class="form-control" id="input_Nom_Capteur" placeholder="Solarimètre Ref55">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="input_Abrev">Abréviation :</label>
+                                <input type="password" class="form-control" id="input_Abrev" placeholder="Solar">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="input_Type_Capteur">Type de capteur :</label>
+                                <input type="password" class="form-control" id="input_Type_Capteur" placeholder="Capteur">
+                            </div>
+                            <div class="form-group col-md-6">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Ajouter le capteur</button>
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
 		</div>
 	</section>
 	
