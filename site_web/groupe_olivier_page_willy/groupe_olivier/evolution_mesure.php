@@ -9,14 +9,13 @@
     <!-- css -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
-    <link href="css/jcarousel.css" rel="stylesheet">
     <link href="css/flexslider.css" rel="stylesheet">
-    <link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script type='text/javascript' src='http://code.jquery.com/jquery.min.js'></script>
 	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
@@ -78,7 +77,7 @@
                     <div class="aligncenter">
                             <div class="container">
 								<br>
-								<form method="get">
+								<form method="get" name="dates" action="#">
 								<div class="home-widget-area row col-sm-6">
 									<div>
 										<div class="textwidget" style="text-align: center">
@@ -86,7 +85,7 @@
 												<img style="border: 0 none;" src="img/calendrier.png" alt="" width="150" height="150" />
 												<br>
 												<br>
-												<p>Début : <input type="date" name="date_1" required maxlength="10" style="text-align: center"></p>
+												<p>Début : <input type="date" name="date_1" id="dateid_1" required maxlength="10" style="text-align: center" required onclick="verif_date()"></p>
 												<br>
 											</a>
 										</div>
@@ -99,14 +98,14 @@
 												<img style="border: 0 none;" src="img/calendrier.png" alt="" width="150" height="150" />
 												<br>
 												<br>
-												<span><p>Fin : <input type="date" name="date_2" required maxlength="10" style="text-align: center"></p></span>
+												<span><p>Fin : <input type="date" name="date_2" id="dateid_2" required maxlength="10" style="text-align: center" required></p></span>
 												<br>
 											</a>
 										</div>
 									</div>
 								</div>
 								<div class="textwidget" style="text-align: center">
-									<button type="submit" value="submit" class="btn btn-primary">Valider</button>
+									<button type="submit" value="submit" id="submit" class="btn btn-primary" onclick="disabled('1')">Valider</button>
 									<hr>
 								</div>
 							</form>
@@ -114,25 +113,108 @@
                 </div>
             </div>
         </div>
-    
-	
-	    <div id="graph" style="height: 500% " class="home">
-        </div>
 
+
+           <!-- <script type="text/javascript">
+                function verif_date()
+                {
+                    var date_debut = new Date(document.forms[0]["dates"]["dateid_1"]) ;
+                    var date_fin = new Date(document.forms[0]["dates"]["dateid_2"]) ;
+                    console.log(date_debut);
+                    if ( date_debut > date_fin )
+                    {
+                        window.alert("Les dates sont éronnées.");
+                        document.forms.dates.submit.disabled = true;
+                    }
+                    else
+                    {
+                        document.forms.dates.submit.disabled = false;
+                    }
+                }
+            </script>-->
+
+            <script type="text/javascript">
+                $('submit').click(function(){
+                    alert("test");
+                    $(this).attr("disabled","disabled");
+                });
+            </script>
+
+            <div id="graph" style="height: 500% " class="home">
+        </div>
+            <!-- <script type="text/javascript" src="inc/recuperer_donnees.js"></script> -->
         <script type="text/javascript">
+
+                var capteurs = [];
+                var date = [];
+                var valeurs = [];
+
+                function get_sensors() {
+                    $.ajax({
+                        url: 'inc/recuperer_donnees.php',
+                        method: "GET",
+                        async: false,
+                        success: function(data) {
+                            capteurs = JSON.parse(data);
+                        },
+                        error: function(data) {
+                            alert("Echec");
+                        }
+                    });
+                    return capteurs;
+
+                }
+
+                function get_dates() {
+                    $.ajax({
+                        url: 'inc/recuperer_date.php',
+                        method: "GET",
+                        async: false,
+                        success: function(data) {
+                            date = JSON.parse(data);
+                        },
+                        error: function(data) {
+                            alert("Echec");
+                        }
+                    });
+                    return date;
+
+                }
+
+                function get_values() {
+                    $.ajax({
+                        url: 'inc/recuperer_valeurs.php',
+                        method: "GET",
+                        async: false,
+                        success: function(data) {
+                            valeurs = JSON.parse(data);
+                        },
+                        error: function(data) {
+                            alert("Echec");
+                        }
+                    });
+                    return valeurs;
+
+                }
+
+                var capteurs = get_sensors();
+                var date = get_dates();
+                var valeurs = get_values();
+
+                console.log(valeurs);
 				var dom = document.getElementById("graph");
                 var myChart = echarts.init(dom);
                 var app = {};
                 option = null;
                 option = {
 						title: {
-							text: 'Graphique'
+							text: 'C1TEST'
 						},
 						tooltip: {
 							trigger: 'axis'
 						},
 						legend: {
-							data:['Solarimetre','Pluviometre','Temperature de l\'air','Temperature de l\'eau','Vitesse du vent']
+                            data: [capteurs[0].nom]
 						},
 						grid: {
 							left: '3%',
@@ -146,50 +228,26 @@
 							}
 						},
 						xAxis: {
-							type: 'category',
-							boundaryGap: false,
-							data: ['Date','Date','Date','Date','Date','Date','Date']
-						},
+                            type: 'category',
+                            boundaryGap: false,
+                            data: [date[0].date_releve, date[1].date_releve, date[2].date_releve, date[3].date_releve, date[4].date_releve, date[5].date_releve, date[6].date_releve, date[7].date_releve]
+                        },
 						yAxis: {
 							type: 'value'
 						},
 						series: [
-							{
-								name:'Solarimetre',
-								type:'line',
-								stack: '总量',
-								data:[120, 132, 101, 134, 90, 230, 210]
-							},
-							{
-								name:'Pluviometre',
-								type:'line',
-								stack: '总量',
-								data:[220, 182, 191, 234, 290, 330, 310]
-							},
-							{
-								name:'Temperature de l\'air',
-								type:'line',
-								stack: '总量',
-								data:[150, 232, 201, 154, 190, 330, 410]
-							},
-							{
-								name:'Temperature de l\'eau',
-								type:'line',
-								stack: '总量',
-								data:[320, 332, 301, 334, 390, 330, 320]
-							},
-							{
-								name:'Vitesse du vent',
-								type:'line',
-								stack: '总量',
-								data:[820, 932, 901, 934, 1290, 1330, 1320]
-							}
-						]
+                            {
+
+                                type: 'line',
+                                stack: '总量',
+                                data: [valeurs[0].valeur, valeurs[1].valeur, valeurs[2].valeur, valeurs[3].valeur, valeurs[4].valeur, valeurs[5].valeur, valeurs[6].valeur, valeurs[7].valeur],
+                                name: [capteurs[0].nom]
+                            }
+                        ]
 					};
 					if (option && typeof option === "object") {
                     myChart.setOption(option, true);
                 }
-
             </script>
 
     </div>
@@ -238,7 +296,8 @@
 	<!-- FIN FOOTER -->
 </div>
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="js/jquery.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js/jquery.easing.1.3.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.fancybox.pack.js"></script>
@@ -248,6 +307,5 @@
 <script src="js/jquery.flexslider.js"></script>
 <script src="js/animate.js"></script>
 <script src="js/custom.js"></script>
-<script src="js/owl-carousel/owl.carousel.js"></script>
 </body>
 </html>
