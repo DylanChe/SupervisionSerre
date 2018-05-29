@@ -16,12 +16,7 @@ $dsn = "mysql:host=$host;dbname=$db_base;charset=$charset";
 try{
 
     $dsn = "mysql:host=$host;dbname=$db_base;charset=$charset";
-    $options = [
-        PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
-        PDO::ATTR_EMULATE_PREPARES   => true,
-    ];
-    $bdd = new PDO($dsn, $db_user, $db_password, $options);
+    $bdd = new PDO($dsn, $db_user, $db_password);
 
 }catch (PDOException $e){
     print(json_encode(array('outcome' => false, 'message' => 'Impossible de se connecter !')));
