@@ -142,8 +142,66 @@
 
             <div id="graph" style="height: 500% " class="home">
         </div>
-
+            <!-- <script type="text/javascript" src="inc/recuperer_donnees.js"></script> -->
         <script type="text/javascript">
+
+                var capteurs = [];
+                var date = [];
+                var valeurs = [];
+
+                function get_sensors() {
+                    $.ajax({
+                        url: 'inc/recuperer_donnees.php',
+                        method: "GET",
+                        async: false,
+                        success: function(data) {
+                            capteurs = JSON.parse(data);
+                        },
+                        error: function(data) {
+                            alert("Echec");
+                        }
+                    });
+                    return capteurs;
+
+                }
+
+                function get_dates() {
+                    $.ajax({
+                        url: 'inc/recuperer_date.php',
+                        method: "GET",
+                        async: false,
+                        success: function(data) {
+                            date = JSON.parse(data);
+                        },
+                        error: function(data) {
+                            alert("Echec");
+                        }
+                    });
+                    return date;
+
+                }
+
+                function get_values() {
+                    $.ajax({
+                        url: 'inc/recuperer_valeurs.php',
+                        method: "GET",
+                        async: false,
+                        success: function(data) {
+                            valeurs = JSON.parse(data);
+                        },
+                        error: function(data) {
+                            alert("Echec");
+                        }
+                    });
+                    return valeurs;
+
+                }
+
+                var capteurs = get_sensors();
+                var date = get_dates();
+                var valeurs = get_values();
+
+                console.log(valeurs);
 				var dom = document.getElementById("graph");
                 var myChart = echarts.init(dom);
                 var app = {};
@@ -156,7 +214,7 @@
 							trigger: 'axis'
 						},
 						legend: {
-							data:['Solarimetre','Pluviometre','Temperature de l\'air','Temperature de l\'eau','Vitesse du vent']
+                            data: [capteurs[0].nom]
 						},
 						grid: {
 							left: '3%',
@@ -170,50 +228,26 @@
 							}
 						},
 						xAxis: {
-							type: 'category',
-							boundaryGap: false,
-							data: ['Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date','Date']
-						},
+                            type: 'category',
+                            boundaryGap: false,
+                            data: [date[0].date_releve, date[1].date_releve, date[2].date_releve, date[3].date_releve, date[4].date_releve, date[5].date_releve, date[6].date_releve, date[7].date_releve]
+                        },
 						yAxis: {
 							type: 'value'
 						},
 						series: [
-							{
-								name:'Solarimetre',
-								type:'line',
-								stack: '总量',
-								data:[120, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210,120, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210]
-							},
-							{
-								name:'Pluviometre',
-								type:'line',
-								stack: '总量',
-								data:[220, 182, 191, 234, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 290, 330, 310, 182, 191, 234, 290, 330, 310, 182, 191, 234, 290, 330, 310, 182, 191, 234, 290, 330, 310, 182, 191, 234, 290, 330, 310, 182, 191, 234, 290, 330, 310, 182, 191, 234, 290, 330, 310,120, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210]
-							},
-							{
-								name:'Temperature de l\'air',
-								type:'line',
-								stack: '总量',
-						 		data:[150, 232, 201, 154, 190, 330, 410, 232, 201, 154, 190, 330, 410, 232, 201, 154, 190, 330, 410, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 232, 201, 154, 190, 330, 410, 232, 201, 154, 190, 330, 410, 232, 201, 154, 190, 330, 410, 232, 201, 154, 190, 330, 410,120, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210]
-							},
-							{
-								name:'Temperature de l\'eau',
-								type:'line',
-								stack: '总量',
-								data:[320, 332, 301, 334, 390, 330, 320, 332, 301, 334, 390, 330, 320, 332, 301, 334, 390, 330, 320, 332, 301, 334, 390, 330, 320, 332, 301, 334, 390, 330, 320, 332, 301, 334, 390, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 330, 320, 332, 301, 334, 390, 330, 320,120, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210]
-							},
-							{
-								name:'Vitesse du vent',
-								type:'line',
-								stack: '总量',
-								data:[820, 932, 901, 934, 1290, 1330, 1320, 932, 901, 934, 1290, 1330, 1320, 932, 901, 934, 1290, 1330, 1320, 932, 901, 934, 1290, 1330, 1320, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 932, 901, 934, 1290, 1330, 1320, 932, 901, 934, 1290, 1330, 1320, 932, 901, 934, 1290, 1330, 1320,120, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210, 132, 101, 134, 90, 230, 210]
-							}
-						]
+                            {
+
+                                type: 'line',
+                                stack: '总量',
+                                data: [valeurs[0].valeur, valeurs[1].valeur, valeurs[2].valeur, valeurs[3].valeur, valeurs[4].valeur, valeurs[5].valeur, valeurs[6].valeur, valeurs[7].valeur],
+                                name: [capteurs[0].nom]
+                            }
+                        ]
 					};
 					if (option && typeof option === "object") {
                     myChart.setOption(option, true);
                 }
-
             </script>
 
     </div>
@@ -262,7 +296,7 @@
 	<!-- FIN FOOTER -->
 </div>
 <!-- Placed at the end of the document so the pages load faster -->
-<script type="text/javascript" src="inc/recuperer_donnees.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="js/jquery.easing.1.3.js"></script>
 <script src="js/bootstrap.min.js"></script>
