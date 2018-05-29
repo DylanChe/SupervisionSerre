@@ -1758,3 +1758,35 @@ article .align-right {
         font-size: 14px;
     }
 }
+
+table {
+	border: 1px solid #000;
+}
+
+th {
+	border: 1px solid #000;
+	padding: 5px;
+	background-color: #99ccff;
+}
+
+td {
+	border: 1px solid #000;
+	padding: 5px;
+}
+
+tr {
+	border: 1px solid #000;	
+	background-color:#e6f2ff;
+}
+
+p {
+	padding: 2px;
+	border-bottom: 1px solid #000;
+}	
+
+.tableau_releve {
+	border-spacing: 5px;
+	position: absolute;
+	margin-top: -600px;
+	margin-left: -500px;
+}

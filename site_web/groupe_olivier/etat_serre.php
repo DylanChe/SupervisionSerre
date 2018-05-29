@@ -9,6 +9,7 @@ include('inc/connect.php');
 
     <title>Groupe Oliver - Supervision</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta http-equiv="refresh" content="10; url=etat_serre.php">
     <!-- css -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
 	<link href="css/bootstrap.min.css" rel="stylesheet">
@@ -73,53 +74,46 @@ include('inc/connect.php');
 	}
 
 	$getreleves = getreleve($bdd);
-	var_dump ($getreleves);
-	
-	foreach($getreleves as $releve)
-	{
-		echo $releve[0];
-	}
 	?>
-
-	<table class="tableau_releve">
-		<tr>
-			<th> Capteur </th>
-			<th> Valeur </th>
-		</tr>
-		<tr>
-			<td>
-				<?php			
-				foreach($getreleves as $releve) 
-				{
-					echo '<p>'.$releve[0].'</p>';				
-				}	
-				?>  
-			</td>	
-			<td>
-				<?php
-				foreach($getreleves as $releve)
-				{
-					echo '<p>'.$releve[1].'</p>';
-				}
-				?>
-			</td>
-		</tr>	
-	</table>
-
 	
-	<!--
-	<section class="our-services">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="aligncenter">
-                        <img src='img/serre.png'>
-                    </div>
-                </div>
-            </div>
+	<section class="our-services" >
+        <div class="container"  >
+			<div class="row" >
+				<div class="col-lg-4"></div>
+				<div class="col-lg-4 center-block">
+					<div class="aligncenter">
+						<img src='img/serre.png'>
+					</div>
+                        <table class="col-lg-12 tableau_releve" >
+							<tr>
+								<th> Capteur </th>
+								<th> Valeur </th>
+							</tr>
+							<tr>
+								<td>
+									<?php			
+									foreach($getreleves as $releve) 
+									{
+										echo '<p>'.$releve[0].'</p>';				
+									}	
+									?>  
+								</td>	
+								<td>
+									<?php
+									foreach($getreleves as $releve)
+									{
+										echo '<p>'.$releve[1].'</p>';
+									}
+									?>
+								</td>
+							</tr>	
+						</table>
+				</div>
+			</div>
+            <div class="col-lg-4"></div>
         </div>
     </section>
-	-->
+	
 	
 	</body>
 	<!-- FOOTER -->
