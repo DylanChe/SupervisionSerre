@@ -45,10 +45,10 @@
                             <a href="index.php">Accueil</a>
                         </li>
                         <li>
-                            <a href="etat_serre.php">Etat de la serre</a>
+                            <a href="etat_serre.php">État de la serre</a>
                         </li>
                         <li>
-                            <a href="evolution_mesure.php">Evolution des mesures</a>
+                            <a href="evolution_mesure.php">Évolution des mesures</a>
                         </li>
                         <li>
                             <a href="ajout_capteur.php">Ajouter un capteur</a>
@@ -107,7 +107,7 @@
                         <div class="col-md-4 text-center">
                             <div class="box-area">
 								<span class="icons c1 fa fa-trophy" style="font-style: italic"></span>
-                                <h3> Etat de la serre</h3>
+                                <h3>État de la serre</h3>
                                 <p>Vous permet de recevoir les dernières valeurs des capteurs en temps réel.</p>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
                         <div class="col-md-4 text-center">
                             <div class="box-area">
 								 <span class="icons c2 fa fa-picture-o" style="font-style: italic"></span>
-                                <h3>Evolution des mesures</h3>
+                                <h3>Évolution des mesures</h3>
 
                                 <p>Vous permet d'afficher les valeurs des capteurs dans un graphique entre deux dates.</p>
                             </div>
@@ -151,13 +151,13 @@
 
                 <div class="col-lg-2">
                     <div class="widget" style="text-align: center">
-                        <a href="etat_serre.php"><h5 class="widgetheading">Etat de la serre</h5></a>
+                        <a href="etat_serre.php"><h5 class="widgetheading">État de la serre</h5></a>
                     </div>
                 </div>
 
                 <div class="col-lg-2">
                     <div class="widget" style="text-align: center">
-                        <a href="evolution_mesure.php"><h5 class="widgetheading">Evolution des mesures</h5></a>
+                        <a href="evolution_mesure.php"><h5 class="widgetheading">Évolution des mesures</h5></a>
                     </div>
                 </div>
 
