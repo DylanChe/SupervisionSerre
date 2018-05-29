@@ -1,3 +1,6 @@
+<?php
+include('inc/connect.php');
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -7,7 +10,8 @@
     <title>Groupe Oliver - Supervision</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <!-- css -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
+	<link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
     <link href="css/jcarousel.css" rel="stylesheet">
     <link href="css/flexslider.css" rel="stylesheet">
@@ -19,11 +23,7 @@
     <![endif]-->
 </head>
 
-<body>
-<div class="home-page" id="wrapper">
-
-
-
+	<div class="home-page" id="wrapper">
 
     <!-- HEADER -->
 
@@ -57,11 +57,58 @@
                 </div>
             </div>
         </div>
-    </header>
+	</header>
 
     <!-- FIN HEADER -->
 	
-	    <section class="our-services">
+	<body>
+	
+	<?php
+	$getreleves=[];
+	//Récupération des données propres à chaques capteurs dan la base de donnée
+	function getreleve($dbc) {
+		$request = $dbc->prepare ("SELECT nom, CONCAT(valeur, unite) FROM releve, materiel, unite WHERE date_releve IN ( SELECT MAX(date_releve) FROM releve GROUP BY id_materiel ) AND releve.id_materiel = materiel.id AND releve.id_unite = unite.id GROUP BY id_materiel");
+			
+		return $request->execute() ? $request->fetchAll() : null;
+	}
+
+	$getreleves = getreleve($bdd);
+	var_dump ($getreleves);
+	
+	foreach($getreleves as $releve)
+	{
+		echo $releve[0];
+	}
+	?>
+
+	<table class="tableau_releve">
+		<tr>
+			<th> Capteur </th>
+			<th> Valeur </th>
+		</tr>
+		<tr>
+			<td>
+				<?php			
+				foreach($getreleves as $releve) 
+				{
+					echo '<p>'.$releve[0].'</p>';				
+				}	
+				?>  
+			</td>	
+			<td>
+				<?php
+				foreach($getreleves as $releve)
+				{
+					echo '<p>'.$releve[1].'</p>';
+				}
+				?>
+			</td>
+		</tr>	
+	</table>
+
+	
+	<!--
+	<section class="our-services">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -72,7 +119,9 @@
             </div>
         </div>
     </section>
+	-->
 	
+	</body>
 	<!-- FOOTER -->
 	 <footer>
         <div class="container">
@@ -128,5 +177,7 @@
 <script src="js/animate.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/owl-carousel/owl.carousel.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
