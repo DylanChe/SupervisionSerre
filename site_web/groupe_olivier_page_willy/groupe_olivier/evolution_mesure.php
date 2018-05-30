@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('inc/connect.php');
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +90,16 @@ session_start();
                                                 <br>
                                                 <br>
                                                 <p>Capteur :</p>
-                                                <select></select>
+                                                <select name="capteur">
+                                                <?php
+                                                    $reponse = $bdd->query('SELECT id, nom FROM materiel');
+                                                    while($nom_capteur = $reponse->fetch()){
+                                                ?>
+                                                    <option value="<?= $nom_capteur['id'];?>"><?= $nom_capteur['nom'];?></option>
+                                                <?php
+                                                    }
+                                                ?>
+                                                </select>
                                                 <br>
                                             </a>
                                         </div>
@@ -158,6 +168,8 @@ session_start();
             <?php
             $_SESSION['dateid_1'] = $_GET['date_1'];
             $_SESSION['dateid_2'] = $_GET['date_2'];
+            $_SESSION['capteurid'] = $_GET['capteur'];
+            var_dump($_SESSION['capteurid']);
             ?>
 
             <div id="graph" style="height: 500% " class="home">
