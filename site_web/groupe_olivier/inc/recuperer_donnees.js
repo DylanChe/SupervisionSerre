@@ -4,7 +4,7 @@ $(document).ready(function () {
         method: "GET",
         success: function(data) {
             var donnees = JSON.parse(data);
-            console.log(donnees); // affiche que c'est un objet
+            return donnees;
         },
         error: function(data) {
             var erreur = JSON.parse(data)

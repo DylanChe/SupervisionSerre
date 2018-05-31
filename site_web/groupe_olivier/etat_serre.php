@@ -1,3 +1,6 @@
+<?php
+include('inc/connect.php');
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -6,8 +9,10 @@
 
     <title>Groupe Oliver - Supervision</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta http-equiv="refresh" content="10; url=etat_serre.php">
     <!-- css -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
+	<link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
     <link href="css/jcarousel.css" rel="stylesheet">
     <link href="css/flexslider.css" rel="stylesheet">
@@ -19,11 +24,7 @@
     <![endif]-->
 </head>
 
-<body>
-<div class="home-page" id="wrapper">
-
-
-
+	<div class="home-page" id="wrapper">
 
     <!-- HEADER -->
 
@@ -45,10 +46,10 @@
                             <a href="index.php">Accueil</a>
                         </li>
                         <li class="active">
-                            <a href="etat_serre.php">Etat de la serre</a>
+                            <a href="etat_serre.php">État de la serre</a>
                         </li>
                         <li>
-                            <a href="evolution_mesure.php">Evolution des mesures</a>
+                            <a href="evolution_mesure.php">Évolution des mesures</a>
                         </li>
                         <li>
                             <a href="ajout_capteur.php">Ajouter un capteur</a>
@@ -57,22 +58,64 @@
                 </div>
             </div>
         </div>
-    </header>
+	</header>
 
     <!-- FIN HEADER -->
 	
-	    <section class="our-services">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="aligncenter">
-                        <img src='img/serre.png'>
-                    </div>
-                </div>
-            </div>
+	<body>
+	
+	<?php
+	$getreleves=[];
+	//Récupération des données propres à chaques capteurs dan la base de donnée
+	function getreleve($dbc) {
+		$request = $dbc->prepare ("SELECT nom, CONCAT(valeur, unite) FROM releve, materiel, unite WHERE date_releve IN ( SELECT MAX(date_releve) FROM releve GROUP BY id_materiel ) AND releve.id_materiel = materiel.id AND releve.id_unite = unite.id GROUP BY id_materiel");
+			
+		return $request->execute() ? $request->fetchAll() : null;
+	}
+
+	$getreleves = getreleve($bdd);
+	?>
+	
+	<section class="our-services" >
+        <div class="container"  >
+			<div class="row" >
+				<div class="col-lg-4"></div>
+				<div class="col-lg-4 center-block">
+					<div class="aligncenter">
+						<img src='img/serre.png'>
+					</div>
+                        <table class="col-lg-12 tableau_releve" >
+							<tr>
+								<th> Capteur </th>
+								<th> Valeur </th>
+							</tr>
+							<tr>
+								<td>
+									<?php			
+									foreach($getreleves as $releve) 
+									{
+										echo '<p>'.$releve[0].'</p>';				
+									}	
+									?>  
+								</td>	
+								<td>
+									<?php
+									foreach($getreleves as $releve)
+									{
+										echo '<p>'.$releve[1].'</p>';
+									}
+									?>
+								</td>
+							</tr>	
+						</table>
+				</div>
+			</div>
+            <div class="col-lg-4"></div>
         </div>
     </section>
 	
+	
+	</body>
 	<!-- FOOTER -->
 	 <footer>
         <div class="container">
@@ -88,13 +131,13 @@
 
                 <div class="col-lg-2">
                     <div class="widget" style="text-align: center">
-                        <a href="etat_serre.php"><h5 class="widgetheading">Etat de la serre</h5></a>
+                        <a href="etat_serre.php"><h5 class="widgetheading">État de la serre</h5></a>
                     </div>
                 </div>
 
                 <div class="col-lg-2">
                     <div class="widget" style="text-align: center">
-                        <a href="evolution_mesure.php"><h5 class="widgetheading">Evolution des mesures</h5></a>
+                        <a href="evolution_mesure.php"><h5 class="widgetheading">Évolution des mesures</h5></a>
                     </div>
                 </div>
 
@@ -128,5 +171,7 @@
 <script src="js/animate.js"></script>
 <script src="js/custom.js"></script>
 <script src="js/owl-carousel/owl.carousel.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

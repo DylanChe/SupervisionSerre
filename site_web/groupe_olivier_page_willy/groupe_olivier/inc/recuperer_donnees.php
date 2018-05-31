@@ -1,5 +1,6 @@
 <?php
 
+
 require_once('connect.php');
 
 
@@ -11,8 +12,6 @@ function getFullListOfSensor($dbh)
 }
 
 $sensors = getFullListOfSensor($bdd);
-
-// ----- DATA ------
 
 print json_encode($sensors);
 ?>
