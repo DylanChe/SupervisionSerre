@@ -89,11 +89,14 @@ void pluvio_tip() {
 }
 
 void loop() {
-  if (requestComplete) {
-    if (requestFromRaspberry.equals("GET")) {
-      Serial.println("OK");
-    }
-  }
+	
+	serialEvent();
+	
+	if (requestComplete) {
+		if (requestFromRaspberry.equals("GET")) {
+		Serial.println(15);
+		}
+	}
   
   /*
   trame trameToSend;
@@ -109,7 +112,9 @@ void serialEvent() {
     requestFromRaspberry += inChar;
     if (inChar == '\n') {
       requestComplete = true;
+	  
     }
+	return requestComplete;
   }
 }
 
