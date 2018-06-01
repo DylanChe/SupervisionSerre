@@ -1,0 +1,16 @@
+-----Matériel :-----
+id : 1  ;  Pluviomètre
+id : 2  ;  Anémomètre
+id : 3  ;  Solarimètre
+id : 4  ;  Sonde pt100 eau tuyau
+id : 5  ;  Sonde pt100 serre
+
+
+-----Type_releve :-----
+id : 1  ;  mm
+id : 2  ;  °
+id : 3  ;  km/h
+id : 4  ;  °C
+id : 5  ;  w/m² 
+
+

@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">Supervision de serre</string>
+    <string name="app_version">Version 2.0</string>
+    <!-- LOGS -->
+    <string name="log_tag">CustomLog</string>
+    <!-- MAIN_ACTIVITY -->
+    <string name="main_lbl_serverInfos">Information sur le serveur :</string>
+    <string name="main_lbl_serverIp">Adresse IP :</string>
+    <string name="main_txt_serverIp">92.222.92.147</string>
+    <string name="main_bt_connect">Connexion</string>
+    <string name="main_toast_successConnect">Connexion réussie !</string>
+    <string name="main_check_allowModification">Autoriser les modifications d\'adresse</string>
+    <!-- DASHBOARD_ACTIVITY -->
+    <string name="dashboard_lbl_dashboard">Dashboard</string>
+    <string name="dashboard_lbl_sensors">Capteurs</string>
+    <string name="dashboard_lbl_sensorsList">Liste des capteurs</string>
+    <string name="dashboard_lbl_microcontrollers">Microcontrôleurs</string>
+    <string name="dashboard_lbl_microcontrollersList">Liste des microcontrôleurs</string>
+    <string name="dashboard_lbl_logs">Journaux</string>
+    <string name="dashboard_lbl_logsList">Liste des journaux</string>
+    <string name="dashboard_lbl_slash">/</string>
+    <!-- SENSOR_ACTIVITY -->
+    <string name="sensor_lbl_tipsLogs">Appuyer sur un capteur pour accéder à son journal</string>
+    <!-- MICROCONTROLLER_ACTIVITY -->
+    <string name="microcontroller_lbl_tipsLogs">Appuyer sur un microcontroleur pour accéder à son journal</string>
+    <!-- LOG_ACTIVITY -->
+    <string name="log_lbl_associatedLogs">Liste des évènements du journal de </string>
+    <string name="log_lbl_noLog">Aucun évènement disponible</string>
+    <!-- CNotification -->
+    <string name="cnotification_error">Erreur</string>
+    <string name="cnotification_error_roaming">Les itinérances de données sont désactivées. Veuillez les activées.</string>
+    <string name="cnotification_error_serverConnection">Impossible d\'établir une connexion avec la base de données. Veuillez vérifier que l\'adresse du serveur est correcte.</string>
+    <string name="cnotification_error_serverIp">Veuillez saisir une adresse IP valide.</string>
+    <string name="cnotification_error_raspberryDown">La raspberry ne fonctionne plus.\nLes informations affichées concernant les capteurs, les microcontrôleurs et les journaux ne sont donc pas fiable.</string>
+    <string name="cnotification_error_default">Erreur.</string>
+    <string name="cnotification_error_ok">Ok</string>
+    <!-- CHardware -->
+    <string name="chardware_functional">Le capteur fonctionne correctement.</string>
+    <string name="chardware_notFunctional">Le capteur ne fonctionne pas.</string>
+    <!-- CLog -->
+    <string name="clog_functional">Le capteur fonctionne de nouveau.</string>
+    <string name="clog_notFunctional">Le capteur ne fonctionne plus.</string>
+
+</resources>
