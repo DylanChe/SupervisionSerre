@@ -1783,10 +1783,3 @@ p {
 	padding: 2px;
 	border-bottom: 1px solid #000;
 }	
-
-.tableau_releve {
-	border-spacing: 5px;
-	position: absolute;
-	margin-top: -600px;
-	margin-left: -500px;
-}

@@ -9,10 +9,10 @@ include('inc/connect.php');
 
     <title>Groupe Oliver - Supervision</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<meta http-equiv="refresh" content="10; url=etat_serre.php">
+    <meta http-equiv="refresh" content="10; url=etat_serre.php">
     <!-- css -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
-	<link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
     <link href="css/jcarousel.css" rel="stylesheet">
     <link href="css/flexslider.css" rel="stylesheet">
@@ -24,7 +24,7 @@ include('inc/connect.php');
     <![endif]-->
 </head>
 
-	<div class="home-page" id="wrapper">
+<div class="home-page" id="wrapper">
 
     <!-- HEADER -->
 
@@ -58,66 +58,64 @@ include('inc/connect.php');
                 </div>
             </div>
         </div>
-	</header>
+    </header>
 
     <!-- FIN HEADER -->
-	
-	<body>
-	
-	<?php
-	$getreleves=[];
-	//Récupération des données propres à chaques capteurs dan la base de donnée
-	function getreleve($dbc) {
-		$request = $dbc->prepare ("SELECT nom, CONCAT(valeur, unite) FROM releve, materiel, unite WHERE date_releve IN ( SELECT MAX(date_releve) FROM releve GROUP BY id_materiel ) AND releve.id_materiel = materiel.id AND releve.id_unite = unite.id GROUP BY id_materiel");
-			
-		return $request->execute() ? $request->fetchAll() : null;
-	}
 
-	$getreleves = getreleve($bdd);
-	?>
-	
-	<section class="our-services" >
+    <body>
+
+    <?php
+    $getreleves=[];
+    //Récupération des données propres à chaques capteurs dan la base de donnée
+    function getreleve($dbc) {
+        $request = $dbc->prepare ("SELECT nom, CONCAT(valeur, unite) FROM releve, materiel, unite WHERE date_releve IN ( SELECT MAX(date_releve) FROM releve GROUP BY id_materiel ) AND releve.id_materiel = materiel.id AND releve.id_unite = unite.id GROUP BY id_materiel");
+
+        return $request->execute() ? $request->fetchAll() : null;
+    }
+
+    $getreleves = getreleve($bdd);
+    ?>
+
+    <section class="our-services" >
         <div class="container"  >
-			<div class="row" >
-				<div class="col-lg-4"></div>
-				<div class="col-lg-4 center-block">
-					<div class="aligncenter">
-						<img src='img/serre.png'>
-					</div>
-                        <table class="col-lg-12 tableau_releve" >
-							<tr>
-								<th> Capteur </th>
-								<th> Valeur </th>
-							</tr>
-							<tr>
-								<td>
-									<?php			
-									foreach($getreleves as $releve) 
-									{
-										echo '<p>'.$releve[0].'</p>';				
-									}	
-									?>  
-								</td>	
-								<td>
-									<?php
-									foreach($getreleves as $releve)
-									{
-										echo '<p>'.$releve[1].'</p>';
-									}
-									?>
-								</td>
-							</tr>	
-						</table>
-				</div>
-			</div>
-            <div class="col-lg-4"></div>
+            <div class="row" >
+                <div class="col-lg-8">
+                    <img  src='img/serre.png' style="height: 106% ; width: 106%">
+                </div>
+                <div class="col-lg-4 center-block" >
+                    <table  >
+                        <tr>
+                            <th> Capteur </th>
+                            <th> Valeur </th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <?php
+                                foreach($getreleves as $releve)
+                                {
+                                    echo '<p>'.$releve[0].'</p>';
+                                }
+                                ?>
+                            </td>
+                            <td>
+                                <?php
+                                foreach($getreleves as $releve)
+                                {
+                                    echo '<p>'.$releve[1].'</p>';
+                                }
+                                ?>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
     </section>
-	
-	
-	</body>
-	<!-- FOOTER -->
-	 <footer>
+
+
+    </body>
+    <!-- FOOTER -->
+    <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
@@ -156,8 +154,8 @@ include('inc/connect.php');
 
 
     </footer>
-	
-	<!-- FIN FOOTER -->
+
+    <!-- FIN FOOTER -->
 </div>
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="js/jquery.js"></script>
