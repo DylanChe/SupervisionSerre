@@ -69,7 +69,7 @@
 		<div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <form action="/inc/ajouter_type_materiel.php" method="post">
+                    <form action="inc/ajouter_type_materiel.php" method="post">
                         <div class="panel-group col-sm-3">
                             <div class="panel panel-primary">
                                 <div class="panel-heading" style="text-align: center">
@@ -100,6 +100,15 @@
                                     <p>Ajouter un materiel</p>
                                 </div>
                                 <div class="panel-body">
+                                    <label for="input_material_Now">Matériels présent :</label>
+                                    <textarea type="text" class="form-control" name="material_Now" id="input_material_Now" placeholder="<?php
+                                    $reponse = $bdd->query('SELECT nom FROM materiel');
+                                    while($materiel_present = $reponse->fetch()){
+                                        echo($materiel_present['nom']);
+                                        echo ", ";
+                                    } ?>" disabled></textarea>
+                                </div>
+                                <div class="panel-body">
                                     <label for="input_Nom_Capteur">Nom du materiel :</label>
                                     <input type="text" class="form-control" name="Nom_Capteur" id="input_Nom_Capteur" placeholder="Solarimètre Ref55" required>
                                 </div>
@@ -109,7 +118,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <label for="input_Type_Materiel">Type de matériel :</label>
-                                            <select name="capteur" class="form-control" id="type_Materiel">
+                                            <select name="type_Materiel" class="form-control" id="type_Materiel">
                                                 <?php
                                                 $reponse = $bdd->query('SELECT id, nom FROM type_materiel');
                                                 while($type_materiel_2 = $reponse->fetch()){
@@ -139,7 +148,7 @@
                         </div>
                     </form>
 
-                    <form action="/inc/ajouter_unite.php">
+                    <form action="inc/ajouter_unite.php" method="post">
                         <div class="panel-group col-sm-3">
                             <div class="panel panel-primary">
                                 <div class="panel-heading" style="text-align: center">
@@ -155,15 +164,15 @@
                                     } ?>" disabled></textarea>
                                 </div>
                                 <div class="panel-body">
-                                    <label for="input_Nom_Capteur">Unité à ajouter :</label>
-                                    <input type="text" name="Nom_Unite" class="form-control" id="input_Nom_Unite" placeholder="Kg">
+                                    <label for="input_nom_Unite">Unité à ajouter :</label>
+                                    <input type="text" name="nom_Unite" class="form-control" id="input_nom_Unite" placeholder="Kg">
                                 </div>
                                 <button type="submit" class="btn btn-primary center-block">Ajouter l'unité</button>
                                 <br>
                             </div>
                         </div>
                     </form>
-                    <form action="/inc/maj_periode.php" method="post">
+                    <form action="inc/maj_periode.php" method="post">
                         <div class="panel-group col-sm-3">
                             <div class="panel panel-primary">
                                 <div class="panel-heading" style="text-align: center">
@@ -172,15 +181,14 @@
                                 <div class="panel-body">
                                     <label for="input_Periode_Actuelle">La période actuelle est :</label>
                                     <input type="text" class="form-control" id="input_Periode_Actuelle" placeholder="<?php
-                                    $reponse = $bdd->query('SELECT nom FROM type_materiel');
-                                    while($type_materiel = $reponse->fetch()){
-                                        echo($type_materiel['nom']);
-                                        echo "__";
+                                    $reponse = $bdd->query('SELECT periode FROM parametre');
+                                    while($parametre_defini = $reponse->fetch()){
+                                        echo($parametre_defini['periode']);
                                     } ?>" disabled>
                                 </div>
                                 <div class="panel-body">
                                     <label for="input_Periode">Définir la période (en sec) :</label>
-                                    <input type="text" name="periode" class="form-control" id="input_Periode" placeholder="7200">
+                                    <input type="number" name="periode" class="form-control" id="input_Periode" placeholder="7200">
                                 </div>
                                 <button type="submit" class="btn btn-primary center-block">Changer la période</button>
                                 <br>
