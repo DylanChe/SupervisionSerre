@@ -11,73 +11,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="recuperer_valeurs.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inc/recuperer_valeurs.php">
+      <file leaf-file-name="ajouter_type_materiel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inc/ajouter_type_materiel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="136">
+              <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
               <folding>
-                <marker date="1527587892332" expanded="true" signature="190:293" ph="SELECT valeu... releve" />
+                <marker date="1528102718955" expanded="true" signature="149:160" ph="INSERT INTO date_releve... " />
+                <marker date="1528102718955" expanded="true" signature="149:191" ph="INSERT INTO type_materiel... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recuperer_donnees.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inc/recuperer_donnees.php">
+      <file leaf-file-name="ajouter_materiel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inc/ajouter_materiel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="10" selection-end-column="62" />
+            <state relative-caret-position="340">
+              <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
               <folding>
-                <marker date="1527582690129" expanded="true" signature="108:145" ph="SELECT nom F... materiel" />
+                <marker date="1528104666299" expanded="true" signature="258:394" ph="INSERT INTO materiel... " />
+                <marker date="1528104666299" expanded="true" signature="619:681" ph="INSERT INTO materiel_unite... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="recuperer_date.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inc/recuperer_date.php">
+      <file leaf-file-name="ajouter_unite.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inc/ajouter_unite.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="16" lean-forward="true" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
+            <state relative-caret-position="170">
+              <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
               <folding>
-                <marker date="1527583575429" expanded="true" signature="188:264" ph="SELECT date_... releve" />
-                <marker date="1527583575429" expanded="true" signature="188:282" ph="SELECT date_... releve" />
-                <marker date="1527583575429" expanded="true" signature="188:294" ph="SELECT date_... releve" />
-                <marker date="1527583575429" expanded="true" signature="188:321" ph="SELECT date_... releve" />
-                <marker date="1527583575429" expanded="true" signature="188:322" ph="SELECT date_... releve" />
-                <marker date="1527583575429" expanded="true" signature="188:388" ph="SELECT date_... releve" />
+                <marker date="1528104884011" expanded="true" signature="138:176" ph="INSERT INTO unite... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="evolution_mesure.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/evolution_mesure.php">
+      <file leaf-file-name="maj_periode.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/inc/maj_periode.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="171" column="43" lean-forward="false" selection-start-line="171" selection-start-column="43" selection-end-line="171" selection-end-column="43" />
+            <state relative-caret-position="170">
+              <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
               <folding>
-                <marker date="1527673512032" expanded="true" signature="4487:4515" ph="SELECT id, n... materiel" />
-                <marker date="1527673512032" expanded="true" signature="5370:5422" ph="..." />
-                <marker date="1527673512032" expanded="true" signature="5483:5543" ph="..." />
-                <marker date="1527673512032" expanded="true" signature="6280:6332" ph="..." />
-                <marker date="1527673512032" expanded="true" signature="6393:6453" ph="..." />
-                <marker date="1527673512032" expanded="true" signature="8684:8703" ph="..." />
-                <marker date="1527673512032" expanded="true" signature="8840:9042" ph="..." />
-                <marker date="1527673512032" expanded="true" signature="8983:9042" ph="{...}" />
-                <marker date="1527673512032" expanded="true" signature="9012:9042" ph="{...}" />
+                <marker date="1528106138286" expanded="true" signature="127:177" ph="UPDATE perio... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="connect.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/inc/connect.php">
+      <file leaf-file-name="ajout_capteur.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ajout_capteur.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="5" lean-forward="true" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="85">
+              <caret line="71" column="41" lean-forward="false" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
+              <folding>
+                <marker date="1528106424811" expanded="true" signature="3130:3159" ph="SELECT nom F... type_materiel" />
+                <marker date="1528106424811" expanded="true" signature="5507:5540" ph="SELECT id, n... type_materiel" />
+                <marker date="1528106424811" expanded="true" signature="6456:6483" ph="SELECT id, u... unite" />
+                <marker date="1528106424811" expanded="true" signature="7954:7977" ph="SELECT unite... unite" />
+                <marker date="1528106424811" expanded="true" signature="9581:9610" ph="SELECT nom F... type_materiel" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,13 +109,16 @@
         <option value="$PROJECT_DIR$/inc/recuperer_donnees.js" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/etat_serre.php" />
-        <option value="$PROJECT_DIR$/inc/ajouter_materiel.php" />
-        <option value="$PROJECT_DIR$/ajout_capteur.php" />
         <option value="$PROJECT_DIR$/inc/recuperer_donnees.php" />
         <option value="$PROJECT_DIR$/inc/recuperer_date.php" />
         <option value="$PROJECT_DIR$/inc/recuperer_valeurs.php" />
         <option value="$PROJECT_DIR$/inc/connect.php" />
         <option value="$PROJECT_DIR$/evolution_mesure.php" />
+        <option value="$PROJECT_DIR$/inc/ajouter_type_materiel.php" />
+        <option value="$PROJECT_DIR$/inc/ajouter_materiel.php" />
+        <option value="$PROJECT_DIR$/inc/ajouter_unite.php" />
+        <option value="$PROJECT_DIR$/inc/maj_periode.php" />
+        <option value="$PROJECT_DIR$/ajout_capteur.php" />
       </list>
     </option>
   </component>
@@ -151,7 +149,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -169,6 +166,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -216,18 +214,19 @@
       <workItem from="1527491119384" duration="27000" />
       <workItem from="1527491148162" duration="8960000" />
       <workItem from="1527579212508" duration="13434000" />
-      <workItem from="1527664901619" duration="5402000" />
+      <workItem from="1527664901619" duration="5560000" />
+      <workItem from="1528096672274" duration="7848000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61759000" />
+    <option name="totallyTimeSpent" value="69765000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16075157" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2682672" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -278,47 +277,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/css/flexslider.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajout_capteur.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1870">
-          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3383">
-          <caret line="199" column="44" lean-forward="false" selection-start-line="199" selection-start-column="44" selection-end-line="199" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evolution_mesure.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="80" column="49" lean-forward="true" selection-start-line="80" selection-start-column="49" selection-end-line="80" selection-end-column="60" />
-          <folding>
-            <marker date="1527673512032" expanded="true" signature="4487:4515" ph="SELECT id, n... materiel" />
-            <marker date="1527673512032" expanded="true" signature="5370:5422" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="5483:5543" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="6280:6332" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="6393:6453" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8684:8703" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8840:9042" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8983:9042" ph="{...}" />
-            <marker date="1527673512032" expanded="true" signature="9012:9042" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inc/recuperer_donnees.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1105">
@@ -355,7 +313,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1445">
           <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1528106424811" expanded="true" signature="3130:3159" ph="SELECT nom F... type_materiel" />
+            <marker date="1528106424811" expanded="true" signature="5507:5540" ph="SELECT id, n... type_materiel" />
+            <marker date="1528106424811" expanded="true" signature="6456:6483" ph="SELECT id, u... unite" />
+            <marker date="1528106424811" expanded="true" signature="7954:7977" ph="SELECT unite... unite" />
+            <marker date="1528106424811" expanded="true" signature="9581:9610" ph="SELECT nom F... type_materiel" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -377,10 +341,6 @@
             <marker date="1527673512032" expanded="true" signature="5483:5543" ph="..." />
             <marker date="1527673512032" expanded="true" signature="6280:6332" ph="..." />
             <marker date="1527673512032" expanded="true" signature="6393:6453" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8684:8703" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8840:9042" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8983:9042" ph="{...}" />
-            <marker date="1527673512032" expanded="true" signature="9012:9042" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -442,10 +402,6 @@
             <marker date="1527673512032" expanded="true" signature="5483:5543" ph="..." />
             <marker date="1527673512032" expanded="true" signature="6280:6332" ph="..." />
             <marker date="1527673512032" expanded="true" signature="6393:6453" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8684:8703" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8840:9042" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8983:9042" ph="{...}" />
-            <marker date="1527673512032" expanded="true" signature="9012:9042" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -468,10 +424,6 @@
             <marker date="1527673512032" expanded="true" signature="5483:5543" ph="..." />
             <marker date="1527673512032" expanded="true" signature="6280:6332" ph="..." />
             <marker date="1527673512032" expanded="true" signature="6393:6453" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8684:8703" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8840:9042" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8983:9042" ph="{...}" />
-            <marker date="1527673512032" expanded="true" signature="9012:9042" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -508,10 +460,6 @@
             <marker date="1527673512032" expanded="true" signature="5483:5543" ph="..." />
             <marker date="1527673512032" expanded="true" signature="6280:6332" ph="..." />
             <marker date="1527673512032" expanded="true" signature="6393:6453" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8684:8703" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8840:9042" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8983:9042" ph="{...}" />
-            <marker date="1527673512032" expanded="true" signature="9012:9042" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -541,10 +489,6 @@
             <marker date="1527673512032" expanded="true" signature="5483:5543" ph="..." />
             <marker date="1527673512032" expanded="true" signature="6280:6332" ph="..." />
             <marker date="1527673512032" expanded="true" signature="6393:6453" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8684:8703" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8840:9042" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8983:9042" ph="{...}" />
-            <marker date="1527673512032" expanded="true" signature="9012:9042" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -574,10 +518,6 @@
             <marker date="1527673512032" expanded="true" signature="5483:5543" ph="..." />
             <marker date="1527673512032" expanded="true" signature="6280:6332" ph="..." />
             <marker date="1527673512032" expanded="true" signature="6393:6453" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8684:8703" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8840:9042" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8983:9042" ph="{...}" />
-            <marker date="1527673512032" expanded="true" signature="9012:9042" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -662,43 +602,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/inc/ajouter_materiel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ajout_capteur.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="68" column="56" lean-forward="false" selection-start-line="68" selection-start-column="56" selection-end-line="68" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/inc/recuperer_valeurs.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
             <marker date="1527587892332" expanded="true" signature="190:293" ph="SELECT valeu... releve" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/inc/recuperer_date.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="16" lean-forward="true" selection-start-line="1" selection-start-column="16" selection-end-line="1" selection-end-column="16" />
-          <folding>
-            <marker date="1527583575429" expanded="true" signature="188:264" ph="SELECT date_... releve" />
-            <marker date="1527583575429" expanded="true" signature="188:282" ph="SELECT date_... releve" />
-            <marker date="1527583575429" expanded="true" signature="188:294" ph="SELECT date_... releve" />
-            <marker date="1527583575429" expanded="true" signature="188:321" ph="SELECT date_... releve" />
-            <marker date="1527583575429" expanded="true" signature="188:322" ph="SELECT date_... releve" />
-            <marker date="1527583575429" expanded="true" signature="188:388" ph="SELECT date_... releve" />
           </folding>
         </state>
       </provider>
@@ -716,25 +625,100 @@
     <entry file="file://$PROJECT_DIR$/inc/connect.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="5" lean-forward="true" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/evolution_mesure.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="171" column="43" lean-forward="false" selection-start-line="171" selection-start-column="43" selection-end-line="171" selection-end-column="43" />
+        <state relative-caret-position="-221">
+          <caret line="101" column="57" lean-forward="true" selection-start-line="101" selection-start-column="57" selection-end-line="101" selection-end-column="57" />
           <folding>
             <marker date="1527673512032" expanded="true" signature="4487:4515" ph="SELECT id, n... materiel" />
             <marker date="1527673512032" expanded="true" signature="5370:5422" ph="..." />
             <marker date="1527673512032" expanded="true" signature="5483:5543" ph="..." />
             <marker date="1527673512032" expanded="true" signature="6280:6332" ph="..." />
             <marker date="1527673512032" expanded="true" signature="6393:6453" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8684:8703" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8840:9042" ph="..." />
-            <marker date="1527673512032" expanded="true" signature="8983:9042" ph="{...}" />
-            <marker date="1527673512032" expanded="true" signature="9012:9042" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/recuperer_date.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="169" lean-forward="true" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="169" />
+          <folding>
+            <marker date="1527583575429" expanded="true" signature="188:264" ph="SELECT date_... releve" />
+            <marker date="1527583575429" expanded="true" signature="188:282" ph="SELECT date_... releve" />
+            <marker date="1527583575429" expanded="true" signature="188:294" ph="SELECT date_... releve" />
+            <marker date="1527583575429" expanded="true" signature="188:321" ph="SELECT date_... releve" />
+            <marker date="1527583575429" expanded="true" signature="188:322" ph="SELECT date_... releve" />
+            <marker date="1527583575429" expanded="true" signature="188:388" ph="SELECT date_... releve" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/db.connect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/maj_periode.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+          <folding>
+            <marker date="1528106138286" expanded="true" signature="127:177" ph="UPDATE perio... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/ajouter_unite.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
+          <folding>
+            <marker date="1528104884011" expanded="true" signature="138:176" ph="INSERT INTO unite... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/ajouter_materiel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+          <folding>
+            <marker date="1528104666299" expanded="true" signature="258:394" ph="INSERT INTO materiel... " />
+            <marker date="1528104666299" expanded="true" signature="619:681" ph="INSERT INTO materiel_unite... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/inc/ajouter_type_materiel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="7" lean-forward="true" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding>
+            <marker date="1528102718955" expanded="true" signature="149:160" ph="INSERT INTO date_releve... " />
+            <marker date="1528102718955" expanded="true" signature="149:191" ph="INSERT INTO type_materiel... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ajout_capteur.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="71" column="41" lean-forward="false" selection-start-line="71" selection-start-column="41" selection-end-line="71" selection-end-column="41" />
+          <folding>
+            <marker date="1528106424811" expanded="true" signature="3130:3159" ph="SELECT nom F... type_materiel" />
+            <marker date="1528106424811" expanded="true" signature="5507:5540" ph="SELECT id, n... type_materiel" />
+            <marker date="1528106424811" expanded="true" signature="6456:6483" ph="SELECT id, u... unite" />
+            <marker date="1528106424811" expanded="true" signature="7954:7977" ph="SELECT unite... unite" />
+            <marker date="1528106424811" expanded="true" signature="9581:9610" ph="SELECT nom F... type_materiel" />
           </folding>
         </state>
       </provider>
