@@ -47,6 +47,25 @@ class gestion:
                 #print (result)
                 return result
     
+    def getReleve_boucle420(self, idMateriel):
+        with Serial(port = "/dev/ttyACM0" , baudrate = 115200, timeout = 1, writeTimeout = 1) as ser :
+            if ser.isOpen():
+                s = bytearray() # LA REQUETE
+                s.append(71) # G : NE PAS TOUCHER
+                s.append(69) # E : NE PAS TOUCHER
+                s.append(84) # T : NE PAS TOUCHER
+                s.append(idMateriel)  # id_materiel
+                
+                ser.write(s) #ENVOI DE LA REQUETE
+                time.sleep(3)
+                
+                ligne = ser.readline() # RECEPTION DES DONNEES
+                result = ligne[:-2]
+                result = str(result, 'utf-8')
+                #print ("RECEIVE : ")
+                #print (result)
+                return result
+            
     def ajouterNouveauTypeMat(self, nomTypeMat): #Requete pour ajouter un nouveau type materiel
         
         self.__nomTypeMat = nomTypeMat

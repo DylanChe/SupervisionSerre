@@ -17,7 +17,7 @@ include('inc/connect.php');
     <link href="css/jcarousel.css" rel="stylesheet">
     <link href="css/flexslider.css" rel="stylesheet">
     <link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style1.css" rel="stylesheet">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -83,7 +83,7 @@ include('inc/connect.php');
                     <img  src='img/serre.png' style="height: 106% ; width: 106%">
                 </div>
                 <div class="col-lg-4 center-block" >
-                    <table  >
+                    <table>
                         <tr>
                             <th> Capteur </th>
                             <th> Valeur </th>

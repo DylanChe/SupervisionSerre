@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('inc/connect.php');
+ini_set("display_errors",0);error_reporting(0);
 ?>
 
 <!DOCTYPE html>
@@ -90,7 +91,7 @@ require_once('inc/connect.php');
                                                 <br>
                                                 <br>
                                                 <p>Capteur :</p>
-                                                <select name="capteur">
+                                                <select name="capteur" class="form-control">
                                                 <?php
                                                     $reponse = $bdd->query('SELECT id, nom FROM materiel');
                                                     while($nom_capteur = $reponse->fetch()){
@@ -113,7 +114,7 @@ require_once('inc/connect.php');
                                                 <br>
                                                 <br>
                                                 <p>Début :</p>
-                                                <input type="date" name="date_1" id="dateid_1" required maxlength="10" required>
+                                                <input type="date" class="form-control" name="date_1" id="dateid_1" required maxlength="10" required>
                                                 <br>
                                             </a>
                                         </div>
@@ -127,7 +128,7 @@ require_once('inc/connect.php');
                                                 <br>
                                                 <br>
                                                 <p>Fin :</p>
-                                                <input type="date" name="date_2" id="dateid_2" required maxlength="10" required>
+                                                <input type="date" class="form-control" name="date_2" id="dateid_2" required maxlength="10" required>
                                                 <br>
                                             </a>
                                         </div>
@@ -146,25 +147,6 @@ require_once('inc/connect.php');
             </div>
 
 
-            <!-- <script type="text/javascript">
-                 function verif_date()
-                 {
-                     var date_debut = new Date(document.forms[0]["dates"]["dateid_1"]) ;
-                     var date_fin = new Date(document.forms[0]["dates"]["dateid_2"]) ;
-                     console.log(date_debut);
-                     if ( date_debut > date_fin )
-                     {
-                         window.alert("Les dates sont éronnées.");
-                         document.forms.dates.submit.disabled = true;
-                     }
-                     else
-                     {
-                         document.forms.dates.submit.disabled = false;
-                     }
-                 }
-             </script>-->
-
-
             <?php
             $_SESSION['dateid_1'] = $_GET['date_1'];
             $_SESSION['dateid_2'] = $_GET['date_2'];
@@ -173,7 +155,6 @@ require_once('inc/connect.php');
 
             <div id="graph" style="height: 500% " class="home">
             </div>
-            <!-- <script type="text/javascript" src="inc/recuperer_donnees.js"></script> -->
             <script type="text/javascript">
 
                 var capteurs = [];
@@ -247,9 +228,6 @@ require_once('inc/connect.php');
                 var app = {};
                 option = null;
                 option = {
-                    title: {
-                        text: 'C1TEST'
-                    },
                     tooltip: {
                         trigger: 'axis'
                     },
