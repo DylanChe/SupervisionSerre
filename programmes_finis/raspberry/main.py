@@ -20,11 +20,17 @@ anemo = anemometre()
 pluvio = pluviometre()
 poten = potentiometre()
 sondeEC = sonde_temperature()
+<<<<<<< HEAD
 # SET sondeEC
 # sondeEC.setID(1);
 sondeSS = sonde_temperature()
 # SET sondeSS
 #
+=======
+sondeEC.setInformation(4,"sonde_tuyau",4)
+sondeSS = sonde_temperature()
+sondeSS.setInformation(5,"sonde_serre",4)
+>>>>>>> 2f591b7ed6813cc09f93388e8a2e073da7e0837a
 periode = gest.RecupPeriode()
 print (periode)
 
@@ -37,8 +43,13 @@ while 1:
     #pluvio.mesurer()
     #anemo.mesurer()
     #sondeSS.mesurer()
+<<<<<<< HEAD
     #sondeEC.mesurer()
     sleep(5) #periode
+=======
+    sondeEC.mesurer()
+    sleep(5)
+>>>>>>> 2f591b7ed6813cc09f93388e8a2e073da7e0837a
     
 
 

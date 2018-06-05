@@ -1,5 +1,10 @@
-<!DOCTYPE html>
+<?php
+session_start();
+require_once('inc/connect.php');
+ini_set("display_errors",0);error_reporting(0);
+?>
 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -16,7 +21,7 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script type='text/javascript' src='http://code.jquery.com/jquery.min.js'></script>
-	<script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
+    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
     <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
@@ -69,85 +74,93 @@
     </header>
 
     <!-- FIN HEADER -->
-	
-	    <section class="our-services">
+
+    <section class="our-services">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="aligncenter">
-                            <div class="container">
-								<br>
-								<form method="get" name="dates" action="#">
-								<div class="home-widget-area row col-sm-6">
-									<div>
-										<div class="textwidget" style="text-align: center">
-											<a>
-												<img style="border: 0 none;" src="img/calendrier.png" alt="" width="150" height="150" />
-												<br>
-												<br>
-												<p>Début : <input type="date" name="date_1" id="dateid_1" required maxlength="10" style="text-align: center" required onclick="verif_date()"></p>
-												<br>
-											</a>
-										</div>
-									</div>
-								</div>
-								<div class="home-widget-area row col-sm-6">
-									<div>
-										<div class="textwidget" style="text-align: center">
-											<a>
-												<img style="border: 0 none;" src="img/calendrier.png" alt="" width="150" height="150" />
-												<br>
-												<br>
-												<span><p>Fin : <input type="date" name="date_2" id="dateid_2" required maxlength="10" style="text-align: center" required></p></span>
-												<br>
-											</a>
-										</div>
-									</div>
-								</div>
-								<div class="textwidget" style="text-align: center">
-									<button type="submit" value="submit" id="submit" class="btn btn-primary" onclick="disabled('1')">Valider</button>
-									<hr>
-								</div>
-							</form>
+                        <div class="container">
+                            <br>
+                            <form method="get" name="dates" action="#">
+                                <div class="home-widget-area row col-md-4 center-block">
+                                    <div>
+                                        <div class="textwidget">
+                                            <a>
+                                                <img style="border: 0 none;" src="img/calendrier.png" alt="" width="150" height="150" />
+                                                <br>
+                                                <br>
+                                                <p>Capteur :</p>
+                                                <select name="capteur" class="form-control">
+                                                <?php
+                                                    $reponse = $bdd->query('SELECT id, nom FROM materiel');
+                                                    while($nom_capteur = $reponse->fetch()){
+                                                ?>
+                                                    <option value="<?= $nom_capteur['id'];?>"><?= $nom_capteur['nom'];?></option>
+                                                <?php
+                                                    }
+                                                ?>
+                                                </select>
+                                                <br>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="home-widget-area row col-md-4 center-block">
+                                    <div>
+                                        <div class="textwidget">
+                                            <a>
+                                                <img style="border: 0 none;" src="img/calendrier.png" alt="" width="150" height="150" />
+                                                <br>
+                                                <br>
+                                                <p>Début :</p>
+                                                <input type="date" class="form-control" name="date_1" id="dateid_1" required maxlength="10" required>
+                                                <br>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="home-widget-area row col-md-4 center-block">
+                                    <div>
+                                        <div class="textwidget">
+                                            <a>
+                                                <img style="border: 0 none;" src="img/calendrier.png" alt="" width="150" height="150" />
+                                                <br>
+                                                <br>
+                                                <p>Fin :</p>
+                                                <input type="date" class="form-control" name="date_2" id="dateid_2" required maxlength="10" required>
+                                                <br>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="home-widget-area row col-md-12 center-block">
+                                    <div class="textwidget">
+                                        <button type="submit" value="submit" id="submit" class="btn btn-primary" onclick="disabled('1')">Valider</button>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
-           <!-- <script type="text/javascript">
-                function verif_date()
-                {
-                    var date_debut = new Date(document.forms[0]["dates"]["dateid_1"]) ;
-                    var date_fin = new Date(document.forms[0]["dates"]["dateid_2"]) ;
-                    console.log(date_debut);
-                    if ( date_debut > date_fin )
-                    {
-                        window.alert("Les dates sont éronnées.");
-                        document.forms.dates.submit.disabled = true;
-                    }
-                    else
-                    {
-                        document.forms.dates.submit.disabled = false;
-                    }
-                }
-            </script>-->
-
-            <script type="text/javascript">
-                $('submit').click(function(){
-                    alert("test");
-                    $(this).attr("disabled","disabled");
-                });
-            </script>
+            <?php
+            $_SESSION['dateid_1'] = $_GET['date_1'];
+            $_SESSION['dateid_2'] = $_GET['date_2'];
+            $_SESSION['capteurid'] = $_GET['capteur'];
+            ?>
 
             <div id="graph" style="height: 500% " class="home">
-        </div>
-            <!-- <script type="text/javascript" src="inc/recuperer_donnees.js"></script> -->
-        <script type="text/javascript">
+            </div>
+            <script type="text/javascript">
 
                 var capteurs = [];
                 var date = [];
                 var valeurs = [];
+                var unite = [];
 
                 function get_sensors() {
                     $.ajax({
@@ -165,13 +178,34 @@
 
                 }
 
+                function get_unite() {
+                    $.ajax({
+                        url: 'inc/recuperer_unite.php',
+                        method: "GET",
+                        async: false,
+                        success: function(data) {
+                            unite = JSON.parse(data);
+                        },
+                        error: function(data) {
+                            alert("Echec");
+                        }
+                    });
+                    return unite;
+
+                }
+
                 function get_dates() {
                     $.ajax({
                         url: 'inc/recuperer_date.php',
                         method: "GET",
                         async: false,
+                        dataType: "json",
                         success: function(data) {
-                            date = JSON.parse(data);
+                            if(data){
+                                for(var i = 0; i < data.length; i++){
+                                    date.push(data[i].date_releve);
+                                }
+                            }
                         },
                         error: function(data) {
                             alert("Echec");
@@ -186,8 +220,13 @@
                         url: 'inc/recuperer_valeurs.php',
                         method: "GET",
                         async: false,
+                        dataType: "json",
                         success: function(data) {
-                            valeurs = JSON.parse(data);
+                            if(data){
+                                for(var f = 0; f < data.length; f++){
+                                    valeurs.push(data[f].valeur);
+                                }
+                            }
                         },
                         error: function(data) {
                             alert("Echec");
@@ -200,60 +239,60 @@
                 var capteurs = get_sensors();
                 var date = get_dates();
                 var valeurs = get_values();
+                var unite = get_unite();
 
-                console.log(valeurs);
-				var dom = document.getElementById("graph");
+                var dom = document.getElementById("graph");
                 var myChart = echarts.init(dom);
                 var app = {};
                 option = null;
                 option = {
-						title: {
-							text: 'C1TEST'
-						},
-						tooltip: {
-							trigger: 'axis'
-						},
-						legend: {
-                            data: [capteurs[0].nom]
-						},
-						grid: {
-							left: '3%',
-							right: '4%',
-							bottom: '3%',
-							containLabel: true
-						},
-						toolbox: {
-							feature: {
-								saveAsImage: {}
-							}
-						},
-						xAxis: {
-                            type: 'category',
-                            boundaryGap: false,
-                            data: [date[0].date_releve, date[1].date_releve, date[2].date_releve, date[3].date_releve, date[4].date_releve, date[5].date_releve, date[6].date_releve, date[7].date_releve]
-                        },
-						yAxis: {
-							type: 'value'
-						},
-						series: [
-                            {
+                    title: {
+                        text: unite
+                    },
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: [capteurs[0].nom]
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    toolbox: {
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: date
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
 
-                                type: 'line',
-                                stack: '总量',
-                                data: [valeurs[0].valeur, valeurs[1].valeur, valeurs[2].valeur, valeurs[3].valeur, valeurs[4].valeur, valeurs[5].valeur, valeurs[6].valeur, valeurs[7].valeur],
-                                name: [capteurs[0].nom]
-                            }
-                        ]
-					};
-					if (option && typeof option === "object") {
+                            type: 'line',
+                            stack: '总量',
+                            data: valeurs,
+                            name: [capteurs[0].nom]
+                        }
+                    ]
+                };
+                if (option && typeof option === "object") {
                     myChart.setOption(option, true);
                 }
             </script>
 
-    </div>
-	</section>
-	<!-- FOOTER -->
-	 <footer>
+        </div>
+    </section>
+    <!-- FOOTER -->
+    <footer>
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
@@ -292,8 +331,8 @@
 
 
     </footer>
-	
-	<!-- FIN FOOTER -->
+
+    <!-- FIN FOOTER -->
 </div>
 <!-- Placed at the end of the document so the pages load faster -->
 

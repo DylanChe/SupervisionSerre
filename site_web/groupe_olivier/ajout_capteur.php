@@ -1,3 +1,7 @@
+<?php
+    require_once('inc/connect.php');
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -9,9 +13,7 @@
     <!-- css -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/fancybox/jquery.fancybox.css" rel="stylesheet">
-    <link href="css/jcarousel.css" rel="stylesheet">
     <link href="css/flexslider.css" rel="stylesheet">
-    <link href="js/owl-carousel/owl.carousel.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -65,7 +67,7 @@
 		<div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <form>
+                    <form action="inc/ajouter_type_materiel.php" method="post">
                         <div class="panel-group col-sm-3">
                             <div class="panel panel-primary">
                                 <div class="panel-heading" style="text-align: center">
@@ -73,7 +75,12 @@
                                 </div>
                                 <div class="panel-body">
                                     <label for="input_Materiel_Actuel">Type de matériel présent :</label>
-                                    <textarea type="text" class="form-control" name="Materiel_Actuel" id="input_Materiel_Actuel" placeholder="recup BDD" disabled></textarea>
+                                    <textarea type="text" class="form-control" name="Materiel_Actuel" id="input_Materiel_Actuel" placeholder="<?php
+                                    $reponse = $bdd->query('SELECT nom FROM type_materiel');
+                                    while($type_materiel = $reponse->fetch()){
+                                        echo($type_materiel['nom']);
+                                        echo ", ";
+                                    } ?>" disabled></textarea>
                                 </div>
                                 <div class="panel-body">
                                     <label for="input_Type_Materiel2">Type du materiel :</label>
@@ -91,6 +98,15 @@
                                     <p>Ajouter un materiel</p>
                                 </div>
                                 <div class="panel-body">
+                                    <label for="input_material_Now">Matériels présent :</label>
+                                    <textarea type="text" class="form-control" name="material_Now" id="input_material_Now" placeholder="<?php
+                                    $reponse = $bdd->query('SELECT nom FROM materiel');
+                                    while($materiel_present = $reponse->fetch()){
+                                        echo($materiel_present['nom']);
+                                        echo ", ";
+                                    } ?>" disabled></textarea>
+                                </div>
+                                <div class="panel-body">
                                     <label for="input_Nom_Capteur">Nom du materiel :</label>
                                     <input type="text" class="form-control" name="Nom_Capteur" id="input_Nom_Capteur" placeholder="Solarimètre Ref55" required>
                                 </div>
@@ -100,23 +116,29 @@
                                 </div>
                                 <div class="panel-body">
                                     <label for="input_Type_Materiel">Type de matériel :</label>
-                                    <select class="form-control" id="type_Materiel">
-                                        <optgroup label="Type materiel">
-                                            <option value="choisir" disabled selected>Selectionner le type du materiel</option>
-                                            <option value="test">Test</option>
-                                            <option value="test2">Test 2</option>
-                                        </optgroup>
-                                    </select>
+                                            <select name="type_Materiel" class="form-control" id="type_Materiel">
+                                                <?php
+                                                $reponse = $bdd->query('SELECT id, nom FROM type_materiel');
+                                                while($type_materiel_2 = $reponse->fetch()){
+                                                    ?>
+                                                    <option value="<?= $type_materiel_2['id'];?>"><?= $type_materiel_2['nom'];?></option>
+                                                    <?php
+                                                }
+                                                ?>
+                                            </select>
                                 </div>
                                 <div class="panel-body">
                                     <label for="input_Type_Capteur">Unité du matériel :</label>
-                                    <select class="form-control" id="unite_Materiel">
-                                        <optgroup label="Unite">
-                                            <option value="choisir" disabled selected>Selectionner l'unité du materiel</option>
-                                            <option value="test">Test</option>
-                                            <option value="test2">Test 2</option>
-                                        </optgroup>
-                                    </select>
+                                        <select name="unite" class="form-control" id="unite_Materiel">
+                                            <?php
+                                            $reponse = $bdd->query('SELECT id, unite FROM unite');
+                                            while($type_unite = $reponse->fetch()){
+                                                ?>
+                                                <option value="<?= $type_unite['id'];?>"><?= $type_unite['unite'];?></option>
+                                                <?php
+                                            }
+                                            ?>
+                                        </select>
                                 </div>
                                 <button type="submit" class="btn btn-primary center-block">Ajouter le capteur</button>
                                 <br>
@@ -124,7 +146,7 @@
                         </div>
                     </form>
 
-                    <form>
+                    <form action="inc/ajouter_unite.php" method="post">
                         <div class="panel-group col-sm-3">
                             <div class="panel panel-primary">
                                 <div class="panel-heading" style="text-align: center">
@@ -132,18 +154,23 @@
                                 </div>
                                 <div class="panel-body">
                                     <label for="input_Unite_Actuel">Unité présente :</label>
-                                    <textarea type="text" class="form-control" name="Unite_Actuel" id="input_Unite_Actuel" placeholder="recup BDD" disabled></textarea>
+                                    <textarea type="text" class="form-control" name="Unite_Actuel" id="input_Unite_Actuel" placeholder="<?php
+                                    $reponse = $bdd->query('SELECT unite FROM unite');
+                                    while($unite_presente = $reponse->fetch()){
+                                        echo($unite_presente['unite']);
+                                        echo ", ";
+                                    } ?>" disabled></textarea>
                                 </div>
                                 <div class="panel-body">
-                                    <label for="input_Nom_Capteur">Unité à ajouter :</label>
-                                    <input type="text" class="form-control" id="input_Nom_Unite" placeholder="Kg">
+                                    <label for="input_nom_Unite">Unité à ajouter :</label>
+                                    <input type="text" name="nom_Unite" class="form-control" id="input_nom_Unite" placeholder="Kg">
                                 </div>
                                 <button type="submit" class="btn btn-primary center-block">Ajouter l'unité</button>
                                 <br>
                             </div>
                         </div>
                     </form>
-                    <form>
+                    <form action="inc/maj_periode.php" method="post">
                         <div class="panel-group col-sm-3">
                             <div class="panel panel-primary">
                                 <div class="panel-heading" style="text-align: center">
@@ -151,11 +178,15 @@
                                 </div>
                                 <div class="panel-body">
                                     <label for="input_Periode_Actuelle">La période actuelle est :</label>
-                                    <input type="text" class="form-control" id="input_Periode_Actuelle" placeholder="recup BDD" disabled>
+                                    <input type="text" class="form-control" id="input_Periode_Actuelle" placeholder="<?php
+                                    $reponse = $bdd->query('SELECT periode FROM parametre');
+                                    while($parametre_defini = $reponse->fetch()){
+                                        echo($parametre_defini['periode']);
+                                    } ?>" disabled>
                                 </div>
                                 <div class="panel-body">
-                                    <label for="input_Nom_Capteur">Définir la période (en sec) :</label>
-                                    <input type="text" class="form-control" id="input_Nom_Capteur" placeholder="7200">
+                                    <label for="input_Periode">Définir la période (en sec) :</label>
+                                    <input type="number" name="periode" class="form-control" id="input_Periode" placeholder="7200">
                                 </div>
                                 <button type="submit" class="btn btn-primary center-block">Changer la période</button>
                                 <br>
@@ -219,6 +250,5 @@
 <script src="js/jquery.flexslider.js"></script>
 <script src="js/animate.js"></script>
 <script src="js/custom.js"></script>
-<script src="js/owl-carousel/owl.carousel.js"></script>
 </body>
 </html>
