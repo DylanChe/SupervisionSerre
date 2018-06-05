@@ -20,7 +20,11 @@ anemo = anemometre()
 pluvio = pluviometre()
 poten = potentiometre()
 sondeEC = sonde_temperature()
+# SET sondeEC
+# sondeEC.setID(1);
 sondeSS = sonde_temperature()
+# SET sondeSS
+#
 periode = gest.RecupPeriode()
 print (periode)
 
@@ -30,11 +34,11 @@ sleep(1)
 
 while 1:
     #poten.mesurer()
-    pluvio.mesurer()
-    anemo.mesurer()
+    #pluvio.mesurer()
+    #anemo.mesurer()
     #sondeSS.mesurer()
     #sondeEC.mesurer()
-    sleep(5)
+    sleep(5) #periode
     
 
 

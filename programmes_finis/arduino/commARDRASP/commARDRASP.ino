@@ -82,6 +82,7 @@ void anemo_direction() {
 void pluvio_tip() {
   if((millis() - tipTime) > tipInterval) {
     rainAmount = rainAmount + tipCalibration;
+    Serial.println("TIP");
     tipTime = millis();
   }
 }
