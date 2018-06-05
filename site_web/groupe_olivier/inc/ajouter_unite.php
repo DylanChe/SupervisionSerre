@@ -5,5 +5,9 @@ require_once('connect.php');
     $request->execute(array(
         'unite' => $type_unite
     ));
-    header('Location: http://localhost/groupe_olivier/ajout_capteur.php');
 ?>
+
+<script type="text/javascript">
+    alert("L'unité a bien été ajoutée.");
+    document.location.href = 'http://localhost/groupe_olivier/ajout_capteur.php';
+</script>

@@ -160,6 +160,7 @@ ini_set("display_errors",0);error_reporting(0);
                 var capteurs = [];
                 var date = [];
                 var valeurs = [];
+                var unite = [];
 
                 function get_sensors() {
                     $.ajax({
@@ -174,6 +175,22 @@ ini_set("display_errors",0);error_reporting(0);
                         }
                     });
                     return capteurs;
+
+                }
+
+                function get_unite() {
+                    $.ajax({
+                        url: 'inc/recuperer_unite.php',
+                        method: "GET",
+                        async: false,
+                        success: function(data) {
+                            unite = JSON.parse(data);
+                        },
+                        error: function(data) {
+                            alert("Echec");
+                        }
+                    });
+                    return unite;
 
                 }
 
@@ -222,12 +239,16 @@ ini_set("display_errors",0);error_reporting(0);
                 var capteurs = get_sensors();
                 var date = get_dates();
                 var valeurs = get_values();
+                var unite = get_unite();
 
                 var dom = document.getElementById("graph");
                 var myChart = echarts.init(dom);
                 var app = {};
                 option = null;
                 option = {
+                    title: {
+                        text: unite
+                    },
                     tooltip: {
                         trigger: 'axis'
                     },

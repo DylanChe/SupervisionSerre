@@ -12,14 +12,24 @@ require_once('connect.php');
         'abreviation' => $abreviation,
         'est_fonctionnel' => "1",
         'id_type_materiel' => $id_type_materiel
-
     ));
 
-    //$request = $bdd->prepare( 'INSERT INTO materiel_unite(id, id_unite) VALUE(:id, :id_unite) ' );
-    //$request->execute(array(
-    //    'id' => "à faire",
-    //    'id_unite' => $id_unite
-    //
-    //));
-    header('Location: http://localhost/groupe_olivier/ajout_capteur.php');
+    function getID($pou){
+        $nom_capteur = $_POST['Nom_Capteur'];
+        $information = $pou->prepare('SELECT id FROM materiel WHERE nom = "'.$nom_capteur.'"');
+        return $information->execute() ? $information->fetchAll() : null;
+    }
+    $ID = getID($bdd);
+    $req = $bdd->prepare( 'INSERT INTO materiel_unite(id, id_unite) VALUE(:id, :id_unite) ' );
+    $req->execute(array(
+        'id' => $ID[0]['id'],
+        'id_unite' => $id_unite
+
+    ));
+?>
+
+<script type="text/javascript">
+    alert('Le capteur a bien été ajouté.');
+    document.location.href = 'http://localhost/groupe_olivier/ajout_capteur.php';
+</script>
 

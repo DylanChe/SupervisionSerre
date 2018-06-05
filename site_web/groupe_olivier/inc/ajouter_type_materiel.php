@@ -5,6 +5,9 @@ require_once('connect.php');
     $request->execute(array(
         'nom' => $type_materiel
     ));
-    header('Location: http://localhost/groupe_olivier/ajout_capteur.php');
 ?>
 
+<script type="text/javascript">
+    alert('Le type de capteur a bien été ajouté.');
+    document.location.href = 'http://localhost/groupe_olivier/ajout_capteur.php';
+</script>

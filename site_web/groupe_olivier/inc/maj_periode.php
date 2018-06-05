@@ -6,5 +6,10 @@ require_once('connect.php');
     $request->execute(array(
         'periode' => $periode
     ));
-    header('Location: http://localhost/groupe_olivier/ajout_capteur.php');
 ?>
+
+<script type="text/javascript">
+    alert('La période a été modifiée.');
+    document.location.href = 'http://localhost/groupe_olivier/ajout_capteur.php';
+</script>
+
