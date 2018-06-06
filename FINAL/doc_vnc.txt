@@ -1,0 +1,4 @@
+ip raspberry : 10.16.37.120
+
+id : pi
+password : password
