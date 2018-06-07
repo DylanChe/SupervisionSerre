@@ -68,7 +68,7 @@ include('inc/connect.php');
     $getreleves=[];
     //Récupération des données propres à chaques capteurs dan la base de donnée
     function getreleve($dbc) {
-        $request = $dbc->prepare ("SELECT nom, CONCAT(valeur, unite) FROM releve, materiel, unite WHERE date_releve IN ( SELECT MAX(date_releve) FROM releve GROUP BY id_materiel, id_unite ) AND releve.id_materiel = materiel.id AND releve.id_unite = unite.id GROUP BY id_materiel, id_unite");
+        $request = $dbc->prepare ("SELECT nom, CONCAT(valeur, unite) FROM releve, materiel, unite WHERE date_releve IN ( SELECT MAX(date_releve) FROM releve GROUP BY id_materiel ) AND releve.id_materiel = materiel.id AND releve.id_unite = unite.id GROUP BY id_materiel");
 
         return $request->execute() ? $request->fetchAll() : null;
     }

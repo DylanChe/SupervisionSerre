@@ -30,6 +30,6 @@ require_once('connect.php');
 
 <script type="text/javascript">
     alert('Le capteur a bien été ajouté.');
-    document.location.href = 'http://localhost/groupe_olivier/ajout_capteur.php';
+    document.location.href = 'http://92.222.92.147/ajout_capteur.php';
 </script>
 
